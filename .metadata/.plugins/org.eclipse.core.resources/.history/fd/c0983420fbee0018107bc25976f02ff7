@@ -1,0 +1,23 @@
+package warehousePBL;
+
+public class TaskThread extends Thread{
+	final int N_THREADS=3;
+	
+	int threadId;
+	Barrier barrier;
+	
+	
+	public TaskThread(int id, Barrier barrier) {
+		this.threadId=id;
+		this.barrier=barrier;
+	}
+	
+
+    @Override
+    public void run() { 
+    	System.out.println("Starting: "+threadId);
+    	System.out.println("Thread "+threadId+" waits in barrier");
+		barrier.waitInBarrier();
+		System.out.println("Thread "+threadId+" exits");
+    }
+}
