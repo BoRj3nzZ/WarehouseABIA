@@ -1,0 +1,46 @@
+/** @file Circuito.java
+ *  @brief Master class for all item categories
+ *  @authors
+ *  Name          | Suname         | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
+ *  @date 28/11/2018
+ */
+
+/** @brief package modelo
+ */
+package modelo;
+/** @brief Libraries
+ */
+import java.util.List;
+
+/**
+ * @brief Class Posicion
+ */
+public abstract class Posicion {
+	int pos;
+	boolean lleno;
+	String nombre;
+	List<Posicion> nextPosition;
+	
+	public Posicion(int pos, String nombre){
+		this.pos = pos;
+		this.nombre = nombre;
+	}
+	
+	public int getPos() {
+		return pos;
+	}
+	public boolean isLleno() {
+		return lleno;
+	}
+	public void setLleno(boolean lleno) {
+		this.lleno = lleno;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public abstract void addNextPosition(Posicion...pos);
+
+}
