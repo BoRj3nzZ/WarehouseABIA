@@ -1,5 +1,5 @@
-/** @file Circuito.java
- *  @brief Master class for all item categories
+/** @file Posicion.java
+ *  @brief Class to create the Positions
  *  @authors
  *  Name          | Suname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |

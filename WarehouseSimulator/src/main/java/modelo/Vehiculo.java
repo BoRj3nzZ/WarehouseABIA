@@ -1,5 +1,5 @@
-/** @file Circuito.java
- *  @brief Class to create the vehicle object
+/** @file Vehiculo.java
+ *  @brief Class to create the vehicles
  *  @authors
  *  Name          | Suname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
@@ -15,10 +15,11 @@ package modelo;
  * @brief Class Vehiculo
  */
 public class Vehiculo {
-
 	/**
 	 * @brief Attributes
 	 */
+	
+
 	int id;
 	String nombre, estado;
 	Posicion posicion;
@@ -61,14 +62,6 @@ public class Vehiculo {
 	}
 
 	/**
-	 * @brief Method for determine the position of the vehicle 
-	 * @param posicion position of the vehicle
-	 */
-	public void setPosicion(Posicion posicion) {
-		this.posicion = posicion;
-	}
-
-	/**
 	 * @brief Method for get the value of the id variable
 	 * @return int
 	 */
@@ -84,5 +77,16 @@ public class Vehiculo {
 		return nombre;
 	}
 	
+	/**
+	 * @brief Method move vehicle to next position
+	 * @param posicion position of the vehicle
+	 */
+	public void mover(Posicion posicion){
+		if (this.posicion instanceof Segmentos){
+			//delay(((Segmentos)this.posicion).getDistancia());
+		}
+		
+		
+	}
 	
 }

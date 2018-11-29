@@ -1,5 +1,5 @@
-/** @file Circuito.java
- *  @brief Class to create the Products object
+/** @file Segmentos.java
+ *  @brief Class to create the segments object
  *  @authors
  *  Name          | Suname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
@@ -16,10 +16,17 @@ package modelo;
 import java.util.List;
 
 /**
-* @brief Class Segmentos
+* @brief Class Segmentos extends Posicion
 */
 public class Segmentos extends Posicion{
 	
+	/**
+	 * @brief Attributes
+	 */
+	static int distancia = 200;
+	
+	
+
 	/**
 	 * @brief Constructor
 	 * @param nombre position name
@@ -48,5 +55,12 @@ public class Segmentos extends Posicion{
 		return nextPosition;
 	}
 	
+	/**
+	 * @brief Method for get  the values of the distancia variable
+	 * @return int
+	 */
+	public int getDistancia() {
+		return distancia;
+	}
 
 }

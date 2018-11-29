@@ -1,5 +1,5 @@
-/** @file Circuito.java
- *  @brief Master class for all item categories
+/** @file Task.java
+ *  @brief Class to create the Tasks
  *  @authors
  *  Name          | Suname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |

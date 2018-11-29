@@ -1,5 +1,5 @@
-/** @file Circuito.java
- *  @brief Class to create the WorkState object
+/** @file WorkStation.java
+ *  @brief Class to create the WorkStation 
  *  @authors
  *  Name          | Suname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |

@@ -1,4 +1,4 @@
-/** @file Circuito.java
+/** @file Articulos.java
  *  @brief Class to create the Products object
  *  @authors
  *  Name          | Suname         | Email                                |

@@ -1,4 +1,4 @@
-/** @file Circuito.java
+/** @file Parking.java
  *  @brief Class to create the Parking object
  *  @authors
  *  Name          | Suname         | Email                                |
@@ -38,7 +38,7 @@ public class Parking extends Posicion{
 	
 	/**
 	 * @brief Method for get the value of the nextPosition variable
-	 * @return Position
+	 * @return Posicion
 	 */
 	public Posicion getNextPosition(){
 		for(Posicion p : nextPosition){
