@@ -4,7 +4,7 @@
  *  Name          | Suname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 28/11/2018
+ *  @date 1/12/2018
  */
 
 /** @brief package modelo
@@ -32,7 +32,7 @@ public class Vehiculo {
 	 */
 	public Vehiculo(int id, String estado, Posicion posicion){
 		this.id = id;
-		nombre = "Vehiculo"+id;
+		nombre = "Vehiculo "+id;
 		this.estado = estado;
 		this.posicion = posicion;
 	}
@@ -83,10 +83,15 @@ public class Vehiculo {
 	 */
 	public void mover(Posicion posicion){
 		if (this.posicion instanceof Segmentos){
-			//delay(((Segmentos)this.posicion).getDistancia());
+			try {
+	            Thread.sleep(((Segmentos)this.posicion).getDistancia());
+	            
+			} catch (InterruptedException ie)
+	        {
+	            System.out.println("Scanning...");
+	        }
 		}
-		
-		
+		this.posicion=posicion;
 	}
 	
 }

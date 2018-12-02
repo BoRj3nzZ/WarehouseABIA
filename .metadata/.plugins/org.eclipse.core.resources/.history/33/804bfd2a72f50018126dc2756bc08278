@@ -1,0 +1,25 @@
+/** @file VehiculoTest.java
+ *  @brief Class to test the Articulos class
+ *  @authors
+ *  Name          | Suname         | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
+ *  @date 1/12/2018
+ *  
+ */
+
+/** @brief package modeloTest
+ */
+package modeloTest;
+
+/** @brief Libraries
+ */
+import modelo.Vehiculo;
+
+/**
+* @brief Class VehiculoTest
+*/
+public class VehiculoTest {
+	private Vehiculo vehiculo;
+	
+}

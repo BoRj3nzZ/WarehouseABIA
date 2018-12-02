@@ -42,7 +42,6 @@ public class Task {
 		this.articulo = articulo;
 		this.estado = estado;
 		this.posicionFinal = posicionFinal;
-		fecha = new Date();
 	}
 
 	/**

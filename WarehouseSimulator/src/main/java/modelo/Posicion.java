@@ -37,6 +37,7 @@ public abstract class Posicion {
 		this.pos = pos;
 		this.nombre = nombre;
 		nextPosition = new ArrayList<Posicion>();
+		lleno = false;
 	}
 	
 	/**

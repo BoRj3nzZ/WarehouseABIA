@@ -34,10 +34,11 @@ public class Order {
 	 * @param posicionFinal Position in which the products must be finished
 	 * @param lista List of all tasks that the order has
 	 */
-	public Order(int id,Posicion posicionFinal, List<Task> lista){
+	public Order(int id,Posicion posicionFinal, List<Task> lista, String estado){
 		this.id = id;
 		this.posicionFinal = posicionFinal;
 		listaTask = lista;
+		this.estado = estado;
 	}
 
 	/**
