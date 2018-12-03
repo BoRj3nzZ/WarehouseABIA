@@ -1,5 +1,0 @@
-<map id="modelo.Posicion" name="modelo.Posicion">
-<area shape="rect" id="node2" href="$classmodelo_1_1_parking.html" title="Class WorkStation extends Posicion. " alt="" coords="5,80,117,107"/>
-<area shape="rect" id="node3" href="$classmodelo_1_1_segmentos.html" title="Class Segmentos extends Posicion. " alt="" coords="142,80,277,107"/>
-<area shape="rect" id="node4" href="$classmodelo_1_1_work_station.html" title="Class WorkStation extends Posicion. " alt="" coords="301,80,441,107"/>
-</map>

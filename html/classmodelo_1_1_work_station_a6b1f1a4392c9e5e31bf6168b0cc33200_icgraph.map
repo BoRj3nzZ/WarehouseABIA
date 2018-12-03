@@ -1,6 +1,0 @@
-<map id="modelo.WorkStation.getListProductos" name="modelo.WorkStation.getListProductos">
-<area shape="rect" id="node2" href="$classmodelo_test_1_1_work_station_test.html#a5dd6aa55ae1ade521d71169e2db70e0d" title="method that tests the method addArticulo " alt="" coords="243,5,458,47"/>
-<area shape="rect" id="node3" href="$classmodelo_test_1_1_work_station_test.html#a71fc00cd350eee574aba275f879db67a" title="method that tests the method deleteArticulo with article " alt="" coords="236,71,465,112"/>
-<area shape="rect" id="node4" href="$classmodelo_test_1_1_work_station_test.html#a2c22d2b6ea19b1d295e00f22dcd0d63c" title="method that tests the method deleteArticulo with index " alt="" coords="236,136,465,177"/>
-<area shape="rect" id="node5" href="$classmodelo_test_1_1_work_station_test.html#ab58c6a8072c2314a52813d470f4f4721" title="method that tests the method getListProductos " alt="" coords="245,201,457,243"/>
-</map>
