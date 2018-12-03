@@ -1,0 +1,5 @@
+<map id="modeloTest.AlmacenTest.borrarOrden2Test" name="modeloTest.AlmacenTest.borrarOrden2Test">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#a457f2bdb82e217ddcbfa1cc5bccedff8" title="Method for add one value of the listaOrdenes variable. " alt="" coords="273,5,466,32"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_almacen.html#a9703cc134fcb9dc29e9aeb777bd0ee23" title="Method for delete one value of the listaOrdenes variable. " alt="" coords="274,56,465,83"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_almacen.html#ad87095e4794081d98d8e77935a54f311" title="Method for get the values of the listaOrdenes variable. " alt="" coords="260,107,479,133"/>
+</map>

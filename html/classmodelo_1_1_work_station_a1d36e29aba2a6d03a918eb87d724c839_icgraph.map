@@ -1,0 +1,5 @@
+<map id="modelo.WorkStation.addArticulo" name="modelo.WorkStation.addArticulo">
+<area shape="rect" id="node2" href="$classmodelo_test_1_1_work_station_test.html#a5dd6aa55ae1ade521d71169e2db70e0d" title="method that tests the method addArticulo " alt="" coords="270,5,485,47"/>
+<area shape="rect" id="node3" href="$classmodelo_test_1_1_work_station_test.html#a71fc00cd350eee574aba275f879db67a" title="method that tests the method deleteArticulo with article " alt="" coords="263,71,492,112"/>
+<area shape="rect" id="node4" href="$classmodelo_test_1_1_work_station_test.html#a2c22d2b6ea19b1d295e00f22dcd0d63c" title="method that tests the method deleteArticulo with index " alt="" coords="263,136,492,177"/>
+</map>
