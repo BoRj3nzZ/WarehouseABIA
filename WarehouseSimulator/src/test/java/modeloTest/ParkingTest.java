@@ -46,7 +46,7 @@ public class ParkingTest {
 	 */
 	@Test
 	public void getPosTest() {
-	    int result = parking.getPos();
+	    int result = parking.getId();
 	    assertEquals("posocion debe ser 10", 10,(Object)result);
 	}
 	

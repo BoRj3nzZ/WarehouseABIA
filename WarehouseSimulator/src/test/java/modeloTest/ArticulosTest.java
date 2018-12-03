@@ -20,9 +20,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import modelo.Articulos;
-import modelo.Posicion;
-import modelo.Segmentos;
-import modelo.WorkStation;
 
 /**
 * @brief Class ArticulosTest
@@ -32,7 +29,6 @@ public class ArticulosTest {
 	 * @brief Attributes
 	 */
 	private Articulos articulo;
-	private Posicion pos;
 	
 	/**
 	 * @brief Method to cretate objects
@@ -40,28 +36,7 @@ public class ArticulosTest {
 	@Before
 	public void crearArticulo()
 	{
-		pos = new WorkStation(10, "Pos1");
-		articulo = new Articulos(1, pos, "Calzado", "Bota Soul", "Bota de monte marron y negro");
-	}
-	
-	/**
-	 * @brief method that tests the method getPos
-	 */
-	@Test
-	public void getPosTest() {
-	    Posicion result = articulo.getPosicion();
-	    assertEquals("posocion debe ser pos", pos,(Object)result);
-	}
-	
-	/**
-	 * @brief method that tests the method setPos
-	 */
-	@Test
-	public void setPosTest() {
-		Posicion pos2 = new Segmentos(2, "Segmento 2");
-		articulo.setPosicion(pos2);
-	    Posicion result = articulo.getPosicion();
-	    assertEquals("posocion debe ser pos", pos2,(Object)result);
+		articulo = new Articulos(1, "Calzado", "Bota Soul", "Bota de monte marron y negro");
 	}
 	
 	/**

@@ -47,7 +47,7 @@ public class TaskTest {
 	public void crearTask()
 	{
 		pos = new WorkStation(10, "Pos1");
-		articulo = new Articulos(1, pos, "Calzado", "Bota Soul", "Bota de monte marron y negro");
+		articulo = new Articulos(1, "Calzado", "Bota Soul", "Bota de monte marron y negro");
 		task = new Task(120, articulo,"Espera",pos);
 	}
 	

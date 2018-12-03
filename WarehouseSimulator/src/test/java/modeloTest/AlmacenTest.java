@@ -46,6 +46,7 @@ public class AlmacenTest {
 	public void crearAlmacen()
 	{
 		almacen = new Almacen();
+
 	}
 	
 	/**
@@ -76,11 +77,8 @@ public class AlmacenTest {
 		almacen.añadirOrden(orden);
 		almacen.borrarOrden(orden);
 		List<Order> lista2 = almacen.getListaOrdenes();
-		boolean result = false;
-		for(Order a : lista2){
-			if (a == orden)result = true;
-		}
-	    assertEquals("false", false,(Object)result);
+		int result = lista2.size();
+	    assertEquals("0", 0,(Object)result);
 	
 	}
 	/**
@@ -88,31 +86,32 @@ public class AlmacenTest {
 	 */
 	@Test
 	public void borrarOrden2Test() {
-		Posicion pos = new WorkStation(10, "Pos1");
+		Posicion pos = new WorkStation(100, "Pos1");
 		List<Task> lista = new ArrayList<Task>();
 		Order orden = new Order(10, pos, lista, "Espera");
 		almacen.añadirOrden(orden);
 		almacen.borrarOrden(0);
 		List<Order> lista2 = almacen.getListaOrdenes();
-		boolean result = false;
-		for(Order a : lista2){
-			if (a == orden)result = true;
-		}
-	    assertEquals("false", false,(Object)result);
+		int result = lista2.size();
+	    assertEquals("0", 0,(Object)result);
 	}
 	/**
 	 * @brief method that tests the method getListaPosicionTest
 	 */
 	@Test
 	public void getListaPosicionTest() {
-		List<Vehiculo> result = almacen.getListaVehiculo();
+		List<Posicion> listapos = almacen.getListaPosicion();
+		int result = listapos.size();
+		assertEquals("26", 26,(Object)result);
 	}
 	/**
 	 * @brief method that tests the method getListaPosicionTest
 	 */
 	@Test
 	public void getListaVehiculoTest() {
-		List<Posicion> result = almacen.getListaPosicion();
+		List<Vehiculo> listave = almacen.getListaVehiculo();
+		int result = listave.size();
+		assertEquals("5", 5,(Object)result);
 	}
 	
 }
