@@ -1,7 +1,7 @@
 /** @file WorkStationTest.java
  *  @brief Class to test the WorkStation class
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  @date 1/12/2018
@@ -38,7 +38,7 @@ public class WorkStationTest {
 	Articulos articulo;
 	
 	/**
-	 * @brief Method to cretate objects
+	 * @brief Method to create objects
 	 */
 	@Before
 	public void crearVehiculo()
@@ -81,7 +81,7 @@ public class WorkStationTest {
 	    assertEquals("true", true,(Object)result);
 	}
 	/**
-	 * @brief method that tests the method deleteArticulo  with article
+	 * @brief method that tests the method deleteArticulo with article
 	 */
 	@Test
 	public void deleteArticuloTest() {
@@ -95,7 +95,7 @@ public class WorkStationTest {
 	    assertEquals("false", false,(Object)result);
 	}
 	/**
-	 * @brief method that tests the method deleteArticulo  with index
+	 * @brief method that tests the method deleteArticulo with index
 	 */
 	@Test
 	public void deleteArticulo2Test() {

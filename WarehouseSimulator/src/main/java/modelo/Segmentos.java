@@ -1,9 +1,10 @@
 /** @file Segmentos.java
  *  @brief Class to create the segments object
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
  *  @date 28/11/2018
  */
 
@@ -14,6 +15,7 @@ package modelo;
 /** @brief Libraries
  */
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 /**
 * @brief Class Segmentos extends Posicion
@@ -34,33 +36,50 @@ public class Segmentos extends Posicion{
 	 */
 	public Segmentos(int pos, String nombre) {
 		super(pos, nombre);
+		sMutEx = new Semaphore(1, true);
+		sEntry = new Semaphore(1, true);
+	}
+	
+	/**
+	 * @brief Method for getting sMutEx
+	 */
+	public Semaphore getSMutEx(){
+		return sMutEx;
+	}
+	
+	/**
+	 * @brief Method for getting sEntry
+	 */
+	public Semaphore getSEntry(){
+		return sEntry;
 	}
 
 	/**
-	 * @brief Method for determine which positions you can go to
+	 * @brief Method for determining which positions you can go to
 	 * @param pos list of next positions
 	 */
 	@Override
 	public void addNextPosition(Posicion... pos) {
 		for(Posicion p : pos){
-			nextPosition.add(p);
+			nextPositionList.add(p);
 		}
 	}
 	
 	/**
-	 * @brief Method for get  the values of the nextPosition variable
+	 * @brief Method for getting the values of the nextPositionList variable
 	 * @return Position
 	 */
-	public List<Posicion> getNextPosition(){
-		return nextPosition;
+	public List<Posicion> getNextPositionList(){
+		return nextPositionList;
 	}
 	
 	/**
-	 * @brief Method for get  the values of the distancia variable
+	 * @brief Method for getting the values of the distancia variable
 	 * @return int
 	 */
 	public int getDistancia() {
 		return distancia;
 	}
+	
 
 }

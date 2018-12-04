@@ -1,7 +1,7 @@
 /** @file AlmacenTest.java
  *  @brief Class to test the Order class
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  @date 2/12/2018
@@ -40,7 +40,7 @@ public class AlmacenTest {
 	private Almacen almacen;
 	
 	/**
-	 * @brief Method to cretate objects
+	 * @brief Method to create objects
 	 */
 	@Before
 	public void crearAlmacen()
@@ -60,9 +60,9 @@ public class AlmacenTest {
 		List<Order> lista2 = almacen.getListaOrdenes();
 		boolean result = false;
 		for(Order a : lista2){
-			if (a == orden)result = true;
+			if (a == orden) result = true;
 		}
-	    assertEquals("true", true,(Object)result);
+	    assertEquals("true", true, (Object)result);
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class AlmacenTest {
 		List<Order> lista2 = almacen.getListaOrdenes();
 		boolean result = false;
 		for(Order a : lista2){
-			if (a == orden)result = true;
+			if (a == orden) result = true;
 		}
 	    assertEquals("false", false,(Object)result);
 	

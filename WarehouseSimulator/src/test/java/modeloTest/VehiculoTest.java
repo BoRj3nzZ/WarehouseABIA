@@ -1,10 +1,11 @@
 /** @file VehiculoTest.java
  *  @brief Class to test the Articulos class
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 1/12/2018
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 3/12/2018
  *  
  */
 
@@ -36,7 +37,7 @@ public class VehiculoTest {
 	private Parking parking;
 	
 	/**
-	 * @brief Method to cretate objects
+	 * @brief Method to create objects
 	 */
 	@Before
 	public void crearVehiculo()
@@ -68,8 +69,8 @@ public class VehiculoTest {
 	 * @brief method that tests the method getPosicion
 	 */
 	@Test
-	public void getPosicionTest() {
-	    Posicion result = vehiculo.getPosicion();
+	public void getActualPosicionTest() {
+	    Posicion result = vehiculo.getActualPosicion();
 	    assertEquals("posocion debe ser parking", parking,(Object)result);
 	}
 	/**
@@ -97,10 +98,10 @@ public class VehiculoTest {
 	public void moverTest() {
 		Segmentos pos2 = new Segmentos(2, "Segmento 2");
 		vehiculo.mover(pos2);
-		Posicion result = vehiculo.getPosicion();
+		Posicion result = vehiculo.getActualPosicion();
 	    assertEquals("posocion debe ser pos2", pos2,(Object)result);
 	    vehiculo.mover(parking);
-	    Posicion result2 = vehiculo.getPosicion();
+	    Posicion result2 = vehiculo.getActualPosicion();
 	    assertEquals("posocion debe ser parking", parking,(Object)result2);
 	    
 	}

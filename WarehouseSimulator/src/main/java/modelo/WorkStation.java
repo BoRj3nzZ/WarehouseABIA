@@ -43,7 +43,7 @@ public class WorkStation extends Posicion{
 	@Override
 	public void addNextPosition(Posicion... pos) {
 		for(Posicion p : pos){
-			nextPosition.add(p);
+			nextPositionList.add(p);
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class WorkStation extends Posicion{
 	 * @return Position
 	 */
 	public Posicion getNextPosition(){
-		for(Posicion p : nextPosition){
+		for(Posicion p : nextPositionList){
 			return p;
 		}
 		return null;
