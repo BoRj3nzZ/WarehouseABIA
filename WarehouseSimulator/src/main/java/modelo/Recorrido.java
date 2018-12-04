@@ -1,4 +1,13 @@
-/** @brief package modelo
+/** @file Almacen.java
+ *  @brief Class to create the WorkStation 
+ *  @authors
+ *  Name          | Suname         | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
+ *  @date 04/12/2018
+ */
+ 
+ /** @brief package modelo
  */
 package modelo;
 

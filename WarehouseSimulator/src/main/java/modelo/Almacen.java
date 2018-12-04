@@ -4,12 +4,13 @@
  *  Name          | Suname         | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 28/11/2018
+ *  @date 04/12/2018
  */
 
 /** @brief package modelo
  */
 package modelo;
+
 /** @brief Libraries
  */
 import java.util.ArrayList;
