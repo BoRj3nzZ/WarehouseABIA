@@ -678,3 +678,29 @@
 2018-12-03 11:04:54,090 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\main\resources
 2018-12-03 11:04:54,092 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-12-03 11:04:54,093 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\test\resources
+2018-12-03 11:34:56,288 [Worker-15] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-12-03 11:35:47,223 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 11:35:47,224 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\main\resources
+2018-12-03 11:35:47,228 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 11:35:47,228 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\test\resources
+2018-12-03 11:36:20,256 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 11:36:20,256 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\main\resources
+2018-12-03 11:36:20,259 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 11:36:20,259 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\test\resources
+2018-12-03 11:36:30,284 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 11:36:30,284 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\main\resources
+2018-12-03 11:36:30,287 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 11:36:30,288 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\test\resources
+2018-12-03 12:11:33,939 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 12:11:33,939 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\main\resources
+2018-12-03 12:11:33,942 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-03 12:11:33,942 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\test\resources
+2018-12-04 08:27:07,529 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-12-04 10:13:49,123 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-04 10:13:49,123 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\main\resources
+2018-12-04 10:13:49,123 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-04 10:13:49,138 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\test\resources
+2018-12-04 11:16:16,913 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-04 11:16:16,914 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\main\resources
+2018-12-04 11:16:16,916 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-04 11:16:16,917 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sito\Desktop\infor\infor3\POPBL5Simulador\WarehouseABIA\WarehouseSimulator\src\test\resources
