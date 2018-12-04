@@ -1,0 +1,21 @@
+package Principal;
+
+import modelo.Almacen;
+
+public class Principal {
+	
+	Almacen almacen;
+
+
+	private void Principal() {
+		almacen = new Almacen();
+	}
+	
+	public static void main(String[] args) {
+		Principal ariketa = new Principal();
+		ariketa.Principal();
+	}
+
+
+
+}

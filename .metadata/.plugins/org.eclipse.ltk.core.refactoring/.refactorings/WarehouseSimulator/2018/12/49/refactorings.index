@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 1543823856580	Rename field 'posicion'
 1543827082738	Rename field 'nextPosition'
 1543833994180	Rename method 'waitUntilNewOrder'
+=======
+1543825407816	Delete element
+1543829537178	Rename package 'Principal'
+1543833389752	Rename compilation unit 'Recorridos.java'
+>>>>>>> 470e8f96cdd0c2b172650e2780c1fbac13bcb197

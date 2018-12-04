@@ -44,7 +44,7 @@ public class WorkStationTest {
 	public void crearVehiculo()
 	{
 		workStation = new WorkStation(10, "Parking 1");
-		articulo = new Articulos(1, workStation, "Calzado", "Bota Soul", "Bota de monte marron y negro");
+		articulo = new Articulos(1, "Calzado", "Bota Soul", "Bota de monte marron y negro");
 	}
 	
 	/**
@@ -115,7 +115,11 @@ public class WorkStationTest {
 	@Test
 	public void getListProductosTest() {
 		List<Articulos> result = workStation.getListProductos();
-	   // assertEquals("false", null,(Object)result);
+		boolean vacio = false;
+		if(result.size()==0){
+			vacio = true;
+		}
+		assertEquals("true", true,(Object)vacio);
 	}
 
 }

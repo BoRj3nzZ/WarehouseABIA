@@ -11,9 +11,10 @@
 /** @brief package modelo
  */
 package modelo;
-import java.util.ArrayList;
+
 /** @brief Libraries
  */
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
@@ -25,7 +26,7 @@ public abstract class Posicion {
 	/**
 	 * @brief Attributes
 	 */
-	int pos;
+	int id;
 	boolean lleno;
 	String nombre;
 	List<Posicion> nextPositionList;
@@ -37,19 +38,23 @@ public abstract class Posicion {
 	 * @param nombre position name
 	 * @param pos Position ID or position
 	 */
-	public Posicion(int pos, String nombre){
-		this.pos = pos;
+	public Posicion(int id, String nombre){
+		this.id = id;
 		this.nombre = nombre;
 		nextPositionList = new ArrayList<Posicion>();
 		lleno = false;
 	}
 	
 	/**
+<<<<<<< HEAD
 	 * @brief Method for getting the value of the pos variable
+=======
+	 * @brief Method for get the value of the id variable
+>>>>>>> 470e8f96cdd0c2b172650e2780c1fbac13bcb197
 	 * @return int
 	 */
-	public int getPos() {
-		return pos;
+	public int getId() {
+		return id;
 	}
 	
 	/**

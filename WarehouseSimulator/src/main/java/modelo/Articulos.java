@@ -26,33 +26,15 @@ public class Articulos {
 	/**
 	 * @brief Constructor
 	 * @param id product ID
-	 * @param posicion product position
 	 * @param tipo product type
 	 * @param nombre product name
 	 * @param desc product description
 	 */
-	public Articulos(int id, Posicion posicion, String tipo, String nombre, String desc){
+	public Articulos(int id, String tipo, String nombre, String desc){
 		this.id=id;
-		this.posicion= posicion;
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.desc=desc;
-	}
-
-	/**
-	 * @brief Method for get the value of the posicion variable
-	 * @return Posicion
-	 */
-	public Posicion getPosicion() {
-		return posicion;
-	}
-
-	/**
-	 * @brief Method for determine the position of the product 
-	 * @param lleno position of the product
-	 */
-	public void setPosicion(Posicion posicion) {
-		this.posicion = posicion;
 	}
 	
 	/**
