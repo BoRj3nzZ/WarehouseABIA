@@ -1,0 +1,15 @@
+warehousePBL\TaskThread.class
+modelo\Parking.class
+modelo\Segmentos.class
+ABIA_TEAM\WarehousePBL\App.class
+vista\Principal.class
+modelo\Posicion.class
+modelo\Order.class
+modelo\Task.class
+modelo\WorkStation.class
+modelo\Almacen.class
+warehousePBL\Barrier.class
+modelo\Articulos.class
+modelo\Vehiculo.class
+modelo\Recorrido.class
+warehousePBL\SomeMeetingTask.class
