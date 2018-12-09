@@ -1,0 +1,128 @@
+\hypertarget{classmodelo_1_1_posicion}{}\section{modelo.\+Posicion Class Reference}
+\label{classmodelo_1_1_posicion}\index{modelo.\+Posicion@{modelo.\+Posicion}}
+
+
+Class \mbox{\hyperlink{classmodelo_1_1_posicion}{Posicion}}.  
+
+
+Inheritance diagram for modelo.\+Posicion\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmodelo_1_1_posicion}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodelo_1_1_posicion_a8071cf7469c2dddabf012cde36d1ed78}{Posicion}} (int id, String nombre)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmodelo_1_1_posicion_ad81fc23f1ccae2caa6fe85ed510d8925}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Method for get the value of the id variable. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classmodelo_1_1_posicion_acaad3114bb7123d7b9c75c82a50d5a4e}{is\+Lleno}} ()
+\begin{DoxyCompactList}\small\item\em Method for get the value of the lleno variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodelo_1_1_posicion_a508d39b3c2031a5bbbf9bb3f6a4f3e5d}{set\+Lleno}} (boolean lleno)
+\begin{DoxyCompactList}\small\item\em Method for determine the state of the position. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classmodelo_1_1_posicion_af349bd584f20e43466bdc838469f95df}{get\+Nombre}} ()
+\begin{DoxyCompactList}\small\item\em Method for get the value of the nombre variable. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{classmodelo_1_1_posicion_a6523ec41020a97ad305b9997c88f363c}{add\+Next\+Position}} (Posicion...\+pos)
+\begin{DoxyCompactList}\small\item\em Method for determine which positions you can go to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \mbox{\hyperlink{classmodelo_1_1_posicion}{Posicion}}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodelo_1_1_posicion_a8071cf7469c2dddabf012cde36d1ed78}\label{classmodelo_1_1_posicion_a8071cf7469c2dddabf012cde36d1ed78}} 
+\index{modelo\+::\+Posicion@{modelo\+::\+Posicion}!Posicion@{Posicion}}
+\index{Posicion@{Posicion}!modelo\+::\+Posicion@{modelo\+::\+Posicion}}
+\subsubsection{\texorpdfstring{Posicion()}{Posicion()}}
+{\footnotesize\ttfamily modelo.\+Posicion.\+Posicion (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{nombre }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & position name \\
+\hline
+{\em pos} & Position ID or position \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodelo_1_1_posicion_a6523ec41020a97ad305b9997c88f363c}\label{classmodelo_1_1_posicion_a6523ec41020a97ad305b9997c88f363c}} 
+\index{modelo\+::\+Posicion@{modelo\+::\+Posicion}!add\+Next\+Position@{add\+Next\+Position}}
+\index{add\+Next\+Position@{add\+Next\+Position}!modelo\+::\+Posicion@{modelo\+::\+Posicion}}
+\subsubsection{\texorpdfstring{add\+Next\+Position()}{addNextPosition()}}
+{\footnotesize\ttfamily abstract void modelo.\+Posicion.\+add\+Next\+Position (\begin{DoxyParamCaption}\item[{Posicion...}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Method for determine which positions you can go to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & list of next positions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodelo_1_1_posicion_ad81fc23f1ccae2caa6fe85ed510d8925}\label{classmodelo_1_1_posicion_ad81fc23f1ccae2caa6fe85ed510d8925}} 
+\index{modelo\+::\+Posicion@{modelo\+::\+Posicion}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!modelo\+::\+Posicion@{modelo\+::\+Posicion}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily int modelo.\+Posicion.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method for get the value of the id variable. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodelo_1_1_posicion_af349bd584f20e43466bdc838469f95df}\label{classmodelo_1_1_posicion_af349bd584f20e43466bdc838469f95df}} 
+\index{modelo\+::\+Posicion@{modelo\+::\+Posicion}!get\+Nombre@{get\+Nombre}}
+\index{get\+Nombre@{get\+Nombre}!modelo\+::\+Posicion@{modelo\+::\+Posicion}}
+\subsubsection{\texorpdfstring{get\+Nombre()}{getNombre()}}
+{\footnotesize\ttfamily String modelo.\+Posicion.\+get\+Nombre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method for get the value of the nombre variable. 
+
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodelo_1_1_posicion_acaad3114bb7123d7b9c75c82a50d5a4e}\label{classmodelo_1_1_posicion_acaad3114bb7123d7b9c75c82a50d5a4e}} 
+\index{modelo\+::\+Posicion@{modelo\+::\+Posicion}!is\+Lleno@{is\+Lleno}}
+\index{is\+Lleno@{is\+Lleno}!modelo\+::\+Posicion@{modelo\+::\+Posicion}}
+\subsubsection{\texorpdfstring{is\+Lleno()}{isLleno()}}
+{\footnotesize\ttfamily boolean modelo.\+Posicion.\+is\+Lleno (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method for get the value of the lleno variable. 
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodelo_1_1_posicion_a508d39b3c2031a5bbbf9bb3f6a4f3e5d}\label{classmodelo_1_1_posicion_a508d39b3c2031a5bbbf9bb3f6a4f3e5d}} 
+\index{modelo\+::\+Posicion@{modelo\+::\+Posicion}!set\+Lleno@{set\+Lleno}}
+\index{set\+Lleno@{set\+Lleno}!modelo\+::\+Posicion@{modelo\+::\+Posicion}}
+\subsubsection{\texorpdfstring{set\+Lleno()}{setLleno()}}
+{\footnotesize\ttfamily void modelo.\+Posicion.\+set\+Lleno (\begin{DoxyParamCaption}\item[{boolean}]{lleno }\end{DoxyParamCaption})}
+
+
+
+Method for determine the state of the position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lleno} & state of the position \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/modelo/\mbox{\hyperlink{_posicion_8java}{Posicion.\+java}}\end{DoxyCompactItemize}
