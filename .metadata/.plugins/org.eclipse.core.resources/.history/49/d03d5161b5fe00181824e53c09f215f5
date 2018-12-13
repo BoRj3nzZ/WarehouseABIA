@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 13/12/2018
+ *  @date 10/12/2018
  */
 
 /** @brief package modelo
@@ -118,10 +118,7 @@ public class WorkStation extends Posicion{
 	public void deleteArticulo(Articulos a){
 		listProductos.remove(a);
 	}
-	/**
-	 * @brief Method for getting an item searching by its id 
-	 * @return Articulos
-	 */
+
 	public Articulos getArticulo(int index){
 		Articulos a = listProductos.get(index);
 		listProductos.remove(index);
@@ -137,10 +134,7 @@ public class WorkStation extends Posicion{
 		copia.addAll(listProductos);
 		return copia;
 	}
-	/**
-	 * @brief Method for printing the workstation in a custom way
-	 * @return String
-	 */
+	
 	@Override
 	public String toString() {
 		String cadena;

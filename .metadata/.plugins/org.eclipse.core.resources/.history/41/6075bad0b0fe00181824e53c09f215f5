@@ -82,7 +82,7 @@ public class VehiculoTest {
 	@Test
 	public void getIdTest() {
 	    int result = (int) vehiculo.getId();
-	    assertEquals("id debe ser 14", 14,(Object)result);
+	    assertEquals("posocion debe ser 1", 1,(Object)result);
 	}
 	
 	/**

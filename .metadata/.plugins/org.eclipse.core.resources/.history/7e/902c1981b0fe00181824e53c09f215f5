@@ -24,7 +24,6 @@ import modelo.Parking;
 import modelo.Posicion;
 import modelo.Segmentos;
 import modelo.Vehiculo;
-import modelo.WorkStation;
 
 /**
 * @brief Class VehiculoTest
@@ -36,7 +35,6 @@ public class VehiculoTest {
 	 */
 	private Vehiculo vehiculo;
 	private Parking parking;
-	private WorkStation ws;
 	
 	/**
 	 * @brief Method to create objects
@@ -46,7 +44,6 @@ public class VehiculoTest {
 	{
 		parking = new Parking(10, "Parking 1");
 		vehiculo = new Vehiculo(1, "Quieto", parking);
-		ws = new WorkStation(101, "WorkStation 1");
 	}
 	
 	/**
@@ -82,7 +79,7 @@ public class VehiculoTest {
 	@Test
 	public void getIdTest() {
 	    int result = (int) vehiculo.getId();
-	    assertEquals("id debe ser 14", 14,(Object)result);
+	    assertEquals("posocion debe ser 1", 1,(Object)result);
 	}
 	
 	/**
@@ -100,12 +97,12 @@ public class VehiculoTest {
 	@Test
 	public void moverTest() {
 		Segmentos pos2 = new Segmentos(2, "Segmento 2");
-		vehiculo.moveToSegment(pos2);
+		vehiculo.move(pos2);
 		Posicion result = vehiculo.getActualPosicion();
 	    assertEquals("posocion debe ser pos2", pos2,(Object)result);
-	    vehiculo.enterWorkStation(ws);
+	    vehiculo.move(parking);
 	    Posicion result2 = vehiculo.getActualPosicion();
-	    assertEquals("posocion debe ser workstation", ws,(Object)result2);
+	    assertEquals("posocion debe ser parking", parking,(Object)result2);
 	    
 	}
 }

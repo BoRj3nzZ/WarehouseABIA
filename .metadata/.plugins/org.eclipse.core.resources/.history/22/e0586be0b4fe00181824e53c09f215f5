@@ -50,10 +50,7 @@ public class Principal extends Thread{
 			v.start();
 		}
 	}
-	/**
-	 * @brief Method for printing the options of the menu
-	 * @return int
-	 */
+	
 	public int menu(){
 		int opcion= 0;
 		
@@ -66,9 +63,7 @@ public class Principal extends Thread{
 		return opcion;
 
 	}
-	/**
-	 * @brief Method for running the main thread
-	 */
+	
 	@Override
 	public void run() {
 		int opcion = 0;
@@ -91,9 +86,7 @@ public class Principal extends Thread{
 		}while (opcion != 0);
 		
 	}
-	/**
-	 * @brief Method for creating a order
-	 */
+
 	private void crearOrden() {
 		int leaveItemWsId, takeItemWsId, actualPosWsId, itemId, index = 0;
 		Posicion leaveItemPos, takeItemPos, actualPos;
@@ -102,17 +95,17 @@ public class Principal extends Thread{
 		String opcion="S";
 		do{
 			try{
-				System.out.print("From which workstation do you want to order:");
+				System.out.print("Desde que workstation quieres pedir la orden:");
 				leaveItemWsId = teclado.nextInt();teclado.nextLine();
 				leaveItemPos = getPositionById(leaveItemWsId);
-				System.out.print("From which workstation do you want to take an item: ");
+				System.out.print("De que workstation quieres sacar un item: ");
 				takeItemWsId = teclado.nextInt();teclado.nextLine();
 				takeItemPos = getPositionById(takeItemWsId);
 				for(Articulos a:((WorkStation) takeItemPos).getListProductos()){
 					System.out.println(++index+" - "+a);
 				}
 				index=0;
-				System.out.print("What item do you want to take: ");
+				System.out.print("Que item quieres sacar: ");
 				itemId = teclado.nextInt();teclado.nextLine();
 				car = adminCoches.getFirstFreeCar();
 				actualPos = car.getActualPosicion();
@@ -124,17 +117,30 @@ public class Principal extends Thread{
 				car.setTakingItemRoute(routeTake);
 				car.setReturnRoute(routeLeave);
 				car.setItemId(itemId);
-				System.out.print("More (Y/N)?");
+				//car.setMovement(routeLeave, routeTake, itemId, takeItemPos, leaveItemPos);
+				//car.startOrder(routeLeave, routeTake, itemId, takeItemPos, leaveItemPos);
+				//startOrder(car, actualPos, takeItemPos, leaveItemPos, itemId);
+				System.out.print("Mas (S/N)?");
 				opcion = teclado.nextLine();
 			}catch (InputMismatchException e){
-				System.out.println("Incorrect format");
+				System.out.println("El formato introducido no es correcto");
 			}
 		}while (!opcion.equalsIgnoreCase("N"));		
 	}
-	/**
-	 * @brief Method for getting the position by the id of it 
-	 * @return Posicion
-	 */
+
+	private void startOrder(Vehiculo car, Posicion actualPos, Posicion takeItemPos, Posicion leaveItemPos, int itemId) {
+		List<Posicion> route;
+		route = adminCaminos.getShortestRoute(actualPos, takeItemPos);
+		car.move(route);	
+		System.out.println("Ida ok, coge item: "+((WorkStation) takeItemPos).getListProductos().get(itemId));
+		car.setItemInside(((WorkStation) takeItemPos).getArticulo(itemId));
+		System.out.println("Item Taken");
+		route = adminCaminos.getShortestRoute(takeItemPos, leaveItemPos);
+		for(Posicion p:route) System.out.print(p.getId()+"-");
+		car.move(route);
+		car.deliverItemInside((WorkStation) leaveItemPos);
+	}
+
 	private Posicion getPositionById(int id) {
 		Posicion posicion = null;
 		for(Posicion p:almacen.getListaPosicion()){
@@ -142,18 +148,13 @@ public class Principal extends Thread{
 		}
 		return posicion;
 	}
-	/**
-	 * @brief Method for printing the cars in a custom way 
-	 */
+
 	private void verCoches() {
 		for(Vehiculo v:adminCoches.getListaCoches()){
 			System.out.println(v);
 		}
 		System.out.println("-------------------------------------------------");		
-	}	
-	/**
-	 * @brief Method for printing the workstations in a custom way
-	 */
+	}
 	private void verWorkStations() {
 		for(Posicion ws:almacen.getListaPosicion()){
 			if(ws instanceof WorkStation){

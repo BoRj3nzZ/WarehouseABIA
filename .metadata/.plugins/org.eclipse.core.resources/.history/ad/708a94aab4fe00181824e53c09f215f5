@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 12/12/2018
+ *  @date 11/12/2018
  */
 
 /** @brief package controlador
@@ -17,9 +17,7 @@ import modelo.Almacen;
 import modelo.Vehiculo;
 
 public class AdministradorCoches {
-	/**
-	 * @brief Attributes
-	 */
+
 	Almacen almacen;
 	List<Vehiculo> listaCoches;
 	List<Vehiculo> listaCochesLibres;

@@ -265,10 +265,7 @@ public class Vehiculo extends Thread{
 	public void setReturnRoute(List<Posicion> returnRoute) {
 		this.returnRoute = returnRoute;
 	}
-	/**
-	 * @brief Method for printing the object in a custom way
-	 * @return string
-	 */
+
 	@Override
 	public String toString() {
 		String cadena;

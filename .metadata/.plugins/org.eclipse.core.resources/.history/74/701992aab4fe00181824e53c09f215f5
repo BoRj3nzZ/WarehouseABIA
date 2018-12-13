@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 12/12/2018
+ *  @date 11/12/2018
  */
 
 /** @brief package controlador
@@ -19,9 +19,7 @@ import modelo.Posicion;
 import modelo.Recorrido;
 
 public class AdministradorCaminos {
-	/**
-	 * @brief Attributes
-	 */
+	
 	Almacen almacen;
 	List<Recorrido> listaRecorridos = new ArrayList<Recorrido>();
 

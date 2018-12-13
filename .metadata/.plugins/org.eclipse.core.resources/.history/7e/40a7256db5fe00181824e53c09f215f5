@@ -68,10 +68,7 @@ public class Articulos {
 	public String getDesc() {
 		return desc;
 	}
-	/**
-	 * @brief Method for printing the item in a custom way
-	 * @return String
-	 */
+	
 	@Override
 	public String toString() {
 		String cadena;
