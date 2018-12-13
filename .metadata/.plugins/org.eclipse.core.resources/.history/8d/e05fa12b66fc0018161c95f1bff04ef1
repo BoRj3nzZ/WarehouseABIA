@@ -1,0 +1,16 @@
+/** @file AdministradorCaminos.java
+ *  @brief Class to create the AdministradorCaminos object
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 10/12/2018
+ */
+
+/** @brief package modelo
+ */
+package controlador;
+
+public class AdministradorCaminos {
+
+}

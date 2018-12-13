@@ -1,0 +1,13 @@
+package controlador;
+
+import modelo.Almacen;
+
+public class AdministradorCoches {
+
+	Almacen almacen;
+	
+	public AdministradorCoches(Almacen almacen) {
+		this.almacen = almacen;
+	}
+	
+}

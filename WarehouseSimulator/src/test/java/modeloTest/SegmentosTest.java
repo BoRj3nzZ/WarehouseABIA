@@ -53,7 +53,7 @@ public class SegmentosTest {
 			Posicion pos2 = new Parking(5, "Posicion 3");
 			segmento.addNextPosition(pos1);
 			segmento.addNextPosition(pos2);
-			List<Posicion> result = segmento.getNextPosition();
+			List<Posicion> result = segmento.getNextPositionList();
 		    assertEquals("posocion debe ser pos1", pos1,(Object)result.get(0));
 		    assertEquals("posocion debe ser pos2", pos2,(Object)result.get(1));
 		}

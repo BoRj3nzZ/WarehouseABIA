@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="warehousePBL.SomeMeetingTask"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="org.junit.Before"/>
-<fullyQualifiedTypeName name="modelo.Parking"/>
-<fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="modelo.WorkStation"/>
-<fullyQualifiedTypeName name="modelo.Articulos"/>
-<fullyQualifiedTypeName name="modelo.Segmentos"/>
-<fullyQualifiedTypeName name="modelo.Vehiculo"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="modelo.Order"/>
-<fullyQualifiedTypeName name="modelo.Task"/>
-<fullyQualifiedTypeName name="modelo.Posicion"/>
+<fullyQualifiedTypeName name="modelo.Recorrido"/>
+<fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 <fullyQualifiedTypeName name="modelo.Almacen"/>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="modelo.Posicion"/>
+<fullyQualifiedTypeName name="controlador.AdministradorCaminos"/>
+<fullyQualifiedTypeName name="controlador.AdministradorCoches"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Semaphore"/>
-<fullyQualifiedTypeName name="java.util.Vector"/>
-=======
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
->>>>>>> 470e8f96cdd0c2b172650e2780c1fbac13bcb197
+<fullyQualifiedTypeName name="javax.swing.text.Position"/>
+<fullyQualifiedTypeName name="modelo.WorkStation"/>
 </qualifiedTypeNameHistroy>

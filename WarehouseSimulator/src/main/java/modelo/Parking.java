@@ -1,9 +1,10 @@
 /** @file Parking.java
  *  @brief Class to create the Parking object
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
  *  @date 28/11/2018
  */
 
@@ -25,6 +26,25 @@ public class Parking extends Posicion{
 		super(pos, nombre);
 	}
 
+	/**
+	 * @brief Method for waiting at parking, only one thread can access at a time
+	 */
+	public synchronized void waitAtParking(){
+		try {
+			wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @brief Method for waking up from the parking, only one thread can access at a time
+	 */
+	public synchronized void wakeUpFromParking(){
+		notify();
+	}
+	
 	/**
 	 * @brief Method for determine which positions you can go to
 	 * @param pos list of next positions

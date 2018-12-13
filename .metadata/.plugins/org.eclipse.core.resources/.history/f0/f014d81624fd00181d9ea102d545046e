@@ -1,0 +1,143 @@
+/** @file Principal.java
+ *  @brief Class to create the Principal object
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 11/12/2018
+ */
+
+/** @brief package vista
+ */
+package vista;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import controlador.AdministradorCaminos;
+import controlador.AdministradorCoches;
+/** @brief Libraries
+ */
+import modelo.Almacen;
+import modelo.Posicion;
+import modelo.Recorrido;
+import modelo.Vehiculo;
+import modelo.WorkStation;
+
+/**
+ * @brief Class Principal
+ */
+public class Principal {
+	
+	/**
+	 * @brief Attributes
+	 */
+	Almacen almacen;
+	Scanner teclado;
+	AdministradorCaminos adminCaminos;
+	AdministradorCoches adminCoches;
+
+	/**
+	 * @brief Constructor
+	 */
+	private Principal() {
+		teclado = new Scanner(System.in);
+		almacen = new Almacen();
+		adminCaminos = new AdministradorCaminos(almacen);
+		adminCoches = new AdministradorCoches(almacen);
+	}
+	
+	public int menu(){
+		int opcion= 0;
+		
+		System.out.println("1.- Crear orden");
+		System.out.println("2.- Ver Coches");
+		System.out.println("3.- Ver WorkStations");
+		System.out.println("0.- Salir");
+		System.out.print("Selecciona opcion: ");
+		opcion = teclado.nextInt(); teclado.nextLine();
+		return opcion;
+
+	}
+	
+	private void gestionarMenu() {
+		int opcion = 0;
+		do{
+			try{
+				opcion = menu(); 
+				
+				switch (opcion){
+				case 1: crearOrden();break;
+				case 2: verCoches(); break;
+				case 3: verWorkStations(); break;
+				
+				case 0: break;
+				default: System.out.println("opción no válida");
+				}
+				
+			}catch (InputMismatchException e){
+				System.out.println("Elija una opción indicando su número");
+			}
+		}while (opcion != 0);
+		
+	}
+
+	private void crearOrden() {
+		int destinoId;
+		Vehiculo car;
+		Recorrido route;
+		String opcion="S";
+		do{
+			try{
+				System.out.print("A que workstation quieres mover: ");
+				destinoId = teclado.nextInt();teclado.nextLine();
+				car = adminCoches.getFirstFreeCar();
+				route = (Recorrido) adminCaminos.getShortestRoute(car.getActualPosicion(), getPositionById(destinoId));
+				artefacto = elegirArtefacto(mueve.getArtefactos());
+				System.out.print("Id criatura sobre la que actua");
+				idc = teclado.nextInt(); teclado.nextLine();
+				contra = juego.findCriatura(idc);
+				System.out.println(mueve.getNombre() + " usa "+ artefacto.getNombre() +" contra "+ contra.getNombre());
+				if (!mueve.actuar(contra, artefacto)) {
+					System.out.println("pero falla");
+				}
+				System.out.print("Mas (S/N)?");
+				opcion = teclado.nextLine();
+			}catch (InputMismatchException e){
+				System.out.println("El formato introducido no es correcto");
+			}
+		}while (!opcion.equals("N"));		
+	}
+
+	private Posicion getPositionById(int id) {
+		for(Position p:adminCaminos.get)
+		return null;
+	}
+
+	private void verCoches() {
+		for(Vehiculo v:adminCoches.getListaCoches()){
+			System.out.println(v);
+		}
+		System.out.println("-------------------------------------------------");		
+	}
+	private void verWorkStations() {
+		for(Posicion ws:almacen.getListaPosicion()){
+			if(ws instanceof WorkStation){
+				System.out.println(ws);
+			}
+		}
+		System.out.println("-------------------------------------------------");		
+	}
+
+	/**
+	 * @brief main
+	 * @param args String[]
+	 */
+	public static void main(String[] args) {
+		Principal ariketa = new Principal();
+		ariketa.gestionarMenu();
+	}
+
+
+
+}

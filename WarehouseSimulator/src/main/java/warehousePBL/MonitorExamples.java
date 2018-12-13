@@ -73,7 +73,7 @@ class Consumer extends Thread {
 
 }
 
-public class MonitorExamples {
+/*public class MonitorExamples {
 	public static void main(String[] args) {
 		ThreadB b = new ThreadB();
 		b.start();
@@ -103,4 +103,4 @@ class ThreadB extends Thread {
 			notify();
 		}
 	}
-}
+}*/

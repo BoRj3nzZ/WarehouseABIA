@@ -5,17 +5,17 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 28/11/2018
+ *  @date 10/12/2018
  */
 
 /** @brief package modelo
  */
 package modelo;
 
+import java.util.ArrayList;
 /** @brief Libraries
  */
 import java.util.List;
-import java.util.concurrent.Semaphore;
 
 /**
 * @brief Class Segmentos extends Posicion
@@ -27,7 +27,6 @@ public class Segmentos extends Posicion{
 	 */
 	static int distancia = 200;
 	
-	
 
 	/**
 	 * @brief Constructor
@@ -36,24 +35,32 @@ public class Segmentos extends Posicion{
 	 */
 	public Segmentos(int pos, String nombre) {
 		super(pos, nombre);
-		sMutEx = new Semaphore(1, true);
-		sEntry = new Semaphore(1, true);
+		full = false;
 	}
 	
 	/**
-	 * @brief Method for getting sMutEx
+	 * @brief Method for entering the segment, only one thread can access at a time
 	 */
-	public Semaphore getSMutEx(){
-		return sMutEx;
+	public synchronized void enterSegment(){
+		while(full){
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		full = true;
 	}
 	
 	/**
-	 * @brief Method for getting sEntry
+	 * @brief Method for exiting the segment, only one thread can access at a time
 	 */
-	public Semaphore getSEntry(){
-		return sEntry;
+	public synchronized void exitSegment(){
+		full = false;
+		notify();
 	}
-
+	
 	/**
 	 * @brief Method for determining which positions you can go to
 	 * @param pos list of next positions
@@ -67,10 +74,12 @@ public class Segmentos extends Posicion{
 	
 	/**
 	 * @brief Method for getting the values of the nextPositionList variable
-	 * @return Position
+	 * @return List<Position>
 	 */
 	public List<Posicion> getNextPositionList(){
-		return nextPositionList;
+		List<Posicion> copia = new ArrayList<Posicion>();
+		copia.addAll(nextPositionList);
+		return copia;
 	}
 	
 	/**

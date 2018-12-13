@@ -69,4 +69,10 @@ public class Articulos {
 		return desc;
 	}
 	
+	@Override
+	public String toString() {
+		String cadena;
+		cadena = tipo + " - " + nombre + " - " + desc;
+		return cadena;
+	}
 }

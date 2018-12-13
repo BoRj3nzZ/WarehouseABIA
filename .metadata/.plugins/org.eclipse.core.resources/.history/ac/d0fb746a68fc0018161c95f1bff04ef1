@@ -1,0 +1,51 @@
+/** @file AdministradorCaminos.java
+ *  @brief Class to create the AdministradorCaminos object
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 10/12/2018
+ */
+
+/** @brief package modelo
+ */
+package controlador;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import modelo.Almacen;
+import modelo.Posicion;
+import modelo.Recorrido;
+
+public class AdministradorCaminos {
+	
+	Almacen almacen;
+	List<Recorrido> listaRecorridos = new ArrayList<Recorrido>();
+
+	/**
+	 * @brief Constructor
+	 */
+	public AdministradorCaminos() {
+		almacen = new Almacen();
+		listaRecorridos = almacen.getListaRecorridos();
+	}
+	
+	/**
+	 * @brief Method for determine which positions you can go to
+	 * @param pos list of next positions
+	 */
+	public List<Posicion> getShortestRoute(Posicion inicio, Posicion destino){
+		List<Posicion> route = new ArrayList<Posicion>();
+		for(Recorrido r:listaRecorridos){
+			if(r.getInicio()==inicio && r.getFinal()==destino){
+				route = r.getRecorrido();
+			}
+		}
+		return route;
+	}
+	public void reserveNextPosition(){
+		
+	}
+	
+}

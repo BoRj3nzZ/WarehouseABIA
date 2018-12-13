@@ -77,16 +77,13 @@ public class AlmacenTest {
 		almacen.añadirOrden(orden);
 		almacen.borrarOrden(orden);
 		List<Order> lista2 = almacen.getListaOrdenes();
-<<<<<<< HEAD
 		boolean result = false;
 		for(Order a : lista2){
 			if (a == orden) result = true;
 		}
 	    assertEquals("false", false,(Object)result);
-=======
-		int result = lista2.size();
-	    assertEquals("0", 0,(Object)result);
->>>>>>> 470e8f96cdd0c2b172650e2780c1fbac13bcb197
+		int resultSize = lista2.size();
+	    assertEquals("0", 0,(Object)resultSize);
 	
 	}
 	/**

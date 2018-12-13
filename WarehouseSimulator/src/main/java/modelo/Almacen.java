@@ -832,6 +832,12 @@ public class Almacen {
 		((WorkStation) listaPosicion.get(8)).addArticulo(new Articulos(26, "Camisa", "Camisa Cocodrile 40", "Camisa lisa, blanca"));
 		((WorkStation) listaPosicion.get(8)).addArticulo(new Articulos(27, "Camisa", "Camisa Cocodrile 40", "Camisa lisa, blanca"));
 		((WorkStation) listaPosicion.get(8)).addArticulo(new Articulos(28, "Camisa", "Camisa Cocodrile 40", "Camisa lisa, blanca")); 
+		
+		((WorkStation) listaPosicion.get(9)).addArticulo(new Articulos(29, "Camisa", "Camisa Cocodrile 50", "Camisa lisa, blanca"));
+		((WorkStation) listaPosicion.get(9)).addArticulo(new Articulos(30, "Camisa", "Camisa Cocodrile 50", "Camisa lisa, blanca"));
+		((WorkStation) listaPosicion.get(9)).addArticulo(new Articulos(31, "Camisa", "Camisa Cocodrile 40", "Camisa lisa, blanca"));
+		((WorkStation) listaPosicion.get(9)).addArticulo(new Articulos(32, "Camisa", "Camisa Cocodrile 40", "Camisa lisa, blanca"));
+		((WorkStation) listaPosicion.get(9)).addArticulo(new Articulos(33, "Camisa", "Camisa Cocodrile 40", "Camisa lisa, blanca")); 
 	}
 
 	/**
@@ -874,17 +880,28 @@ public class Almacen {
 		listaVehiculo.add(new Vehiculo(1, "Espera", listaPosicion.get(0)));
 		listaVehiculo.add(new Vehiculo(2, "Espera", listaPosicion.get(1)));
 		listaVehiculo.add(new Vehiculo(3, "Espera", listaPosicion.get(2)));
-		listaVehiculo.add(new Vehiculo(5, "Espera", listaPosicion.get(3)));
-		listaVehiculo.add(new Vehiculo(6, "Espera", listaPosicion.get(4)));
+		listaVehiculo.add(new Vehiculo(4, "Espera", listaPosicion.get(3)));
+		listaVehiculo.add(new Vehiculo(5, "Espera", listaPosicion.get(4)));
 		
 	}
-
+	
+	/**
+	 * @brief Method for getting the values of the listaVehiculo variable
+	 * @return List<Recorrido>
+	 */
+	public List<Recorrido> getListaRecorridos() {
+		List<Recorrido> copia = new ArrayList<Recorrido>();
+		copia.addAll(listaRecorridos);
+		return copia;
+	}
 	/**
 	 * @brief Method for getting the values of the listaVehiculo variable
 	 * @return List<Vehiculo>
 	 */
 	public List<Vehiculo> getListaVehiculo() {
-		return listaVehiculo;
+		List<Vehiculo> copia = new ArrayList<Vehiculo>();
+		copia.addAll(listaVehiculo);
+		return copia;
 	}
 
 	/**

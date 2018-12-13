@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 28/11/2018
+ *  @date 10/12/2018
  */
 
 /** @brief package modelo
@@ -27,11 +27,9 @@ public abstract class Posicion {
 	 * @brief Attributes
 	 */
 	int id;
-	boolean lleno;
+	boolean full;
 	String nombre;
 	List<Posicion> nextPositionList;
-	Semaphore sMutEx;
-	Semaphore sEntry;
 	
 	/**
 	 * @brief Constructor
@@ -42,15 +40,11 @@ public abstract class Posicion {
 		this.id = id;
 		this.nombre = nombre;
 		nextPositionList = new ArrayList<Posicion>();
-		lleno = false;
+		full = false;
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * @brief Method for getting the value of the pos variable
-=======
-	 * @brief Method for get the value of the id variable
->>>>>>> 470e8f96cdd0c2b172650e2780c1fbac13bcb197
+	 * @brief Method for getting the value of the id variable
 	 * @return int
 	 */
 	public int getId() {
@@ -58,19 +52,19 @@ public abstract class Posicion {
 	}
 	
 	/**
-	 * @brief Method for getting the value of the lleno variable
+	 * @brief Method for getting the value of the full variable
 	 * @return boolean
 	 */
-	public boolean isLleno() {
-		return lleno;
+	public boolean isFull() {
+		return full;
 	}
 	
 	/**
 	 * @brief Method for setting the state of the position 
-	 * @param lleno state of the position
+	 * @param full state of the position
 	 */
-	public void setLleno(boolean lleno) {
-		this.lleno = lleno;
+	public void setLleno(boolean full) {
+		this.full = full;
 	}
 	
 	/**

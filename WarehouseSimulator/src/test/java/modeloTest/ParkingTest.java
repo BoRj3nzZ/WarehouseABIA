@@ -64,7 +64,7 @@ public class ParkingTest {
 	 */
 	@Test
 	public void IsLlenoTest() {
-	    boolean result = parking.isLleno();
+	    boolean result = parking.isFull();
 	    assertEquals("posocion debe ser false", false,(Object)result);
 	}
 	
@@ -74,7 +74,7 @@ public class ParkingTest {
 	@Test
 	public void setLlenoTest() {
 		parking.setLleno(true);
-	    boolean result = parking.isLleno();
+	    boolean result = parking.isFull();
 	    assertEquals("posocion debe ser true", true,(Object)result);
 	}
 	

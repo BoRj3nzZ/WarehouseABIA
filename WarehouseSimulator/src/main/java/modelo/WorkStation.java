@@ -1,20 +1,21 @@
 /** @file WorkStation.java
  *  @brief Class to create the WorkStation 
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 28/11/2018
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 10/12/2018
  */
 
 /** @brief package modelo
  */
 package modelo;
 
+import java.util.ArrayList;
 /** @brief Libraries
  */
 import java.util.List;
-import java.util.ArrayList;
 
 
 /**
@@ -35,6 +36,42 @@ public class WorkStation extends Posicion{
 	public WorkStation(int pos, String nombre){
 		super(pos, nombre);
 		listProductos = new ArrayList<Articulos>();
+		full=false;
+	}
+	
+	/**
+	 * @brief Method for entering the workstation, only one thread can access at a time
+	 */
+	public synchronized void enterWorkStation(){
+		full = true;
+	}
+
+	/**
+	 * @brief Method for exiting the workstation, only one thread can access at a time
+	 */
+	public synchronized void exitWorkStation(){
+		full = false;
+	}
+
+	/**
+	 * @brief Method for entering the final workstation, only one thread can access at a time
+	 */
+	public synchronized void waitAtWorkStation(){
+		full = true;
+		try {
+			wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @brief Method for waking up from the workstation, only one thread can access at a time
+	 */
+	public synchronized void wakeUpFromWorkStation(){
+		full = false;
+		notify();
 	}
 	
 	/**
@@ -82,13 +119,31 @@ public class WorkStation extends Posicion{
 		listProductos.remove(a);
 	}
 
+	public Articulos getArticulo(int index){
+		Articulos a = listProductos.get(index);
+		listProductos.remove(index);
+		return a;
+	}
+	
 	/**
 	 * @brief Method for get the List of the listProductos
 	 * @return List<Articulos>
 	 */
 	public List<Articulos> getListProductos() {
-		return listProductos;
+		List<Articulos> copia = new ArrayList<Articulos>();
+		copia.addAll(listProductos);
+		return copia;
 	}
 	
+	@Override
+	public String toString() {
+		String cadena;
+		cadena = "Workstation "+ this.id +" - Full: "+this.full;
+		cadena+= "\nItems: \n";
+		for (Articulos a : listProductos){
+			cadena+= a+"\n";
+		}
+		return cadena;
+	}
 
 }

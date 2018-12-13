@@ -1,0 +1,28 @@
+/** @file AdministradorCaminos.java
+ *  @brief Class to create the AdministradorCaminos object
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 11/12/2018
+ */
+
+/** @brief package controlador
+ */
+package controlador;
+
+import modelo.Almacen;
+
+public class AdministradorCoches {
+
+	Almacen almacen;
+	
+	/**
+	 * @brief Constructor
+	 * @param almacen The warehouse
+	 */
+	public AdministradorCoches(Almacen almacen) {
+		this.almacen = almacen;
+	}
+	
+}

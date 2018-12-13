@@ -1,0 +1,163 @@
+/** @file Principal.java
+ *  @brief Class to create the Principal object
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 11/12/2018
+ */
+
+/** @brief package vista
+ */
+package vista;
+
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+import controlador.AdministradorCaminos;
+import controlador.AdministradorCoches;
+/** @brief Libraries
+ */
+import modelo.Almacen;
+import modelo.Articulos;
+import modelo.Posicion;
+import modelo.Vehiculo;
+import modelo.WorkStation;
+
+/**
+ * @brief Class Principal extends Thread
+ */
+public class Principal extends Thread{
+	
+	/**
+	 * @brief Attributes
+	 */
+	Almacen almacen;
+	Scanner teclado;
+	AdministradorCaminos adminCaminos;
+	AdministradorCoches adminCoches;
+
+	/**
+	 * @brief Constructor
+	 */
+	private Principal() {
+		teclado = new Scanner(System.in);
+		almacen = new Almacen();
+		adminCaminos = new AdministradorCaminos(almacen);
+		adminCoches = new AdministradorCoches(almacen);
+	}
+	
+	public int menu(){
+		int opcion= 0;
+		
+		System.out.println("1.- Crear orden");
+		System.out.println("2.- Ver Coches");
+		System.out.println("3.- Ver WorkStations");
+		System.out.println("0.- Salir");
+		System.out.print("Selecciona opcion: ");
+		opcion = teclado.nextInt(); teclado.nextLine();
+		return opcion;
+
+	}
+	
+	@Override
+	public void run() {
+		int opcion = 0;
+		do{
+			try{
+				opcion = menu(); 
+				
+				switch (opcion){
+				case 1: crearOrden();break;
+				case 2: verCoches(); break;
+				case 3: verWorkStations(); break;
+				
+				case 0: break;
+				default: System.out.println("opción no válida");
+				}
+				
+			}catch (InputMismatchException e){
+				System.out.println("Elija una opción indicando su número");
+			}
+		}while (opcion != 0);
+		
+	}
+
+	private void crearOrden() {
+		int leaveItemWsId, takeItemWsId, actualPosWsId, itemId, index = 0;
+		Posicion leaveItemPos, takeItemPos, actualPos;
+		Vehiculo car;
+		String opcion="S";
+		do{
+			try{
+				System.out.print("Desde que workstation quieres pedir la orden:");
+				leaveItemWsId = teclado.nextInt();teclado.nextLine();
+				leaveItemPos = getPositionById(leaveItemWsId);
+				System.out.print("De que workstation quieres sacar un item: ");
+				takeItemWsId = teclado.nextInt();teclado.nextLine();
+				takeItemPos = getPositionById(takeItemWsId);
+				for(Articulos a:((WorkStation) takeItemPos).getListProductos()){
+					System.out.println(++index+" - "+a);
+				}
+				System.out.print("Que item quieres sacar: ");
+				itemId = teclado.nextInt();teclado.nextLine();
+				car = adminCoches.getFirstFreeCar();
+				actualPos = car.getActualPosicion();
+				startOrder(car, actualPos, takeItemPos, leaveItemPos, itemId);
+				System.out.print("Mas (S/N)?");
+				opcion = teclado.nextLine();
+			}catch (InputMismatchException e){
+				System.out.println("El formato introducido no es correcto");
+			}
+		}while (!opcion.equalsIgnoreCase("N"));		
+	}
+
+	private void startOrder(Vehiculo car, Posicion actualPos, Posicion takeItemPos, Posicion leaveItemPos, int itemId) {
+		List<Posicion> route;
+		route = adminCaminos.getShortestRoute(actualPos, takeItemPos);
+		car.move(route);	
+		System.out.println("Ida ok, coge item: "+((WorkStation) takeItemPos).getListProductos().get(itemId));
+		car.setItemInside(((WorkStation) takeItemPos).getArticulo(itemId));
+		System.out.println("Item Taken");
+		route = adminCaminos.getShortestRoute(takeItemPos, leaveItemPos);
+		for(Posicion p:route) System.out.print(p.getId()+"-");
+		car.move(route);
+		car.deliverItemInside((WorkStation) leaveItemPos);
+	}
+
+	private Posicion getPositionById(int id) {
+		Posicion posicion = null;
+		for(Posicion p:almacen.getListaPosicion()){
+			if(p.getId()==id) posicion = p;
+		}
+		return posicion;
+	}
+
+	private void verCoches() {
+		for(Vehiculo v:adminCoches.getListaCoches()){
+			System.out.println(v);
+		}
+		System.out.println("-------------------------------------------------");		
+	}
+	private void verWorkStations() {
+		for(Posicion ws:almacen.getListaPosicion()){
+			if(ws instanceof WorkStation){
+				System.out.println(ws);
+			}
+		}
+		System.out.println("-------------------------------------------------");		
+	}
+
+	/**
+	 * @brief main
+	 * @param args String[]
+	 */
+	public static void main(String[] args) {
+		Principal ariketa = new Principal();
+		ariketa.start();
+	}
+
+
+
+}
