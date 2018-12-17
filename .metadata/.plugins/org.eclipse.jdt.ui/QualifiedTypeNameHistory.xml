@@ -7,5 +7,6 @@
 <fullyQualifiedTypeName name="controlador.AdministradorCoches"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.swing.text.Position"/>
+<fullyQualifiedTypeName name="modelo.Parking"/>
 <fullyQualifiedTypeName name="modelo.WorkStation"/>
 </qualifiedTypeNameHistroy>

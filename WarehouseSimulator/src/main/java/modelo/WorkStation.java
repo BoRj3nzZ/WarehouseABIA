@@ -36,7 +36,7 @@ public class WorkStation extends Posicion{
 	public WorkStation(int pos, String nombre){
 		super(pos, nombre);
 		listProductos = new ArrayList<Articulos>();
-		full=false;
+		full = false;
 	}
 	
 	/**

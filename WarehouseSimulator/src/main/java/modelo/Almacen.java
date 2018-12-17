@@ -1,10 +1,11 @@
 /** @file Almacen.java
  *  @brief Class to create the WorkStation 
  *  @authors
- *  Name          | Surname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 04/12/2018
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 17/12/2018
  */
 
 /** @brief package modelo
@@ -44,7 +45,7 @@ public class Almacen {
 	}
 	
 	/**
-	 * @brief Version manual
+	 * @brief Method for initializing the routes between every position
 	 */
 	private void leerListaRecorridos() {
 		recorrido = new Recorrido();//102-205
@@ -844,33 +845,72 @@ public class Almacen {
 	 * @brief Version sin BBDD
 	 */
 	private void leerListaPosiciones() {
-		listaPosicion.add(new Parking(205, "Parking 1")); 
-		listaPosicion.add(new Parking(206, "Parking 2")); 
-		listaPosicion.add(new Parking(211, "Parking 3")); 
-		listaPosicion.add(new Parking(212, "Parking 4")); 
-		listaPosicion.add(new WorkStation(102, "WorkStation 1")); 
-		listaPosicion.add(new WorkStation(103, "WorkStation 2")); 
-		listaPosicion.add(new WorkStation(108, "WorkStation 3")); 
-		listaPosicion.add(new WorkStation(109, "WorkStation 4")); 
-		listaPosicion.add(new WorkStation(114, "WorkStation 5")); 
-		listaPosicion.add(new WorkStation(115, "WorkStation 6"));
-		listaPosicion.add(new Segmentos(1, "Segmento 1")); 
-		listaPosicion.add(new Segmentos(2, "Segmento 2")); 
-		listaPosicion.add(new Segmentos(3, "Segmento 3")); 
-		listaPosicion.add(new Segmentos(4, "Segmento 4")); 
-		listaPosicion.add(new Segmentos(5, "Segmento 5")); 
-		listaPosicion.add(new Segmentos(6, "Segmento 6"));
-		listaPosicion.add(new Segmentos(7, "Segmento 7")); 
-		listaPosicion.add(new Segmentos(8, "Segmento 8")); 
-		listaPosicion.add(new Segmentos(9, "Segmento 9")); 
-		listaPosicion.add(new Segmentos(10, "Segmento 10")); 
-		listaPosicion.add(new Segmentos(11, "Segmento 11")); 
-		listaPosicion.add(new Segmentos(12, "Segmento 12"));
-		listaPosicion.add(new Segmentos(13, "Segmento 13")); 
-		listaPosicion.add(new Segmentos(14, "Segmento 14")); 
-		listaPosicion.add(new Segmentos(15, "Segmento 15"));
-		listaPosicion.add(new Segmentos(16, "Segmento 16"));
+		listaPosicion.add(new Parking(205, "Parking 1")); //0
+		listaPosicion.add(new Parking(206, "Parking 2")); //1
+		listaPosicion.add(new Parking(211, "Parking 3")); //2
+		listaPosicion.add(new Parking(212, "Parking 4")); //3
+		listaPosicion.add(new WorkStation(102, "WorkStation 1")); //4
+		listaPosicion.add(new WorkStation(103, "WorkStation 2")); //5
+		listaPosicion.add(new WorkStation(108, "WorkStation 3")); //6
+		listaPosicion.add(new WorkStation(109, "WorkStation 4")); //7
+		listaPosicion.add(new WorkStation(114, "WorkStation 5")); //8
+		listaPosicion.add(new WorkStation(115, "WorkStation 6")); //9
+		listaPosicion.add(new Segmentos(1, "Segmento 1")); //10
+		listaPosicion.add(new Segmentos(2, "Segmento 2")); //11
+		listaPosicion.add(new Segmentos(3, "Segmento 3")); //12
+		listaPosicion.add(new Segmentos(4, "Segmento 4")); //13
+		listaPosicion.add(new Segmentos(5, "Segmento 5")); //14
+		listaPosicion.add(new Segmentos(6, "Segmento 6")); //15
+		listaPosicion.add(new Segmentos(7, "Segmento 7")); //16
+		listaPosicion.add(new Segmentos(8, "Segmento 8")); //17
+		listaPosicion.add(new Segmentos(9, "Segmento 9")); //18
+		listaPosicion.add(new Segmentos(10, "Segmento 10")); //19
+		listaPosicion.add(new Segmentos(11, "Segmento 11")); //20
+		listaPosicion.add(new Segmentos(12, "Segmento 12")); //21
+		listaPosicion.add(new Segmentos(13, "Segmento 13")); //22
+		listaPosicion.add(new Segmentos(14, "Segmento 14")); //23
+		listaPosicion.add(new Segmentos(15, "Segmento 15")); //24
+		listaPosicion.add(new Segmentos(16, "Segmento 16")); //25
+		initializeConnectedPositions();		
+	}
+	
+	/**
+	 * @brief Method for initializing the positions connected to each other
+	 */
+	private void initializeConnectedPositions(){
+		/*Parkings*/
+		listaPosicion.get(0).addNextPosition(listaPosicion.get(14));
+		listaPosicion.get(1).addNextPosition(listaPosicion.get(15));
+		listaPosicion.get(2).addNextPosition(listaPosicion.get(20));
+		listaPosicion.get(3).addNextPosition(listaPosicion.get(21));	
+		/*WorkStations*/
+		listaPosicion.get(4).addNextPosition(listaPosicion.get(11));		
+		listaPosicion.get(5).addNextPosition(listaPosicion.get(12));		
+		listaPosicion.get(6).addNextPosition(listaPosicion.get(17));		
+		listaPosicion.get(7).addNextPosition(listaPosicion.get(18));		
+		listaPosicion.get(8).addNextPosition(listaPosicion.get(23));	
+		listaPosicion.get(9).addNextPosition(listaPosicion.get(24));
+		/*Segments*/
+		listaPosicion.get(10).addNextPosition(listaPosicion.get(11));//1-2
+		listaPosicion.get(11).addNextPosition(listaPosicion.get(4),listaPosicion.get(13),listaPosicion.get(14));//2-102,4,5
+		listaPosicion.get(12).addNextPosition(listaPosicion.get(5),listaPosicion.get(10));//3-103,1
+		listaPosicion.get(13).addNextPosition(listaPosicion.get(12));//4-3
 		
+		listaPosicion.get(14).addNextPosition(listaPosicion.get(0),listaPosicion.get(17));//5-205,8
+		listaPosicion.get(15).addNextPosition(listaPosicion.get(1),listaPosicion.get(12));//6-206,3
+		listaPosicion.get(16).addNextPosition(listaPosicion.get(17));//7-8
+		
+		listaPosicion.get(17).addNextPosition(listaPosicion.get(6),listaPosicion.get(19),listaPosicion.get(20));//8-108,10,11
+		listaPosicion.get(18).addNextPosition(listaPosicion.get(7),listaPosicion.get(15),listaPosicion.get(16));//9-109,6,7
+		listaPosicion.get(19).addNextPosition(listaPosicion.get(18));//10-9
+		
+		listaPosicion.get(20).addNextPosition(listaPosicion.get(2),listaPosicion.get(23));//11-211,14
+		listaPosicion.get(21).addNextPosition(listaPosicion.get(3),listaPosicion.get(18));//12-212,9	
+		listaPosicion.get(22).addNextPosition(listaPosicion.get(23));//13-14
+		
+		listaPosicion.get(23).addNextPosition(listaPosicion.get(8),listaPosicion.get(25));//14-114,16
+		listaPosicion.get(24).addNextPosition(listaPosicion.get(9),listaPosicion.get(21),listaPosicion.get(22));//15-115,12,13
+		listaPosicion.get(25).addNextPosition(listaPosicion.get(24));//16-15
 	}
 
 	/**
@@ -882,6 +922,11 @@ public class Almacen {
 		listaVehiculo.add(new Vehiculo(3, "Espera", listaPosicion.get(2)));
 		listaVehiculo.add(new Vehiculo(4, "Espera", listaPosicion.get(3)));
 		listaVehiculo.add(new Vehiculo(5, "Espera", listaPosicion.get(4)));
+		listaPosicion.get(0).setLleno(true);
+		listaPosicion.get(1).setLleno(true);
+		listaPosicion.get(2).setLleno(true);
+		listaPosicion.get(3).setLleno(true);
+		listaPosicion.get(4).setLleno(true);
 		
 	}
 	

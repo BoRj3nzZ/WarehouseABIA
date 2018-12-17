@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 11/12/2018
+ *  @date 17/12/2018
  */
 
 /** @brief package vista
@@ -57,11 +57,11 @@ public class Principal extends Thread{
 	public int menu(){
 		int opcion= 0;
 		
-		System.out.println("1.- Crear orden");
-		System.out.println("2.- Ver Coches");
-		System.out.println("3.- Ver WorkStations");
-		System.out.println("0.- Salir");
-		System.out.print("Selecciona opcion: ");
+		System.out.println("1.- Create order");
+		System.out.println("2.- View vehicles");
+		System.out.println("3.- View workstations");
+		System.out.println("0.- Exit");
+		System.out.print("Select option: ");
 		opcion = teclado.nextInt(); teclado.nextLine();
 		return opcion;
 
@@ -82,11 +82,11 @@ public class Principal extends Thread{
 				case 3: verWorkStations(); break;
 				
 				case 0: break;
-				default: System.out.println("opción no válida");
+				default: System.out.println("Option not valid");
 				}
 				
 			}catch (InputMismatchException e){
-				System.out.println("Elija una opción indicando su número");
+				System.out.println("Select an opction with a correct number");
 			}
 		}while (opcion != 0);
 		
@@ -119,6 +119,7 @@ public class Principal extends Thread{
 				routeTake = adminCaminos.getShortestRoute(actualPos, takeItemPos);
 				routeLeave = adminCaminos.getShortestRoute(takeItemPos, leaveItemPos);
 				System.out.println(leaveItemPos);
+				car.setWaitingPosicion(adminCaminos.getEmptyParking());
 				car.setLeaveItemPos(leaveItemPos);
 				car.setTakeItemPos(takeItemPos);
 				car.setTakingItemRoute(routeTake);

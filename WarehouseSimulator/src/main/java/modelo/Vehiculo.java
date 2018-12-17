@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 13/12/2018
+ *  @date 17/12/2018
  */
 
 /** @brief package modelo
@@ -26,7 +26,7 @@ public class Vehiculo extends Thread{
 	String nombre, estado;
 	
 	Posicion leaveItemPos, takeItemPos;
-	Posicion actualPosicion;
+	Posicion actualPosicion, waitingPosicion;
 	Articulos itemInside;
 	int itemId;
 	List<Posicion> takingItemRoute, returnRoute;
@@ -42,6 +42,7 @@ public class Vehiculo extends Thread{
 		nombre = "Vehiculo "+id;
 		this.estado = estado;
 		this.actualPosicion = posicion;
+		this.waitingPosicion = null;
 		this.leaveItemPos = null;
 		this.takeItemPos = null;
 		this.itemInside = null;
@@ -55,7 +56,12 @@ public class Vehiculo extends Thread{
 	 */
 	public void moveToSegment(Segmentos seg){
 		if(seg.connectsTo(leaveItemPos)){
+			System.out.println("Segment connects to ws("+seg.getId()+") which is full("+leaveItemPos.isFull()+")");
 			while(leaveItemPos.isFull() || seg.isFull()) ((WorkStation) leaveItemPos).wakeUpFromWorkStation();
+		}
+		if(seg.connectsTo(takeItemPos)){
+			System.out.println("Segment connects to ws("+seg.getId()+") which is full("+leaveItemPos.isFull()+")");
+			while(takeItemPos.isFull() || seg.isFull()) ((WorkStation) takeItemPos).wakeUpFromWorkStation();
 		}
 		System.out.println("Car "+id+" exiting from : "+actualPosicion.getId());
 		seg.enterSegment();
@@ -90,18 +96,26 @@ public class Vehiculo extends Thread{
 		actualPosicion = ws;
 		ws.enterWorkStation();
 		System.out.println("Car "+id+" entering workstation: "+actualPosicion.getId()+" and waiting");
+		deliverItemInside(ws);
+		this.setEstado("Espera");
 		ws.waitAtWorkStation();
-		//pk.waitAtParking();
+		System.out.println("Car "+this.id+" wakes from ws with status: "+estado);
+		if(estado.equals("Espera")){
+			if(waitingPosicion instanceof Parking) ((Parking) waitingPosicion).waitAtParking();
+			else ((WorkStation) waitingPosicion).waitAtWorkStation();
+		}
 	}
 	
 	/**
-	 * @brief Method to move through a defined route
+	 * @brief Method to move through a defined route, if the next position is full, it goes slower
 	 * @param route The route that needs to be followed
 	 */
 	public void move(List<Posicion> route){
 		for(Posicion p:route.subList(1, route.size())){
 			try {
-				this.sleep(5000);
+				this.sleep(1000);
+				if(p.isFull())this.sleep(10000);
+				else this.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -141,11 +155,9 @@ public class Vehiculo extends Thread{
 				e.printStackTrace();
 			}
 			if(leaveItemPos!=null){
-				System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAa");
 				move(takingItemRoute);
 				itemInside = ((WorkStation) takeItemPos).getArticulo(itemId);
 				move(returnRoute);
-				deliverItemInside((WorkStation) leaveItemPos);
 			}
 		}
 	}
@@ -264,7 +276,15 @@ public class Vehiculo extends Thread{
 	 */
 	public void setReturnRoute(List<Posicion> returnRoute) {
 		this.returnRoute = returnRoute;
+	}	
+	/**
+	 * @brief Method for setting the waitingPosicion of the vehicle 
+	 * @param waitingPosicion The position to be set
+	 */
+	public void setWaitingPosicion(Posicion waitingPosicion) {
+		this.waitingPosicion = waitingPosicion;
 	}
+
 	/**
 	 * @brief Method for printing the object in a custom way
 	 * @return string

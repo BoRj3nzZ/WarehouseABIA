@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 12/12/2018
+ *  @date 17/12/2018
  */
 
 /** @brief package controlador
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Almacen;
+import modelo.Parking;
 import modelo.Posicion;
 import modelo.Recorrido;
 
@@ -24,6 +25,7 @@ public class AdministradorCaminos {
 	 */
 	Almacen almacen;
 	List<Recorrido> listaRecorridos = new ArrayList<Recorrido>();
+	List<Posicion> listaPosiciones = new ArrayList<Posicion>();
 
 	/**
 	 * @brief Constructor
@@ -32,6 +34,7 @@ public class AdministradorCaminos {
 	public AdministradorCaminos(Almacen almacen) {
 		this.almacen = almacen;
 		listaRecorridos = almacen.getListaRecorridos();
+		listaPosiciones = almacen.getListaPosicion();
 	}
 	
 	/**
@@ -47,6 +50,21 @@ public class AdministradorCaminos {
 			}
 		}
 		return route;
+	}
+	
+	/**
+	 * @brief Method for getting an empty parking, or if every parking is full, 
+	 * getting a workstation (any workstation is empty at this point)
+	 */
+	public Posicion getEmptyParking(){
+		Posicion emptyPosition = listaPosiciones.get(4);
+		for(Posicion p:almacen.getListaPosicion()){
+			if(p instanceof Parking && !p.isFull()){
+				emptyPosition = p;
+			}
+		}
+		emptyPosition.setLleno(true);
+		return emptyPosition;
 	}
 	
 }

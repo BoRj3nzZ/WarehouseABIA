@@ -76,14 +76,6 @@ public class VehiculoTest {
 	    Posicion result = vehiculo.getActualPosicion();
 	    assertEquals("posocion debe ser parking", parking,(Object)result);
 	}
-	/**
-	 * @brief method that tests the method getId
-	 */
-	@Test
-	public void getIdTest() {
-	    int result = (int) vehiculo.getId();
-	    assertEquals("id debe ser 14", 14,(Object)result);
-	}
 	
 	/**
 	 * @brief method that tests the method getNombre
