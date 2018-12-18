@@ -46,6 +46,13 @@ public class Parking extends Posicion{
 	}
 	
 	/**
+	 * @brief Method for exiting from the parking, only one thread can access at a time
+	 */
+	public synchronized void exitFromParking(){
+		full=false;
+	}
+	
+	/**
 	 * @brief Method for determine which positions you can go to
 	 * @param pos list of next positions
 	 */
@@ -65,6 +72,16 @@ public class Parking extends Posicion{
 			return p;
 		}
 		return null;
+	}
+	/**
+	 * @brief Method for printing the parking in a custom way
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		String cadena;
+		cadena = "Parking "+ this.id +" - Full: "+this.full;
+		return cadena;
 	}
 
 }

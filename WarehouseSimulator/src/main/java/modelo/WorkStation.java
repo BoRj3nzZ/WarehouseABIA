@@ -54,7 +54,7 @@ public class WorkStation extends Posicion{
 	}
 
 	/**
-	 * @brief Method for entering the final workstation, only one thread can access at a time
+	 * @brief Method for waiting at the final workstation, only one thread can access at a time
 	 */
 	public synchronized void waitAtWorkStation(){
 		full = true;
@@ -70,7 +70,6 @@ public class WorkStation extends Posicion{
 	 * @brief Method for waking up from the workstation, only one thread can access at a time
 	 */
 	public synchronized void wakeUpFromWorkStation(){
-		full = false;
 		notify();
 	}
 	

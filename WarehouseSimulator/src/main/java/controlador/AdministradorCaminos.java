@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 17/12/2018
+ *  @date 18/12/2018
  */
 
 /** @brief package controlador
@@ -53,17 +53,17 @@ public class AdministradorCaminos {
 	}
 	
 	/**
-	 * @brief Method for getting an empty parking, or if every parking is full, 
-	 * getting a workstation (any workstation is empty at this point)
+	 * @brief Method for getting an empty parking
+	 * @return Parking
 	 */
-	public Posicion getEmptyParking(){
-		Posicion emptyPosition = listaPosiciones.get(4);
+	public Parking getEmptyParking(){
+		Parking emptyPosition = null;
 		for(Posicion p:almacen.getListaPosicion()){
 			if(p instanceof Parking && !p.isFull()){
-				emptyPosition = p;
+				emptyPosition = (Parking) p;
 			}
 		}
-		emptyPosition.setLleno(true);
+		if(emptyPosition!=null) emptyPosition.setLleno(true);
 		return emptyPosition;
 	}
 	

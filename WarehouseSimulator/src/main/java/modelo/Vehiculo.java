@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 17/12/2018
+ *  @date 18/12/2018
  */
 
 /** @brief package modelo
@@ -26,10 +26,11 @@ public class Vehiculo extends Thread{
 	String nombre, estado;
 	
 	Posicion leaveItemPos, takeItemPos;
-	Posicion actualPosicion, waitingPosicion;
+	Posicion actualPosicion;
+	Parking waitingParking;
 	Articulos itemInside;
 	int itemId;
-	List<Posicion> takingItemRoute, returnRoute;
+	List<Posicion> takingItemRoute, returnRoute, routeToParking;
 	
 	/**
 	 * @brief Constructor
@@ -42,7 +43,7 @@ public class Vehiculo extends Thread{
 		nombre = "Vehiculo "+id;
 		this.estado = estado;
 		this.actualPosicion = posicion;
-		this.waitingPosicion = null;
+		this.waitingParking = null;
 		this.leaveItemPos = null;
 		this.takeItemPos = null;
 		this.itemInside = null;
@@ -66,6 +67,8 @@ public class Vehiculo extends Thread{
 		System.out.println("Car "+id+" exiting from : "+actualPosicion.getId());
 		seg.enterSegment();
 		if(actualPosicion instanceof Segmentos) ((Segmentos) actualPosicion).exitSegment();
+		if(actualPosicion instanceof WorkStation) ((WorkStation) actualPosicion).exitWorkStation();
+		if(actualPosicion instanceof Parking) ((Parking) actualPosicion).exitFromParking();
 		actualPosicion = seg;
 		System.out.println("Car "+id+" entering segment: "+actualPosicion.getId());
 		//Travel across segment.
@@ -83,7 +86,7 @@ public class Vehiculo extends Thread{
 		actualPosicion = ws;	
 		ws.enterWorkStation();
 		System.out.println("Car "+id+" entering workstation: "+actualPosicion.getId());
-		//Take or leave item, be in workstation (also destination changes)
+		//Take or leave item, be in workstation
 		ws.exitWorkStation();
 	}
 	
@@ -99,13 +102,27 @@ public class Vehiculo extends Thread{
 		deliverItemInside(ws);
 		this.setEstado("Espera");
 		ws.waitAtWorkStation();
-		System.out.println("Car "+this.id+" wakes from ws with status: "+estado);
-		if(estado.equals("Espera")){
-			if(waitingPosicion instanceof Parking) ((Parking) waitingPosicion).waitAtParking();
-			else ((WorkStation) waitingPosicion).waitAtWorkStation();
+		System.out.println("Car "+this.id+" wakes from ws with status: "+estado+ "-pk: "+waitingParking);
+		while(estado.equals("Espera")){
+			if (waitingParking!=null){
+				ws.exitWorkStation();
+				move(routeToParking);
+			}
+			else ws.waitAtWorkStation();
 		}
 	}
-	
+	/**
+	 * @brief Method to entering a parking and wait there until awaken
+	 * @param pk The parking in which the vehicle will wait
+	 */
+	private void enterParkingAndWait(Parking pk) {
+		System.out.println("Entering parking "+pk.getId()+" and waiting");
+		while(estado.equals("Espera")){
+			actualPosicion=pk;
+			pk.waitAtParking();
+		}
+	}
+
 	/**
 	 * @brief Method to move through a defined route, if the next position is full, it goes slower
 	 * @param route The route that needs to be followed
@@ -122,7 +139,8 @@ public class Vehiculo extends Thread{
 			if(p instanceof Segmentos) moveToSegment((Segmentos) p);
 			else {
 				if(p instanceof WorkStation && this.itemInside==null) enterWorkStation((WorkStation)p);
-				else enterFinalWorkStation((WorkStation) p);
+				else if (p instanceof WorkStation) enterFinalWorkStation((WorkStation) p);
+				else enterParkingAndWait((Parking) p);
 			}
 		}
 	}
@@ -147,6 +165,14 @@ public class Vehiculo extends Thread{
 	 */
 	@Override
 	public void run() {
+		if(actualPosicion instanceof WorkStation){
+			((WorkStation) actualPosicion).waitAtWorkStation();
+			if(waitingParking!=null) move(routeToParking);
+		}
+		else{
+			((Parking) actualPosicion).waitAtParking();
+		}
+		
 		while(true){
 			try {
 				sleep(1000);
@@ -277,12 +303,21 @@ public class Vehiculo extends Thread{
 	public void setReturnRoute(List<Posicion> returnRoute) {
 		this.returnRoute = returnRoute;
 	}	
+	
+	/**
+	 * @brief Method for setting the routeToParking of the vehicle 
+	 * @param routeToParking The route to be set
+	 */
+	public void setRouteToParking(List<Posicion> routeToParking) {
+		this.routeToParking = routeToParking;
+	}
+
 	/**
 	 * @brief Method for setting the waitingPosicion of the vehicle 
 	 * @param waitingPosicion The position to be set
 	 */
-	public void setWaitingPosicion(Posicion waitingPosicion) {
-		this.waitingPosicion = waitingPosicion;
+	public void setWaitingPosicion(Parking waitingParking) {
+		this.waitingParking = waitingParking;
 	}
 
 	/**

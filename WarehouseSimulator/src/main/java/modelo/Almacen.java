@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 17/12/2018
+ *  @date 18/12/2018
  */
 
 /** @brief package modelo
@@ -917,16 +917,16 @@ public class Almacen {
 	 * @brief Version sin BBDD
 	 */
 	private void leerListaVehiculos() {
-		listaVehiculo.add(new Vehiculo(1, "Espera", listaPosicion.get(0)));
-		listaVehiculo.add(new Vehiculo(2, "Espera", listaPosicion.get(1)));
-		listaVehiculo.add(new Vehiculo(3, "Espera", listaPosicion.get(2)));
-		listaVehiculo.add(new Vehiculo(4, "Espera", listaPosicion.get(3)));
-		listaVehiculo.add(new Vehiculo(5, "Espera", listaPosicion.get(4)));
-		listaPosicion.get(0).setLleno(true);
-		listaPosicion.get(1).setLleno(true);
-		listaPosicion.get(2).setLleno(true);
-		listaPosicion.get(3).setLleno(true);
+		listaVehiculo.add(new Vehiculo(1, "Espera", listaPosicion.get(4)));
+		listaVehiculo.add(new Vehiculo(2, "Espera", listaPosicion.get(5)));
+		listaVehiculo.add(new Vehiculo(3, "Espera", listaPosicion.get(6)));
+		listaVehiculo.add(new Vehiculo(4, "Espera", listaPosicion.get(7)));
+		listaVehiculo.add(new Vehiculo(5, "Espera", listaPosicion.get(8)));
 		listaPosicion.get(4).setLleno(true);
+		listaPosicion.get(5).setLleno(true);
+		listaPosicion.get(6).setLleno(true);
+		listaPosicion.get(7).setLleno(true);
+		listaPosicion.get(8).setLleno(true);
 		
 	}
 	

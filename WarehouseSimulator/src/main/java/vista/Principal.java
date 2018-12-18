@@ -21,6 +21,7 @@ import controlador.AdministradorCoches;
  */
 import modelo.Almacen;
 import modelo.Articulos;
+import modelo.Parking;
 import modelo.Posicion;
 import modelo.Vehiculo;
 import modelo.WorkStation;
@@ -47,6 +48,10 @@ public class Principal extends Thread{
 		adminCaminos = new AdministradorCaminos(almacen);
 		adminCoches = new AdministradorCoches(almacen);
 		for(Vehiculo v:adminCoches.getListaCoches()){
+			if(v.getIdal()!=1){
+				v.setWaitingPosicion(adminCaminos.getEmptyParking());
+				v.setRouteToParking(adminCaminos.getShortestRoute(v.getActualPosicion(), adminCaminos.getEmptyParking()));;
+			}
 			v.start();
 		}
 	}
@@ -60,6 +65,7 @@ public class Principal extends Thread{
 		System.out.println("1.- Create order");
 		System.out.println("2.- View vehicles");
 		System.out.println("3.- View workstations");
+		System.out.println("4.- View parkings");
 		System.out.println("0.- Exit");
 		System.out.print("Select option: ");
 		opcion = teclado.nextInt(); teclado.nextLine();
@@ -80,6 +86,7 @@ public class Principal extends Thread{
 				case 1: crearOrden();break;
 				case 2: verCoches(); break;
 				case 3: verWorkStations(); break;
+				case 4: verParkings(); break;
 				
 				case 0: break;
 				default: System.out.println("Option not valid");
@@ -97,8 +104,9 @@ public class Principal extends Thread{
 	private void crearOrden() {
 		int leaveItemWsId, takeItemWsId, actualPosWsId, itemId, index = 0;
 		Posicion leaveItemPos, takeItemPos, actualPos;
+		Parking waitingParking;
 		Vehiculo car;
-		List<Posicion> routeTake, routeLeave;
+		List<Posicion> routeTake, routeLeave, routeToParking;
 		String opcion="S";
 		do{
 			try{
@@ -119,7 +127,11 @@ public class Principal extends Thread{
 				routeTake = adminCaminos.getShortestRoute(actualPos, takeItemPos);
 				routeLeave = adminCaminos.getShortestRoute(takeItemPos, leaveItemPos);
 				System.out.println(leaveItemPos);
-				car.setWaitingPosicion(adminCaminos.getEmptyParking());
+				waitingParking = adminCaminos.getEmptyParking();
+				System.out.println("AAAAAAAAAAAAAAAA Parking selected: "+waitingParking);
+				routeToParking = adminCaminos.getShortestRoute(leaveItemPos, waitingParking);
+				car.setRouteToParking(routeToParking);
+				car.setWaitingPosicion(waitingParking);
 				car.setLeaveItemPos(leaveItemPos);
 				car.setTakeItemPos(takeItemPos);
 				car.setTakingItemRoute(routeTake);
@@ -159,6 +171,17 @@ public class Principal extends Thread{
 		for(Posicion ws:almacen.getListaPosicion()){
 			if(ws instanceof WorkStation){
 				System.out.println(ws);
+			}
+		}
+		System.out.println("-------------------------------------------------");		
+	}
+	/**
+	 * @brief Method for printing the parkings in a custom way
+	 */
+	private void verParkings() {
+		for(Posicion pk:almacen.getListaPosicion()){
+			if(pk instanceof Parking){
+				System.out.println(pk);
 			}
 		}
 		System.out.println("-------------------------------------------------");		
