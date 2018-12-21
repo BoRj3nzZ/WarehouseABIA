@@ -100,10 +100,10 @@ public class Vehiculo extends Thread{
 		ws.enterWorkStation();
 		System.out.println("Car "+id+" entering workstation: "+actualPosicion.getId()+" and waiting");
 		deliverItemInside(ws);
-		this.setEstado("Espera");
+		this.setEstado("stopped");
 		ws.waitAtWorkStation();
 		System.out.println("Car "+this.id+" wakes from ws with status: "+estado+ "-pk: "+waitingParking);
-		while(estado.equals("Espera")){
+		while(estado.equals("stopped")){
 			if (waitingParking!=null){
 				ws.exitWorkStation();
 				move(routeToParking);
@@ -117,7 +117,7 @@ public class Vehiculo extends Thread{
 	 */
 	private void enterParkingAndWait(Parking pk) {
 		System.out.println("Entering parking "+pk.getId()+" and waiting");
-		while(estado.equals("Espera")){
+		while(estado.equals("stopped")){
 			actualPosicion=pk;
 			pk.waitAtParking();
 		}

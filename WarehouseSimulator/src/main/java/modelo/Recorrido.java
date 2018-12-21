@@ -1,10 +1,11 @@
 /** @file Almacen.java
  *  @brief Class to create the WorkStation 
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 04/12/2018
+ *  Borja	      | Garcia         | borja.garcia@alumni.mondragon.edu    |
+ *  @date 20/12/2018
  */
  
  /** @brief package modelo
@@ -25,12 +26,27 @@ public class Recorrido {
 	 * @brief Attributes
 	 */
 	List<Posicion> recorrido;
+	Posicion inicio;
 	
 	/**
 	 * @brief Constructor
 	 */
 	public Recorrido(){
 		recorrido = new ArrayList<Posicion>();
+	}
+	
+	public Recorrido(Posicion inicio, Posicion ...pos){
+		recorrido = new ArrayList<Posicion>();
+		this.inicio = inicio;
+		for(Posicion p: pos){
+			recorrido.add(p);
+		}
+	}
+	
+	public void añadirPosiciones(Posicion ... pos){
+		for(Posicion p: pos){
+			recorrido.add(p);
+		}
 	}
 	
 	/**
@@ -73,7 +89,7 @@ public class Recorrido {
 	 * @return Posicion
 	 */
 	public Posicion getInicio(){
-		return recorrido.get(0);
+		return this.inicio;
 	}
 	
 	/**

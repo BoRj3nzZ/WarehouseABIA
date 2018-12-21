@@ -21,18 +21,16 @@ public class Articulos {
 	 */
 	int id;
 	Posicion posicion;
-	String tipo, nombre, desc;
+	String nombre, desc;
 	
 	/**
 	 * @brief Constructor
 	 * @param id product ID
-	 * @param tipo product type
 	 * @param nombre product name
 	 * @param desc product description
 	 */
-	public Articulos(int id, String tipo, String nombre, String desc){
+	public Articulos(int id, String nombre, String desc){
 		this.id=id;
-		this.tipo = tipo;
 		this.nombre = nombre;
 		this.desc=desc;
 	}
@@ -43,14 +41,6 @@ public class Articulos {
 	 */
 	public int getId() {
 		return id;
-	}
-
-	/**
-	 * @brief Method for get the value of the tipo variable
-	 * @return String
-	 */
-	public String getTipo() {
-		return tipo;
 	}
 
 	/**
@@ -75,7 +65,7 @@ public class Articulos {
 	@Override
 	public String toString() {
 		String cadena;
-		cadena = tipo + " - " + nombre + " - " + desc;
+		cadena = nombre + " - " + desc;
 		return cadena;
 	}
 }

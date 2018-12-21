@@ -65,7 +65,7 @@ public class AdministradorCoches {
 	public void updateFreeCarList(){
 		listaCochesLibres.clear();
 		for(Vehiculo v:listaCoches){
-			if(v.getEstado().equalsIgnoreCase("Espera")){
+			if(v.getEstado().equalsIgnoreCase("stopped")){
 				listaCochesLibres.add(v);
 			}
 		}

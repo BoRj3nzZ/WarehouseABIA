@@ -1,0 +1,28 @@
+package controlador;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBManager {
+    static String USER = "root";
+	static String PASS = "";
+	static String DBNAME = "abia_warehouse";
+
+	// Connect to your database.
+	// Replace server name, username, and password with your credentials
+
+	public static Connection getConnection() {
+		// TODO Auto-generated method stub
+		String connectionString = "jdbc:mysql://localhost/" + DBNAME + "?" + "user=" + USER + "&password=" + PASS;
+		Connection connection = null;
+		try {
+			connection = DriverManager.getConnection(connectionString);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return connection;
+	}
+
+}

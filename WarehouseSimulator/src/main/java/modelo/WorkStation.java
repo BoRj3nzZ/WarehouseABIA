@@ -122,8 +122,8 @@ public class WorkStation extends Posicion{
 	 * @return Articulos
 	 */
 	public Articulos getArticulo(int index){
-		Articulos a = listProductos.get(index);
-		listProductos.remove(index);
+		Articulos a = listProductos.get(index-1);
+		listProductos.remove(index-1);
 		return a;
 	}
 	
