@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 17/12/2018
+ *  @date 08/01/2019
  */
 
 /** @brief package vista
@@ -43,11 +43,13 @@ public class Principal extends Thread{
 	/**
 	 * @brief Constructor
 	 */
-	private Principal() {
+	public Principal() {
 		teclado = new Scanner(System.in);
 		almacen = new Almacen();
 		adminCaminos = new AdministradorCaminos(almacen);
 		adminCoches = new AdministradorCoches(almacen);
+		almacen.setAdminCaminos(adminCaminos);
+		almacen.setAdminCoches(adminCoches);
 		for(Vehiculo v:adminCoches.getListaCoches()){
 			if(v.getIdal()!=1){
 				v.setWaitingPosicion(adminCaminos.getEmptyParking());
@@ -125,19 +127,7 @@ public class Principal extends Thread{
 				itemId = teclado.nextInt();teclado.nextLine();
 				car = adminCoches.getFirstFreeCar();
 				actualPos = car.getActualPosicion();
-				routeTake = adminCaminos.getShortestRoute(actualPos, takeItemPos);
-				routeLeave = adminCaminos.getShortestRoute(takeItemPos, leaveItemPos);
-				System.out.println(leaveItemPos);
-				waitingParking = adminCaminos.getEmptyParking();
-				System.out.println("AAAAAAAAAAAAAAAA Parking selected: "+waitingParking);
-				routeToParking = adminCaminos.getShortestRoute(leaveItemPos, waitingParking);
-				car.setRouteToParking(routeToParking);
-				car.setWaitingPosicion(waitingParking);
-				car.setLeaveItemPos(leaveItemPos);
-				car.setTakeItemPos(takeItemPos);
-				car.setTakingItemRoute(routeTake);
-				car.setReturnRoute(routeLeave);
-				car.setItemId(itemId);
+				adminCoches.setCarData(car, actualPos, takeItemPos, leaveItemPos, itemId);
 				System.out.print("More (Y/N)?");
 				opcion = teclado.nextLine();
 			}catch (InputMismatchException e){
@@ -149,7 +139,7 @@ public class Principal extends Thread{
 	 * @brief Method for getting the position by the id of it 
 	 * @return Posicion
 	 */
-	private Posicion getPositionById(int id) {
+	public Posicion getPositionById(int id) {
 		Posicion posicion = null;
 		for(Posicion p:almacen.getListaPosicion()){
 			if(p.getId()==id) posicion = p;
@@ -187,7 +177,22 @@ public class Principal extends Thread{
 		}
 		System.out.println("-------------------------------------------------");		
 	}
-
+	
+	/**
+	 * @brief Method for getting the path administrator
+	 * @return AdministradorCaminos
+	 */
+	public AdministradorCaminos getAdminCaminos() {
+		return adminCaminos;
+	}
+	
+	/**
+	 * @brief Method for getting the vehicle administrator
+	 * @return AdministradorCoches
+	 */
+	public AdministradorCoches getAdminCoches() {
+		return adminCoches;
+	}
 	/**
 	 * @brief main
 	 * @param args String[]

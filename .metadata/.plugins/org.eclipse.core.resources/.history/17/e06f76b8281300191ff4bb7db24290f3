@@ -1,0 +1,36 @@
+/** @file NormalProcessTest.java
+ *  @brief Class to test the normal process of the program
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 08/01/2018
+ *  
+ */
+
+/** @brief package processTest
+ */
+package processTest;
+
+import org.junit.Before;
+
+import modelo.Almacen;
+
+/**
+* @brief Class NormalProcessTest
+*/
+public class NormalProcessTest {
+	/**
+	 * @brief Attributes
+	 */
+	private Almacen almacen;
+	
+	/**
+	 * @brief Method to create objects
+	 */
+	@Before
+	public void crearAlmacen()
+	{
+		almacen = new Almacen();
+	}
+}

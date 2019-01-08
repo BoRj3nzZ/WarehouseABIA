@@ -1,10 +1,11 @@
 /** @file TaskTest.java
  *  @brief Class to test the Task class
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 2/12/2018
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 08/01/2019
  *  
  */
 
@@ -41,13 +42,13 @@ public class TaskTest {
 	private Posicion pos;
 	
 	/**
-	 * @brief Method to cretate objects
+	 * @brief Method to create objects
 	 */
 	@Before
 	public void crearTask()
 	{
 		pos = new WorkStation(10, "Pos1");
-		articulo = new Articulos(1, "Calzado", "Bota Soul", "Bota de monte marron y negro");
+		articulo = new Articulos(1, "Bota Soul", "Bota de monte marron y negro");
 		task = new Task(120, articulo,"Espera",pos);
 	}
 	

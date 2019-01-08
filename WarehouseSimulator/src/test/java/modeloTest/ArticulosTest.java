@@ -1,10 +1,11 @@
 /** @file ArticulosTest.java
  *  @brief Class to test the Articulos class
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 30/11/2018
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 08/01/2019
  *  
  */
 
@@ -36,7 +37,7 @@ public class ArticulosTest {
 	@Before
 	public void crearArticulo()
 	{
-		articulo = new Articulos(1, "Calzado", "Bota Soul", "Bota de monte marron y negro");
+		articulo = new Articulos(1, "Bota Soul", "Bota de monte marron y negro");
 	}
 	
 	/**
@@ -55,15 +56,6 @@ public class ArticulosTest {
 	public void getNombreTest() {
 		String result = articulo.getNombre();
 		assertEquals("Nombre debe ser Bota Soul", "Bota Soul",(Object)result);
-	}
-	
-	/**
-	 * @brief method that tests the method getTipo
-	 */
-	@Test
-	public void getTipoTest() {
-		String result = articulo.getTipo();
-		assertEquals("Tipo debe ser Calzado", "Calzado",(Object)result);
 	}
 	
 	/**

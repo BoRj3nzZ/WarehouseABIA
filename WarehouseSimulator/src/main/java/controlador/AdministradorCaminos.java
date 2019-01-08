@@ -29,42 +29,46 @@ public class AdministradorCaminos {
 
 	/**
 	 * @brief Constructor
-	 * @param almacen The warehouse
+	 * @param almacen
+	 *            The warehouse
 	 */
 	public AdministradorCaminos(Almacen almacen) {
 		this.almacen = almacen;
 		listaRecorridos = almacen.getListaRecorridos();
 		listaPosiciones = almacen.getListaPosicion();
 	}
-	
+
 	/**
 	 * @brief Method for getting the shortest route between two positions
-	 * @param inicio Starting position of the route
-	 * @param destino Final position of the route
+	 * @param inicio
+	 *            Starting position of the route
+	 * @param destino
+	 *            Final position of the route
 	 */
-	public List<Posicion> getShortestRoute(Posicion inicio, Posicion destino){
+	public List<Posicion> getShortestRoute(Posicion inicio, Posicion destino) {
 		List<Posicion> route = new ArrayList<Posicion>();
-		for(Recorrido r:listaRecorridos){
-			if(r.getInicio()==inicio && r.getFinal()==destino){
+		for (Recorrido r : listaRecorridos) {
+			if (r.getInicio() == inicio && r.getFinal() == destino) {
 				route = r.getRecorrido();
 			}
 		}
 		return route;
 	}
-	
+
 	/**
 	 * @brief Method for getting an empty parking
 	 * @return Parking
 	 */
-	public Parking getEmptyParking(){
+	public Parking getEmptyParking() {
 		Parking emptyPosition = null;
-		for(Posicion p:almacen.getListaPosicion()){
-			if(p instanceof Parking && !p.isFull()){
+		for (Posicion p : almacen.getListaPosicion()) {
+			if (p instanceof Parking && !p.isFull()) {
 				emptyPosition = (Parking) p;
 			}
 		}
-		if(emptyPosition!=null) emptyPosition.setLleno(true);
+		if (emptyPosition != null)
+			emptyPosition.setLleno(true);
 		return emptyPosition;
 	}
-	
+
 }

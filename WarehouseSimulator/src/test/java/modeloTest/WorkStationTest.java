@@ -1,10 +1,11 @@
 /** @file WorkStationTest.java
  *  @brief Class to test the WorkStation class
  *  @authors
- *  Name          | Surname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 1/12/2018
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 08/01/2019
  *  
  */
 
@@ -44,7 +45,7 @@ public class WorkStationTest {
 	public void crearVehiculo()
 	{
 		workStation = new WorkStation(10, "Parking 1");
-		articulo = new Articulos(1, "Calzado", "Bota Soul", "Bota de monte marron y negro");
+		articulo = new Articulos(1, "Bota Soul", "Bota de monte marron y negro");
 	}
 	
 	/**

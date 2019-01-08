@@ -12,6 +12,8 @@
  */
 package modeloTest;
 
+/** @brief Libraries
+ */
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -27,8 +29,6 @@ import modelo.Task;
 import modelo.Vehiculo;
 import modelo.WorkStation;
 
-/** @brief Libraries
- */
 /**
 * @brief Class AlmacenTest
 */

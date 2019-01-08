@@ -1,0 +1,75 @@
+/** @file AdministradorCaminos.java
+ *  @brief Class to create the AdministradorCaminos object
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 18/12/2018
+ */
+
+/** @brief package controlador
+ */
+package controlador;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import modelo.Almacen;
+import modelo.Parking;
+import modelo.Posicion;
+import modelo.Recorrido;
+
+public class AdministradorCaminos {
+	/**
+	 * @brief Attributes
+	 */
+	Almacen almacen;
+	List<Recorrido> listaRecorridos = new ArrayList<Recorrido>();
+	List<Posicion> listaPosiciones = new ArrayList<Posicion>();
+
+	/**
+	 * @brief Constructor
+	 * @param almacen
+	 *            The warehouse
+	 */
+	public AdministradorCaminos(Almacen almacen) {
+		this.almacen = almacen;
+		listaRecorridos = almacen.getListaRecorridos();
+		listaPosiciones = almacen.getListaPosicion();
+	}
+
+	/**
+	 * @brief Method for getting the shortest route between two positions
+	 * @param inicio
+	 *            Starting position of the route
+	 * @param destino
+	 *            Final position of the route
+	 */
+	public List<Posicion> getShortestRoute(Posicion inicio, Posicion destino) {
+		List<Posicion> route = new ArrayList<Posicion>();
+		System.out.println("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+		for (Recorrido r : listaRecorridos) {
+			if (r.getInicio() == inicio && r.getFinal() == destino) {
+				route = r.getRecorrido();
+			}
+		}
+		return route;
+	}
+
+	/**
+	 * @brief Method for getting an empty parking
+	 * @return Parking
+	 */
+	public Parking getEmptyParking() {
+		Parking emptyPosition = null;
+		for (Posicion p : almacen.getListaPosicion()) {
+			if (p instanceof Parking && !p.isFull()) {
+				emptyPosition = (Parking) p;
+			}
+		}
+		if (emptyPosition != null)
+			emptyPosition.setLleno(true);
+		return emptyPosition;
+	}
+
+}

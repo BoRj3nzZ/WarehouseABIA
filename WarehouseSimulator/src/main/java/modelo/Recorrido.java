@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garcia@alumni.mondragon.edu    |
- *  @date 20/12/2018
+ *  @date 08/01/2019
  */
  
  /** @brief package modelo
@@ -35,14 +35,20 @@ public class Recorrido {
 		recorrido = new ArrayList<Posicion>();
 	}
 	
-	public Recorrido(Posicion inicio, Posicion ...pos){
+	/**
+	 * @brief Constructor
+	 */
+	public Recorrido(Posicion inicio, Posicion ... pos){
 		recorrido = new ArrayList<Posicion>();
 		this.inicio = inicio;
 		for(Posicion p: pos){
 			recorrido.add(p);
 		}
 	}
-	
+	/**
+	 * @brief Method that adds positions to the route
+	 * @param pos Positions to be added to the route
+	 */
 	public void añadirPosiciones(Posicion ... pos){
 		for(Posicion p: pos){
 			recorrido.add(p);

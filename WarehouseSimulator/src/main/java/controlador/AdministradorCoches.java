@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 17/12/2018
+ *  @date 08/01/2019
  */
 
 /** @brief package controlador
@@ -76,6 +76,32 @@ public class AdministradorCoches {
 	 */
 	public void setCarOnFreeList(Vehiculo v){
 		listaCochesLibres.add(v);
+	}	
+	/**
+	 * @brief Method for setting all vehicle data
+	 * @param car The vehicle which data will be modified
+	 * @param actualPos The initial position of the vehicle
+	 * @param takeItemPos The position from which the vehicle will take the item.
+	 * @param leaveItemPos The position to which the vehicle will carry the item.
+	 * @param itemId The item to be carried.
+	 */
+	public void setCarData(Vehiculo car, Posicion actualPos, Posicion takeItemPos, Posicion leaveItemPos, int itemId) {
+		List<Posicion> routeTake, routeLeave, routeToParking;
+		Parking waitingParking;
+		
+		routeTake = almacen.getAdminCaminos().getShortestRoute(actualPos, takeItemPos);
+		routeLeave = almacen.getAdminCaminos().getShortestRoute(takeItemPos, leaveItemPos);
+		waitingParking = almacen.getAdminCaminos().getEmptyParking();
+		routeToParking = almacen.getAdminCaminos().getShortestRoute(leaveItemPos, waitingParking);
+		
+		car.getActualPosicion().setLleno(false);
+		car.setRouteToParking(routeToParking);
+		car.setWaitingPosicion(waitingParking);
+		car.setLeaveItemPos(leaveItemPos);
+		car.setTakeItemPos(takeItemPos);
+		car.setTakingItemRoute(routeTake);
+		car.setReturnRoute(routeLeave);
+		car.setItemId(itemId);		
 	}
 	
 }
