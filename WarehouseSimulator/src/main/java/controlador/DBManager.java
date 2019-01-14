@@ -28,7 +28,6 @@ public class DBManager {
 			// Setup the connection with the DB
 			connect = DriverManager.getConnection(
 					"jdbc:mysql://localhost/" + DBNAME + "?" + "user=" + USER + "&password=" + PASS);
-			System.out.println("Conexion con la DB establecida");
 			return connect;
 		} catch (Exception e) {
 			e.printStackTrace();

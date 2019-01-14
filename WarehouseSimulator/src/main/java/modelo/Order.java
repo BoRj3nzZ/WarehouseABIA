@@ -1,16 +1,18 @@
 /** @file Order.java
  *  @brief Class to create the Orders
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
- *  @date 29/11/2018
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 14/01/2019
  */
 
 /** @brief package modelo
  */
 package modelo;
 
+import java.util.ArrayList;
 /** @brief Libraries
  */
 import java.util.List;
@@ -32,15 +34,21 @@ public class Order {
 	 * @brief Constructor
 	 * @param id Order ID
 	 * @param posicionFinal Position in which the products must be finished
-	 * @param lista List of all tasks that the order has
 	 */
-	public Order(int id,Posicion posicionFinal, List<Task> lista, String estado){
+	public Order(int id,Posicion posicionFinal, String estado){
 		this.id = id;
 		this.posicionFinal = posicionFinal;
-		listaTask = lista;
+		listaTask = new ArrayList<Task>();
 		this.estado = estado;
 	}
 
+	/**
+	 * @brief Method for adding tasks to the list
+	 */
+	public void addTaskToList(Task task){
+		this.listaTask.add(task);
+	}
+	
 	/**
 	 * @brief Method for get the value of the estado variable
 	 * @return String
@@ -78,7 +86,9 @@ public class Order {
 	 * @return List<Task>
 	 */
 	public List<Task> getListaTask() {
-		return listaTask;
+		List<Task> copia = new ArrayList<Task>();
+		copia.addAll(listaTask);
+		return copia;
 	}
 	
 

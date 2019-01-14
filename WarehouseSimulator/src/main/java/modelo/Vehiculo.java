@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 08/01/2019
+ *  @date 14/01/2019
  */
 
 /** @brief package modelo
@@ -29,6 +29,7 @@ public class Vehiculo extends Thread{
 	Posicion actualPosicion;
 	Parking waitingParking;
 	Articulos itemInside;
+	Task task;
 	int itemId;
 	List<Posicion> takingItemRoute, returnRoute, routeToParking;
 	
@@ -101,6 +102,9 @@ public class Vehiculo extends Thread{
 		System.out.println("Car "+id+" entering workstation: "+actualPosicion.getId()+" and waiting");
 		deliverItemInside(ws);
 		this.setEstado("stopped");
+		Almacen.cambiarEstadoVehiculoDB(this.id, "stopped");
+		Almacen.cambiarEstadoTaskDB(task.getId(), task.getArticulo().getId(), "done");
+		Almacen.cambiarFechaCompletarTaskDB(task.getId(), task.getArticulo().getId());
 		ws.waitAtWorkStation();
 		System.out.println("Car "+this.id+" wakes from ws with status: "+estado+ "-pk: "+waitingParking);
 		while(estado.equals("stopped")){
@@ -116,6 +120,7 @@ public class Vehiculo extends Thread{
 	 * @param pk The parking in which the vehicle will wait
 	 */
 	private void enterParkingAndWait(Parking pk) {
+		actualPosicion.setLleno(false);
 		System.out.println("Entering parking "+pk.getId()+" and waiting");
 		while(estado.equals("stopped")){
 			actualPosicion=pk;
@@ -128,20 +133,32 @@ public class Vehiculo extends Thread{
 	 * @param route The route that needs to be followed
 	 */
 	public void move(List<Posicion> route){
+		Posicion lastPos=this.actualPosicion;
 		for(Posicion p:route){
 			try {
 				this.sleep(1000);
 				if(p.isFull())this.sleep(10000);
 				else this.sleep(1000);
 			} catch (InterruptedException e) {
+				this.interrupt();
 				e.printStackTrace();
 			}
-			if(p instanceof Segmentos) moveToSegment((Segmentos) p);
+			this.actualPosicion.setLleno(false);
+			if(p instanceof Segmentos){
+				moveToSegment((Segmentos) p);
+				Almacen.cambiarPosicionVehiculoDB(this.id, p.getId());
+				Almacen.cambiarEstadoPosicionDB(lastPos.getId(), 0);
+				Almacen.cambiarEstadoPosicionDB(p.getId(), 1);
+			}
 			else {
+				Almacen.cambiarPosicionVehiculoDB(this.id, p.getId());
+				Almacen.cambiarEstadoPosicionDB(lastPos.getId(), 0);
+				Almacen.cambiarEstadoPosicionDB(p.getId(), 1);
 				if(p instanceof WorkStation && this.itemInside==null) enterWorkStation((WorkStation)p);
 				else if (p instanceof WorkStation) enterFinalWorkStation((WorkStation) p);
 				else enterParkingAndWait((Parking) p);
 			}
+			lastPos=p;
 		}
 	}
 	
@@ -156,6 +173,7 @@ public class Vehiculo extends Thread{
 	public void startOrder(List<Posicion> routeIda, List<Posicion> routeVuelta, int itemId, Posicion takeItemPos, Posicion leaveItemPos) {
 		move(routeIda);	
 		itemInside = ((WorkStation) takeItemPos).getArticulo(itemId);
+		Almacen.cambiarPosicionArticuloDB(this.actualPosicion.getId(), itemInside.getId());
 		move(routeVuelta);
 		deliverItemInside((WorkStation) leaveItemPos);
 	}
@@ -167,7 +185,9 @@ public class Vehiculo extends Thread{
 	public void run() {
 		if(actualPosicion instanceof WorkStation){
 			((WorkStation) actualPosicion).waitAtWorkStation();
-			if(waitingParking!=null) move(routeToParking);
+			if(this.estado.equals("stopped")&&this.waitingParking!=null){
+				move(routeToParking);
+			}
 		}
 		else{
 			((Parking) actualPosicion).waitAtParking();
@@ -177,12 +197,12 @@ public class Vehiculo extends Thread{
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				this.interrupt();
 				e.printStackTrace();
 			}
 			if(leaveItemPos!=null){
 				move(takingItemRoute);
-				itemInside = ((WorkStation) takeItemPos).getArticulo(itemId);
+				itemInside = ((WorkStation) takeItemPos).getArticuloWithId(itemId);
 				move(returnRoute);
 			}
 		}
@@ -202,6 +222,7 @@ public class Vehiculo extends Thread{
 	 */
 	public void deliverItemInside(WorkStation ws){
 		ws.addArticulo(itemInside);
+		Almacen.cambiarPosicionArticuloDB(ws.getId(), itemInside.getId());
 		itemInside = null;
 	}
 	/**
@@ -294,7 +315,22 @@ public class Vehiculo extends Thread{
 	 */
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
+	}	
+	/**
+	 * @brief Method for getting the value of the task variable
+	 * @return Task
+	 */
+	public Task getTask() {
+		return task;
 	}
+	/**
+	 * @brief Method for setting the task assigned to the vehicle 
+	 * @param task The task to be assigned
+	 */
+	public void setTask(Task task) {
+		this.task = task;
+	}
+
 	/**
 	 * @brief Method for setting the takingItemRoute of the vehicle 
 	 * @param takingItemRoute The route to be set
@@ -324,6 +360,13 @@ public class Vehiculo extends Thread{
 	 */
 	public void setWaitingPosicion(Parking waitingParking) {
 		this.waitingParking = waitingParking;
+	}
+	/**
+	 * @brief Method for getting the value of the waitingParking variable
+	 * @return Parking
+	 */
+	public Parking getWaitingParking() {
+		return waitingParking;
 	}
 
 	/**

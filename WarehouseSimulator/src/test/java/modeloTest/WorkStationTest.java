@@ -47,26 +47,6 @@ public class WorkStationTest {
 		workStation = new WorkStation(10, "Parking 1");
 		articulo = new Articulos(1, "Bota Soul", "Bota de monte marron y negro");
 	}
-	
-	/**
-	 * @brief method that tests the method addNextPosition
-	 */
-	@Test
-	public void addNextPositionTest() {
-		Segmentos seg = new Segmentos(5, "Parking 2");
-		workStation.addNextPosition(seg);
-		Posicion result = workStation.getNextPosition();
-	    assertEquals("posocion debe ser seg", seg,(Object)result);
-	}
-	
-	/**
-	 * @brief method that tests the method getNextPosition
-	 */
-	@Test
-	public void getNextPositionTest() {
-		Posicion result = workStation.getNextPosition();
-	    assertEquals("posocion debe ser null", null,(Object)result);
-	}
 
 	/**
 	 * @brief method that tests the method addArticulo

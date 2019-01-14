@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 08/01/2019
+ *  @date 11/01/2019
  */
 
 /** @brief package controlador
@@ -55,7 +55,8 @@ public class AdministradorCoches {
 		actualPosition = car.getActualPosicion();
 		if(actualPosition instanceof Parking) ((Parking) actualPosition).wakeUpFromParking();
 		else ((WorkStation) actualPosition).wakeUpFromWorkStation();
-		car.setEstado("Processing");
+		car.setEstado("moving");
+		Almacen.cambiarEstadoVehiculoDB(car.getIdal(), "moving");
 		listaCochesLibres.remove(0);
 		return car;
 	}	
@@ -91,7 +92,7 @@ public class AdministradorCoches {
 		
 		routeTake = almacen.getAdminCaminos().getShortestRoute(actualPos, takeItemPos);
 		routeLeave = almacen.getAdminCaminos().getShortestRoute(takeItemPos, leaveItemPos);
-		waitingParking = almacen.getAdminCaminos().getEmptyParking();
+		waitingParking = car.getWaitingParking();
 		routeToParking = almacen.getAdminCaminos().getShortestRoute(leaveItemPos, waitingParking);
 		
 		car.getActualPosicion().setLleno(false);
@@ -101,7 +102,7 @@ public class AdministradorCoches {
 		car.setTakeItemPos(takeItemPos);
 		car.setTakingItemRoute(routeTake);
 		car.setReturnRoute(routeLeave);
-		car.setItemId(itemId);		
+		car.setItemId(itemId);	
 	}
 	
 }

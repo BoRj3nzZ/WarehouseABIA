@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 13/12/2018
+ *  @date 11/01/2019
  */
 
 /** @brief package modelo
@@ -85,17 +85,6 @@ public class WorkStation extends Posicion{
 	}
 	
 	/**
-	 * @brief Method for get the value of the nextPosition variable
-	 * @return Position
-	 */
-	public Posicion getNextPosition(){
-		for(Posicion p : nextPositionList){
-			return p;
-		}
-		return null;
-	}
-	
-	/**
 	 * @brief Method for add an Articulos to the listProductos
 	 * @param new Article
 	 */
@@ -136,6 +125,20 @@ public class WorkStation extends Posicion{
 		copia.addAll(listProductos);
 		return copia;
 	}
+	
+	/**
+	 * @brief Method for getting an article knowing its id
+	 * @param itemId The id of the item that needs to be found
+	 * @return Articulos
+	 */
+	public Articulos getArticuloWithId(int itemId) {
+		Articulos neededArticle = null;
+		for(Articulos a:listProductos){
+			if(a.getId()==itemId) neededArticle=a;
+		}
+		return neededArticle;
+	}
+	
 	/**
 	 * @brief Method for printing the workstation in a custom way
 	 * @return String

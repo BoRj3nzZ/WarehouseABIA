@@ -78,24 +78,4 @@ public class ParkingTest {
 	    assertEquals("posocion debe ser true", true,(Object)result);
 	}
 	
-	/**
-	 * @brief method that tests the addNextPosition method
-	 */
-	@Test
-	public void addNextPositionTest() {
-		Parking parkin2 = new Parking(5, "Parking 2");
-		parking.addNextPosition(parkin2);
-		Posicion result = parking.getNextPosition();
-	    assertEquals("posocion debe ser true", parkin2,(Object)result);
-	}
-	
-	/**
-	 * @brief method that tests the getNextPosition method
-	 */
-	@Test
-	public void getNextPositionTest() {
-		Posicion result = parking.getNextPosition();
-	    assertEquals("posocion debe ser null", null,(Object)result);
-	}
-	
 }

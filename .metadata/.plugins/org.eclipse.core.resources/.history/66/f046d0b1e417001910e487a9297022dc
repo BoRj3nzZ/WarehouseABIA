@@ -1,0 +1,862 @@
+/** @file Almacen.java
+ *  @brief Class to create the WorkStation 
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 14/01/2019
+ */
+
+/** @brief package modelo
+ */
+package modelo;
+
+/** @brief Libraries
+ */
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import controlador.AdministradorCaminos;
+import controlador.AdministradorCoches;
+import controlador.DBManager;
+
+/**
+ * @brief Class Almacen
+ */
+public class Almacen {
+
+	/**
+	 * @brief Attributes
+	 */
+	List<Vehiculo> listaVehiculo;
+	List<Order> listaOrdenes;
+	List<Posicion> listaPosicion;
+	List<Recorrido> listaRecorridos;
+	List<Task> listaTasks;
+	Recorrido recorrido;
+
+	AdministradorCaminos adminCaminos;
+	AdministradorCoches adminCoches;
+
+	/**
+	 * @brief Constructor
+	 */
+	public Almacen() {
+		listaVehiculo = new ArrayList<Vehiculo>();
+		listaOrdenes = new ArrayList<Order>();
+		listaPosicion = new ArrayList<Posicion>();
+		listaRecorridos = new ArrayList<Recorrido>();
+		listaTasks = new ArrayList<Task>();
+		leerPosicionesDesdeDB();
+		for (Posicion p : listaPosicion) {
+			initializeConnectionsOfPositionFromDatabase(p.getId());
+		}
+		leerVehiculosDesdeDB();
+		leerArticulosDesdeDB();
+		initializeRoutes();
+	}
+
+	/**
+	 * @brief Method for initializing the routes between every position
+	 */
+	private void initializeRoutes() {
+		Segmentos s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16;
+		WorkStation ws2, ws3, ws8, ws9, ws14, ws15;
+		Parking pk5, pk6, pk11, pk12;
+
+		s1 = (Segmentos) listaPosicion.get(0);
+		s2 = (Segmentos) listaPosicion.get(1);
+		s3 = (Segmentos) listaPosicion.get(2);
+		s4 = (Segmentos) listaPosicion.get(3);
+		s5 = (Segmentos) listaPosicion.get(4);
+		s6 = (Segmentos) listaPosicion.get(5);
+		s7 = (Segmentos) listaPosicion.get(6);
+		s8 = (Segmentos) listaPosicion.get(7);
+		s9 = (Segmentos) listaPosicion.get(8);
+		s10 = (Segmentos) listaPosicion.get(9);
+		s11 = (Segmentos) listaPosicion.get(10);
+		s12 = (Segmentos) listaPosicion.get(11);
+		s13 = (Segmentos) listaPosicion.get(12);
+		s14 = (Segmentos) listaPosicion.get(13);
+		s15 = (Segmentos) listaPosicion.get(14);
+		s16 = (Segmentos) listaPosicion.get(15);
+
+		ws2 = (WorkStation) listaPosicion.get(16);
+		ws3 = (WorkStation) listaPosicion.get(17);
+		ws8 = (WorkStation) listaPosicion.get(18);
+		ws9 = (WorkStation) listaPosicion.get(19);
+		ws14 = (WorkStation) listaPosicion.get(20);
+		ws15 = (WorkStation) listaPosicion.get(21);
+
+		pk5 = (Parking) listaPosicion.get(22);
+		pk6 = (Parking) listaPosicion.get(23);
+		pk11 = (Parking) listaPosicion.get(24);
+		pk12 = (Parking) listaPosicion.get(25);
+
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, pk5));// 102-205
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, s8, ws8));// 102-108
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, s8, s11, pk11));// 102-211
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, s8, s11, s14, ws14));// 102-114
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, s8, s11, s14, s16, s15, ws15));// 102-115
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, s8, s11, s14, s16, s15, s12, pk12));// 102-212
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, s8, s10, s9, ws9));// 102-109
+		listaRecorridos.add(new Recorrido(ws2, s2, s5, s8, s10, s9, s6, pk6));// 102-206
+		listaRecorridos.add(new Recorrido(ws2, s2, s4, s3, ws3));// 102-103
+
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, ws2));// 103-102
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, pk5));// 103-205
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, s8, ws8));// 103-108
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, s8, s11, pk11));// 103-211
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, s8, s11, s14, ws14));// 103-114
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, s8, s11, s14, s16, s15, ws15));// 103-115
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, s8, s11, s14, s16, s15, s12, pk12));// 103-212
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, s8, s10, s9, ws9));// 103-109
+		listaRecorridos.add(new Recorrido(ws3, s3, s1, s2, s5, s8, s10, s9, s6, pk6));// 103-206
+
+		listaRecorridos.add(new Recorrido(ws8, s8, s11, pk11));// 108-211
+		listaRecorridos.add(new Recorrido(ws8, s8, s11, s14, ws14));// 108-114
+		listaRecorridos.add(new Recorrido(ws8, s8, s11, s14, s16, s15, ws15));// 108-115
+		listaRecorridos.add(new Recorrido(ws8, s8, s11, s14, s16, s15, s12, pk12));// 108-212
+		listaRecorridos.add(new Recorrido(ws8, s8, s10, s9, ws9));// 108-109
+		listaRecorridos.add(new Recorrido(ws8, s8, s10, s9, s6, pk6));// 108-206
+		listaRecorridos.add(new Recorrido(ws8, s8, s10, s9, s6, s3, ws3));// 108-103
+		listaRecorridos.add(new Recorrido(ws8, s8, s10, s9, s6, s3, s1, s2, ws2));// 108-102
+		listaRecorridos.add(new Recorrido(ws8, s8, s10, s9, s6, s3, s1, s2, s5, pk5));// 108-205
+
+		listaRecorridos.add(new Recorrido(ws9, s9, s6, pk6));// 109-206
+		listaRecorridos.add(new Recorrido(ws9, s9, s6, s3, ws3));// 109-103
+		listaRecorridos.add(new Recorrido(ws9, s9, s6, s3, s1, s2, ws2));// 109-102
+		listaRecorridos.add(new Recorrido(ws9, s9, s6, s3, s1, s2, s5, pk5));// 109-205
+		listaRecorridos.add(new Recorrido(ws9, s9, s7, s8, ws8));// 109-108
+		listaRecorridos.add(new Recorrido(ws9, s9, s7, s8, s11, pk11));// 109-211
+		listaRecorridos.add(new Recorrido(ws9, s9, s7, s8, s11, s14, ws14));// 109-114
+		listaRecorridos.add(new Recorrido(ws9, s9, s7, s8, s11, s14, s16, s15, ws15));// 109-115
+		listaRecorridos.add(new Recorrido(ws9, s9, s7, s8, s11, s14, s16, s15, s12, pk12));// 109-212
+
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, ws15));// 114-115
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, pk12));// 114-212
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, s9, ws9));// 114-109
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, s9, s6, pk6));// 114-206
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, s9, s6, s3, ws3));// 114-103
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, s9, s6, s3, s1, s2, ws2));// 114-102
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, s9, s6, s3, s1, s2, s5, pk5));// 114-205
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, s9, s7, s8, ws8));// 114-108
+		listaRecorridos.add(new Recorrido(ws14, s14, s16, s15, s12, s9, s7, s8, s11, pk11));// 114-211
+
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, pk12));// 115-212
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, s9, ws9));// 115-109
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, s9, s6, pk6));// 115-206
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, s9, s6, s3, ws3));// 115-103
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, s9, s6, s3, s1, s2, ws2));// 115-102
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, s9, s6, s3, s1, s2, s5, pk5));// 115-205
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, s9, s7, s8, ws8));// 115-108
+		listaRecorridos.add(new Recorrido(ws15, s15, s12, s9, s7, s8, s11, pk11));// 115-211
+		listaRecorridos.add(new Recorrido(ws15, s15, s13, s14, ws14));// 115-114
+
+		listaRecorridos.add(new Recorrido(pk5, s5, s8, ws8));// 205-108
+		listaRecorridos.add(new Recorrido(pk5, s5, s8, s11, s14, ws14));// 205-114
+		listaRecorridos.add(new Recorrido(pk5, s5, s8, s11, s14, s16, s15, ws15));// 205-115
+		listaRecorridos.add(new Recorrido(pk5, s5, s8, s10, s9, ws9));// 205-109
+		listaRecorridos.add(new Recorrido(pk5, s5, s8, s10, s9, s6, s3, ws3));// 205-103
+		listaRecorridos.add(new Recorrido(pk5, s5, s8, s10, s9, s6, s3, s1, s2, ws2));// 205-102
+
+		listaRecorridos.add(new Recorrido(pk6, s6, s3, ws3));// 206-103
+		listaRecorridos.add(new Recorrido(pk6, s6, s3, s1, s2, ws2));// 206-102
+		listaRecorridos.add(new Recorrido(pk6, s6, s3, s1, s2, s5, s8, ws8));// 206-108
+		listaRecorridos.add(new Recorrido(pk6, s6, s3, s1, s2, s5, s8, s11, s14, ws14));// 206-114
+		listaRecorridos.add(new Recorrido(pk6, s6, s3, s1, s2, s5, s8, s11, s14, s16, s15, ws15));// 206-115
+		listaRecorridos.add(new Recorrido(pk6, s6, s3, s1, s2, s5, s8, s10, s9, ws9));// 206-109
+
+		listaRecorridos.add(new Recorrido(pk11, s11, s14, ws14));// 211-114
+		listaRecorridos.add(new Recorrido(pk11, s11, s14, s16, s15, ws15));// 211-115
+		listaRecorridos.add(new Recorrido(pk11, s11, s14, s16, s15, s12, s9, ws9));// 211-109
+		listaRecorridos.add(new Recorrido(pk11, s11, s14, s16, s15, s12, s9, s6, s3, ws3));// 211-103
+		listaRecorridos.add(new Recorrido(pk11, s11, s14, s16, s15, s12, s9, s6, s3, s1, s2, ws2));// 211-102
+		listaRecorridos.add(new Recorrido(pk11, s11, s14, s16, s15, s12, s9, s7, s8, ws8));// 211-108
+
+		listaRecorridos.add(new Recorrido(pk12, s12, s9, ws9));// 212-109
+		listaRecorridos.add(new Recorrido(pk12, s12, s9, s6, s3, ws3));// 212-103
+		listaRecorridos.add(new Recorrido(pk12, s12, s9, s6, s3, s1, s2, ws2));// 212-102
+		listaRecorridos.add(new Recorrido(pk12, s12, s9, s7, s8, ws8));// 212-108
+		listaRecorridos.add(new Recorrido(pk12, s12, s9, s7, s8, s11, s14, ws14));// 212-114
+		listaRecorridos.add(new Recorrido(pk12, s12, s9, s7, s8, s11, s14, s16, s15, ws15));// 212-115
+	}
+
+	/**
+	 * @brief Method for reading the articles from the database
+	 */
+	private void leerArticulosDesdeDB() {
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		String articleName, articleDesc;
+		int articleId, posId;
+		try {
+			connection = DBManager.getConnection();
+			String selectSql = "select p.idProduct, pt.NAME, pt.DESCRIPTION, p.POSITION from "
+					+ "product p join producttype pt on p.producttype=pt.idProducttype";
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(selectSql);
+			while (resultSet.next()) {
+				articleId = resultSet.getInt(1);
+				articleName = resultSet.getString(2);
+				articleDesc = resultSet.getString(3);
+				posId = resultSet.getInt(4);
+				((WorkStation) getPosicionById(posId)).addArticulo(new Articulos(articleId, articleName, articleDesc));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeResultStatementConnection(resultSet, statement, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for reading new tasks of an order from the database
+	 */
+	public void leerNewTasksDeOrdenDesdeDB(int orderId){
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		Order order = getOrderById(orderId);
+		Posicion destination = order.getPosicionFinal();
+		int prodId;
+		try {
+			connection = DBManager.getConnection();
+			String selectSql = "select idProduct from task where idORDER="+orderId+" and idSTATUS=1";
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(selectSql);
+			while (resultSet.next()) {
+				prodId = resultSet.getInt(1);
+				order.addTaskToList(new Task(orderId, getArticleById(prodId), "to do", destination));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeResultStatementConnection(resultSet, statement, connection);
+		}
+	}
+	
+	/**
+	 * @brief Method for reading new orders from the database
+	 */
+	public void leerOrdenesNuevasDesdeDB(){
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int orderId, destinationId;
+		try {
+			connection = DBManager.getConnection();
+			String selectSql = "SELECT idOrder, destino from abia_warehouse.order WHERE idOrderStatus=1";
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(selectSql);
+			while (resultSet.next()) {
+				orderId = resultSet.getInt(1);
+				destinationId = resultSet.getInt(2);
+				listaOrdenes.add(new Order(orderId, getPosicionById(destinationId), "not checked"));
+				System.out.println("added order n: "+orderId+" with destination: "+destinationId);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeResultStatementConnection(resultSet, statement, connection);
+		}
+	}
+	
+	/**
+	 * @brief Method for reading the not started orders from the database. For now the taskID will be the same as the productID.
+	 */
+	public void leerTasksNuevasDesdeDB() {
+		// Declare the JDBC objects.
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		String status = "to do";
+		listaTasks.clear();
+		int prodId, destinationId;
+		try {
+			connection = DBManager.getConnection();
+			String selectSql = "SELECT t.idPRODUCT, o.DESTINO FROM task as t JOIN abia_warehouse.order as o ON t.idOrder = o.idOrder WHERE t.idSTATUS=1";
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(selectSql);
+			while (resultSet.next()) {
+				prodId = resultSet.getInt(1);
+				destinationId = resultSet.getInt(2);
+				listaTasks.add(new Task(prodId, getArticleById(prodId), status, getPosicionById(destinationId)));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeResultStatementConnection(resultSet, statement, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for reading the positions from the database
+	 */
+	private void leerPosicionesDesdeDB() {
+		// Declare the JDBC objects.
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		String posName;
+		int posType, posId;
+		try {
+			connection = DBManager.getConnection();
+			String selectSql = "select idPosition, idPosType, POSNAME from position";
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(selectSql);
+			while (resultSet.next()) {
+				posId = resultSet.getInt(1);
+				posType = resultSet.getInt(2);
+				posName = resultSet.getString(3);
+				if (posType == 1)
+					listaPosicion.add(new Segmentos(posId, posName));
+				if (posType == 2)
+					listaPosicion.add(new Parking(posId, posName));
+				if (posType == 3)
+					listaPosicion.add(new WorkStation(posId, posName));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeResultStatementConnection(resultSet, statement, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for reading the connections of a position from the database
+	 */
+	private void initializeConnectionsOfPositionFromDatabase(int originId) {
+		// Declare the JDBC objects.
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int posId;
+		try {
+			connection = DBManager.getConnection();
+			String selectSql = "select idDestino from positionrelation where idOrigen=" + originId;
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(selectSql);
+			while (resultSet.next()) {
+				posId = resultSet.getInt(1);
+				getPosicionById(originId).addNextPosition(getPosicionById(posId));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeResultStatementConnection(resultSet, statement, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for reading the vehicles from the database
+	 */
+	private void leerVehiculosDesdeDB() {
+		// Declare the JDBC objects.
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		String vehicleStatus;
+		int posId, vehicleId;
+		try {
+			connection = DBManager.getConnection();
+			String selectSql = "select v.idVehicle, vs.statusname, v.idPosition from "
+					+ "vehicle v join vehiclestatus vs on v.idVehicleStatus=vs.idVehicleStatus";
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(selectSql);
+			while (resultSet.next()) {
+				vehicleId = resultSet.getInt(1);
+				vehicleStatus = resultSet.getString(2);
+				posId = resultSet.getInt(3);
+				listaVehiculo.add(new Vehiculo(vehicleId, vehicleStatus, getPosicionById(posId)));
+				getPosicionById(posId).setLleno(true);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeResultStatementConnection(resultSet, statement, connection);
+		}
+	}
+
+	/**
+	 * Method for closing the resultSet, statement and connection
+	 * @param resultSet
+	 * @param statement
+	 * @param connection
+	 */
+	private void closeResultStatementConnection(ResultSet resultSet, Statement statement, Connection connection) {
+		if (resultSet != null)
+			try {
+				resultSet.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		if (statement != null)
+			try {
+				statement.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		if (connection != null)
+			try {
+				connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
+	}
+
+	/**
+	 * @brief Method for changing the vehicle position value in the database.
+	 *        Can be accessed statically
+	 * @param carID
+	 *            The id of the vehicle that needs the change
+	 * @param newPosID
+	 *            The id of the new position the vehicle will move to
+	 */
+	public static void cambiarPosicionVehiculoDB(int carID, int newPosID) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update vehicle set idPOSITION = ? where idVEHICLE = ?";
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, newPosID);
+			preparedStmt.setInt(2, carID);
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for changing the vehicle status value in the database. Can
+	 *        be accessed statically
+	 * @param carID
+	 *            The id of the vehicle that needs the change
+	 * @param newStatus
+	 *            The status of the vehicle
+	 */
+	public static void cambiarEstadoVehiculoDB(int carID, String newStatus) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		int statusID;
+		if (newStatus.equalsIgnoreCase("moving"))
+			statusID = 2;
+		else
+			statusID = 1;
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update vehicle set idVEHICLESTATUS = ? where idVEHICLE = ?";
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, statusID);
+			preparedStmt.setInt(2, carID);
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for changing the vehicle status value in the database. Can
+	 *        be accessed statically
+	 * @param posID
+	 *            The id of the position that needs the change
+	 * @param statusID
+	 *            The status of the position (1= full, 0= not full)
+	 */
+	public static void cambiarEstadoPosicionDB(int posID, int statusID) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update position set FULL = ? where idPOSITION = ?";
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, statusID);
+			preparedStmt.setInt(2, posID);
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for changing the article status value in the database. Can
+	 *        be accessed statically
+	 * @param posID
+	 *            The id of the new position of the item
+	 * @param itemID
+	 *            The id of the item that needs the change
+	 */
+	public static void cambiarPosicionArticuloDB(int posID, int itemID) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update product set POSITION = ? where idPRODUCT = ?";
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, posID);
+			preparedStmt.setInt(2, itemID);
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for changing the car assigned to a task in the database.
+	 *        Can be accessed statically
+	 * @param orderID
+	 * 			  The id of the order in which the task is
+	 * @param taskID
+	 *            The id of the product of the task that needs the change
+	 * @param newCarID
+	 *            The id of the vehicle assigned to the task
+	 */
+	public static void cambiarAsignacionCocheTaskDB(int orderID, int taskID, int newCarID) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update task set idVEHICLE = ? where idPRODUCT = ? and idORDER = ?"; //
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, newCarID);
+			preparedStmt.setInt(2, taskID);
+			preparedStmt.setInt(3, orderID);
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for changing the car assigned to a task in the database.
+	 *        Can be accessed statically
+	 * @param orderID
+	 * 			  The id of the order in which the task is
+	 * @param taskID
+	 *            The id of the product of the task that needs the change
+	 * @param newTaskStatus
+	 *            The new status of the task
+	 */
+	public static void cambiarEstadoTaskDB(int orderID, int taskID, String newTaskStatus) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		int statusID;
+		if (newTaskStatus.equalsIgnoreCase("to do"))
+			statusID = 1;
+		else if (newTaskStatus.equalsIgnoreCase("doing"))
+			statusID = 2;
+		else
+			statusID = 3;
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update task set idSTATUS = ? where idPRODUCT = ? and idORDER = ?"; //
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, statusID);
+			preparedStmt.setInt(2, taskID);
+			preparedStmt.setInt(3, orderID);
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for changing the car assigned to a task in the database.
+	 *        Can be accessed statically
+	 * @param orderID
+	 * 			  The id of the order in which the task is
+	 * @param taskID
+	 *            The id of the product of the task that needs the change
+	 */
+	public static void cambiarFechaCompletarTaskDB(int orderID, int taskID) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		Date date = new Date(Calendar.getInstance().getTimeInMillis());
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update task set FINISHDATE = ? where idPRODUCT = ? and idORDER = ?"; //
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setDate(1, date);
+			preparedStmt.setInt(2, taskID);
+			preparedStmt.setInt(3, orderID);
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+	
+	/**
+	 * @brief Method for changing the status of an order in the database.
+	 *        Can be accessed statically
+	 * @param order
+	 *            The order that needs the change
+	 */
+	public static void cambiarEstadoOrderDB(Order order, String status) {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		int statusId;
+		if (status.equals("not checked")) statusId = 1;
+		else if (status.equals("in process")) statusId = 2;
+		else statusId = 3;
+		try {
+			connection = DBManager.getConnection();
+
+			// create the java mysql update preparedstatement
+			String query = "update abia_warehouse.order set idORDERSTATUS = ? where idORDER = ?"; //
+			preparedStmt = connection.prepareStatement(query);
+			preparedStmt.setInt(1, statusId);
+			preparedStmt.setInt(2, order.getId());
+
+			// execute the java preparedstatement
+			preparedStmt.executeUpdate();
+
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closePreparedAndConnection(preparedStmt, connection);
+		}
+	}
+
+	/**
+	 * @brief Method for closing the prepared statement and connection
+	 * @param preparedStmt
+	 * @param connection
+	 */
+	private static void closePreparedAndConnection(PreparedStatement preparedStmt, Connection connection) {
+		if (preparedStmt != null)
+			try {
+				preparedStmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		if (connection != null)
+			try {
+				connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
+	}
+
+	/**
+	 * @brief Method for getting a position knowing its id
+	 * @param id
+	 *            the id of the position
+	 * @return pos the position with the needed id
+	 */
+	public Posicion getPosicionById(int id) {
+		Posicion pos = null;
+		for (Posicion p : listaPosicion) {
+			if (p.getId() == id)
+				pos = p;
+		}
+		return pos;
+	}
+
+	/**
+	 * @brief Method for getting an article knowing its id
+	 * @param id
+	 *            the id of the article
+	 * @return article the article with the needed id
+	 */
+	public Articulos getArticleById(int id) {
+		Articulos article = null;
+		for (Posicion p : listaPosicion) {
+			if (p instanceof WorkStation){
+				for(Articulos a:((WorkStation) p).getListProductos()){
+					if(a.getId()==id) article = a;
+				}
+			}
+		}
+		return article;
+	}
+	
+	/**
+	 * @brief Method for getting an order knowing its id
+	 * @param id
+	 *            the id of the order
+	 * @return Order the order with the needed id
+	 */
+	public Order getOrderById(int id) {
+		Order order = null;
+		for (Order o : listaOrdenes) {
+			if(o.getId()==id) order=o;
+		}
+		return order;
+	}
+
+	/**
+	 * @brief Method for getting the path administrator
+	 * @return AdministradorCaminos
+	 */
+	public AdministradorCaminos getAdminCaminos() {
+		return adminCaminos;
+	}
+
+	/**
+	 * @brief Method for setting the path administrator
+	 * @param adminCaminos
+	 *            The path administrator
+	 */
+	public void setAdminCaminos(AdministradorCaminos adminCaminos) {
+		this.adminCaminos = adminCaminos;
+	}
+
+	/**
+	 * @brief Method for getting the vehicle administrator
+	 * @return AdministradorCoches
+	 */
+	public AdministradorCoches getAdminCoches() {
+		return adminCoches;
+	}
+
+	/**
+	 * @brief Method for setting the vehicle administrator
+	 * @param adminCoches
+	 *            The vehicle administrator
+	 */
+	public void setAdminCoches(AdministradorCoches adminCoches) {
+		this.adminCoches = adminCoches;
+	}
+
+	/**
+	 * @brief Method for getting the values of the listaVehiculo variable
+	 * @return List<Recorrido>
+	 */
+	public List<Recorrido> getListaRecorridos() {
+		List<Recorrido> copia = new ArrayList<Recorrido>();
+		copia.addAll(listaRecorridos);
+		return copia;
+	}
+
+	/**
+	 * @brief Method for getting the values of the listaVehiculo variable
+	 * @return List<Vehiculo>
+	 */
+	public List<Vehiculo> getListaVehiculo() {
+		List<Vehiculo> copia = new ArrayList<Vehiculo>();
+		copia.addAll(listaVehiculo);
+		return copia;
+	}
+
+	/**
+	 * @brief Method for getting the values of the listaOrdenes variable
+	 * @return List<Order>
+	 */
+	public List<Order> getListaOrdenes() {
+		List<Order> copia = new ArrayList<Order>();
+		copia.addAll(listaOrdenes);
+		return copia;
+	}
+
+	/**
+	 * @brief Method for getting the values of the listaPosicion variable
+	 * @return List<Posicion>
+	 */
+	public List<Posicion> getListaPosicion() {
+		return listaPosicion;
+	}
+	
+	/**
+	 * @brief Method for getting the values of the listaTasks variable
+	 * @return List<Task>
+	 */
+	public List<Task> getListaTasks() {
+		List<Task> copia = new ArrayList<Task>();
+		copia.addAll(listaTasks);
+		return copia;
+	}
+
+	/**
+	 * @brief Method for deleting one value of the listaOrdenes variable
+	 * @param index
+	 *            Index of the element you want to delete
+	 */
+	public void borrarOrden(int index) {
+		listaOrdenes.remove(index);
+	}
+
+	/**
+	 * @brief Method for deleting one value of the listaOrdenes variable
+	 * @param orden
+	 *            the element you want to delete
+	 */
+	public void borrarOrden(Order orden) {
+		listaOrdenes.remove(orden);
+	}
+
+	/**
+	 * @brief Method for adding one value of the listaOrdenes variable
+	 * @param orden
+	 *            the element you want to add
+	 */
+	public void añadirOrden(Order orden) {
+		listaOrdenes.add(orden);
+	}
+	
+}

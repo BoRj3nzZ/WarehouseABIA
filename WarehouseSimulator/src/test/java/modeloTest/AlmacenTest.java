@@ -55,8 +55,7 @@ public class AlmacenTest {
 	@Test
 	public void añadirOrdenTest() {
 		Posicion pos = new WorkStation(10, "Pos1");
-		List<Task> lista = new ArrayList<Task>();
-		Order orden = new Order(10, pos, lista, "Espera");
+		Order orden = new Order(10, pos, "Espera");
 		almacen.añadirOrden(orden);
 		List<Order> lista2 = almacen.getListaOrdenes();
 		boolean result = false;
@@ -72,8 +71,7 @@ public class AlmacenTest {
 	@Test
 	public void borrarOrden1Test() {
 		Posicion pos = new WorkStation(10, "Pos1");
-		List<Task> lista = new ArrayList<Task>();
-		Order orden = new Order(10, pos, lista, "Espera");
+		Order orden = new Order(10, pos, "Espera");
 		almacen.añadirOrden(orden);
 		almacen.borrarOrden(orden);
 		List<Order> lista2 = almacen.getListaOrdenes();
@@ -92,8 +90,7 @@ public class AlmacenTest {
 	@Test
 	public void borrarOrden2Test() {
 		Posicion pos = new WorkStation(100, "Pos1");
-		List<Task> lista = new ArrayList<Task>();
-		Order orden = new Order(10, pos, lista, "Espera");
+		Order orden = new Order(10, pos, "Espera");
 		almacen.añadirOrden(orden);
 		almacen.borrarOrden(0);
 		List<Order> lista2 = almacen.getListaOrdenes();

@@ -1,0 +1,6 @@
+projectKey=org.sonarqube:WarehouseSimulator
+serverUrl=http://localhost:9000
+serverVersion=7.3.0.15553
+dashboardUrl=http://localhost:9000/dashboard?id=org.sonarqube%3AWarehouseSimulator
+ceTaskId=AWg8khGH2TRs0BGZhQzq
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWg8khGH2TRs0BGZhQzq

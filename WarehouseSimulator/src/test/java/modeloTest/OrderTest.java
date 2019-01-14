@@ -1,7 +1,7 @@
 /** @file OrderTest.java
  *  @brief Class to test the Order class
  *  @authors
- *  Name          | Suname         | Email                                |
+ *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  @date 2/12/2018
@@ -40,14 +40,13 @@ public class OrderTest {
 	private Posicion pos;
 	
 	/**
-	 * @brief Method to cretate objects
+	 * @brief Method to create objects
 	 */
 	@Before
 	public void crearOrder()
 	{
 		pos = new WorkStation(10, "Pos1");
-		lista = new ArrayList<Task>();
-		orden = new Order(10, pos, lista, "Espera");
+		orden = new Order(10, pos, "Espera");
 	}
 	
 	/**

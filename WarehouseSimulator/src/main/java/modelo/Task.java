@@ -43,7 +43,7 @@ public class Task {
 		this.estado = estado;
 		this.posicionFinal = posicionFinal;
 	}
-
+	
 	/**
 	 * @brief Method for get the value of the posicionFinal variable
 	 * @return Posicion
