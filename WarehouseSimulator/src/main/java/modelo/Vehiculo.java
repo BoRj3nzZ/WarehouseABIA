@@ -5,7 +5,7 @@
  *  ------------- | -------------- | ------------------------------------ |
  *  Ander	      | Olaso          | ander.olaso@alumni.mondragon.edu     |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 14/01/2019
+ *  @date 15/01/2019
  */
 
 /** @brief package modelo
@@ -13,6 +13,8 @@
 package modelo;
 
 import java.util.List;
+
+import controlador.AdministradorCaminos;
 
 /**
  * @brief Class Vehiculo extends Thread
@@ -32,6 +34,8 @@ public class Vehiculo extends Thread{
 	Task task;
 	int itemId;
 	List<Posicion> takingItemRoute, returnRoute, routeToParking;
+	
+	AdministradorCaminos adminCaminos;
 	
 	/**
 	 * @brief Constructor
@@ -108,11 +112,8 @@ public class Vehiculo extends Thread{
 		ws.waitAtWorkStation();
 		System.out.println("Car "+this.id+" wakes from ws with status: "+estado+ "-pk: "+waitingParking);
 		while(estado.equals("stopped")){
-			if (waitingParking!=null){
-				ws.exitWorkStation();
-				move(routeToParking);
-			}
-			else ws.waitAtWorkStation();
+			ws.exitWorkStation();
+			moveToParking();
 		}
 	}
 	/**
@@ -185,8 +186,8 @@ public class Vehiculo extends Thread{
 	public void run() {
 		if(actualPosicion instanceof WorkStation){
 			((WorkStation) actualPosicion).waitAtWorkStation();
-			if(this.estado.equals("stopped")&&this.waitingParking!=null){
-				move(routeToParking);
+			if(this.estado.equals("stopped")){
+				moveToParking();
 			}
 		}
 		else{
@@ -206,6 +207,16 @@ public class Vehiculo extends Thread{
 				move(returnRoute);
 			}
 		}
+	}
+
+	/**
+	 * @brief Method for moving to a parking. Assigns automatically an empty parking and sets the route.
+	 */
+	private void moveToParking() {
+		Parking p = adminCaminos.getEmptyParking();
+		this.waitingParking = p;
+		this.routeToParking = adminCaminos.getShortestRoute(this.actualPosicion, p);
+		move(routeToParking);		
 	}
 
 	/**
@@ -367,6 +378,14 @@ public class Vehiculo extends Thread{
 	 */
 	public Parking getWaitingParking() {
 		return waitingParking;
+	}
+	
+	/**
+	 * @brief Method for setting the adminCaminos of the vehicle 
+	 * @param adminCaminos The path administrator to be set on the vehicle
+	 */
+	public void setAdminCaminos(AdministradorCaminos adminCaminos) {
+		this.adminCaminos = adminCaminos;
 	}
 
 	/**

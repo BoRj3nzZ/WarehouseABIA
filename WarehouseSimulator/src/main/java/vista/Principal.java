@@ -4,7 +4,7 @@
  *  Name          | Surname        | Email                                |
  *  ------------- | -------------- | ------------------------------------ |
  *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
- *  @date 11/01/2019
+ *  @date 15/01/2019
  */
 
 /** @brief package vista
@@ -54,16 +54,14 @@ public class Principal extends Thread {
 		almacen.setAdminCoches(adminCoches);
 		Parking p;
 		for (Vehiculo v : adminCoches.getListaCoches()) {
-			if (v.getIdal() != 6) {
-				if (v.getActualPosicion() instanceof Parking)
-					p = (Parking) v.getActualPosicion();
-				else {
+			/*if (v.getIdal() != 6) {
+				if (v.getActualPosicion() instanceof WorkStation){
 					p = adminCaminos.getEmptyParking();
 					v.setWaitingPosicion(p);
+					v.setRouteToParking(adminCaminos.getShortestRoute(v.getActualPosicion(), p));
 				}
-				System.out.println("Parking assigned to car" + v.getIdal() + ":" + p.getId());
-				v.setRouteToParking(adminCaminos.getShortestRoute(v.getActualPosicion(), p));
-			}
+			}*/
+			v.setAdminCaminos(adminCaminos);
 			v.start();
 		}
 		taskManager.start();

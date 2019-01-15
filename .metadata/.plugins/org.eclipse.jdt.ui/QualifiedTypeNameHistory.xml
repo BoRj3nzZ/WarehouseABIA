@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="controlador.DBManager"/>
 <fullyQualifiedTypeName name="modelo.Posicion"/>
 <fullyQualifiedTypeName name="controlador.AdministradorCoches"/>
-<fullyQualifiedTypeName name="controlador.AdministradorCaminos"/>
 <fullyQualifiedTypeName name="vista.Principal"/>
 <fullyQualifiedTypeName name="org.omg.CORBA.Principal"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
@@ -28,4 +27,5 @@
 <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="modelo.WorkStation"/>
 <fullyQualifiedTypeName name="modelo.Articulos"/>
+<fullyQualifiedTypeName name="controlador.AdministradorCaminos"/>
 </qualifiedTypeNameHistroy>

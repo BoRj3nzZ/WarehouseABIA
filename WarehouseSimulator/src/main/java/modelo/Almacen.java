@@ -220,6 +220,7 @@ public class Almacen {
 
 	/**
 	 * @brief Method for reading new tasks of an order from the database
+	 * @param orderId The order which tasks will be read
 	 */
 	public void leerNewTasksDeOrdenDesdeDB(int orderId){
 		Connection connection = null;
@@ -307,21 +308,26 @@ public class Almacen {
 		ResultSet resultSet = null;
 		String posName;
 		int posType, posId;
+		boolean isFull;
+		Posicion pos = null;
 		try {
 			connection = DBManager.getConnection();
-			String selectSql = "select idPosition, idPosType, POSNAME from position";
+			String selectSql = "select idPosition, idPosType,full, POSNAME from position";
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(selectSql);
 			while (resultSet.next()) {
 				posId = resultSet.getInt(1);
 				posType = resultSet.getInt(2);
-				posName = resultSet.getString(3);
+				isFull = resultSet.getBoolean(3);
+				posName = resultSet.getString(4);
 				if (posType == 1)
-					listaPosicion.add(new Segmentos(posId, posName));
+					pos = new Segmentos(posId, posName);
 				if (posType == 2)
-					listaPosicion.add(new Parking(posId, posName));
+					pos = new Parking(posId, posName);
 				if (posType == 3)
-					listaPosicion.add(new WorkStation(posId, posName));
+					pos = new WorkStation(posId, posName);
+				pos.setLleno(isFull);
+				listaPosicion.add(pos);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

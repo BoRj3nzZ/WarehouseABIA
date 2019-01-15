@@ -16,12 +16,12 @@ package modeloTest;
  */
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import modelo.Articulos;
 import modelo.Order;
 import modelo.Posicion;
 import modelo.Task;
@@ -87,10 +87,11 @@ public class OrderTest {
 	}
 	
 	/**
-	 * @brief method that tests the method getPosicionFinal
+	 * @brief method that tests the method getListaTask
 	 */
 	@Test
 	public void getListaTest() {
+		orden.getListaTask().add(new Task(orden.getId(), new Articulos(99, "prueba", "articulo prueba"), "to do",orden.getPosicionFinal()));
 	    List<Task> result = orden.getListaTask();
 	    assertEquals("result debe ser lista", lista,(Object)result);
 	}
