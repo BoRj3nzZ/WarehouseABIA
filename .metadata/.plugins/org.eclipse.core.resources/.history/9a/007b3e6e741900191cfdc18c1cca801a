@@ -1,0 +1,68 @@
+/** @file CarControllerTest.java
+ *  @brief Class to test the AdministradorCoches class
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 16/01/2019
+ *  
+ */
+
+/** @brief package controllerTest
+ */
+package controllerTest;
+
+/** @brief Libraries
+ */
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import controlador.AdministradorCoches;
+import modelo.Almacen;
+import modelo.Posicion;
+import modelo.Vehiculo;
+
+/**
+* @brief Class CarControllerTest
+*/
+public class CarControllerTest {
+	/**
+	 * @brief Attributes
+	 */
+	private Almacen almacen;
+	private AdministradorCoches carController;
+	
+	/**
+	 * @brief Method to create objects
+	 */
+	@Before
+	public void crearCarController()
+	{
+		almacen = new Almacen();
+		carController = new AdministradorCoches(almacen);
+	}
+	
+	/**
+	 * @brief method that tests the method getListaCoches
+	 */
+	@Test
+	public void getListaCochesTest() {
+		List<Vehiculo> lista = almacen.getListaVehiculo();		
+		List<Vehiculo> result = carController.getListaCoches();
+	    assertEquals("Lists are the same", lista, (Object)result);
+	}
+	
+	/**
+	 * @brief method that tests the method getFirstFreeCar
+	 */
+	@Test
+	public void getFreeCarTest() {
+		Vehiculo v = carController.getFirstFreeCar();
+		Vehiculo result = carController.getListaCoches().get(0);
+	    assertEquals("Vehicles are the same", v, (Object)result);
+	}
+}

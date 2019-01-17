@@ -61,6 +61,8 @@ public class Almacen {
 		leerVehiculosDesdeDB();
 		leerArticulosDesdeDB();
 		initializeRoutes();
+		adminCoches = new AdministradorCoches(this);
+		adminCaminos = new AdministradorCaminos(this);
 	}
 
 	/**
@@ -256,7 +258,7 @@ public class Almacen {
 		listaOrdenes.clear();
 		try {
 			connection = DBManager.getConnection();
-			String selectSql = "SELECT idOrder, destino from abia_warehouse.order WHERE idOrderStatus!=3";
+			String selectSql = "SELECT idOrder, destino from warehouse.order WHERE idOrderStatus!=3";
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(selectSql);
 			while (resultSet.next()) {
@@ -284,7 +286,7 @@ public class Almacen {
 		int prodId, destinationId;
 		try {
 			connection = DBManager.getConnection();
-			String selectSql = "SELECT t.idPRODUCT, o.DESTINO FROM task as t JOIN abia_warehouse.order as o ON t.idOrder = o.idOrder WHERE t.idSTATUS=1";
+			String selectSql = "SELECT t.idPRODUCT, o.DESTINO FROM task as t JOIN warehouse.order as o ON t.idOrder = o.idOrder WHERE t.idSTATUS=1";
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(selectSql);
 			while (resultSet.next()) {
@@ -372,7 +374,7 @@ public class Almacen {
 		try {
 			connection = DBManager.getConnection();
 			String selectSql = "select v.idVehicle, vs.statusname, v.idPosition from "
-					+ "vehicle v join vehiclestatus vs on v.idVehicleStatus=vs.idVehicleStatus";
+					+ "vehicle v join vehiclestatus vs on v.idVehicleStatus=vs.idVehicleStatus where idVehicle!=0";
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(selectSql);
 			while (resultSet.next()) {
@@ -640,7 +642,7 @@ public class Almacen {
 		else statusId = 1;
 		try {
 			connection = DBManager.getConnection();
-			String query = "update abia_warehouse.order set idORDERSTATUS = ? where idORDER = ?"; //
+			String query = "update warehouse.order set idORDERSTATUS = ? where idORDER = ?"; //
 			preparedStmt = connection.prepareStatement(query);
 			preparedStmt.setInt(1, statusId);
 			preparedStmt.setInt(2, order.getId());

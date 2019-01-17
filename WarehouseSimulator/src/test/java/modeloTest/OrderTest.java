@@ -43,10 +43,18 @@ public class OrderTest {
 	 * @brief Method to create objects
 	 */
 	@Before
-	public void crearOrder()
-	{
+	public void crearOrder(){
 		pos = new WorkStation(10, "Pos1");
 		orden = new Order(10, pos, "Espera");
+	}
+	
+	@Before
+	public void insertarTaskEnOrder(){
+		Articulos art = new Articulos(99, "prueba", "articulo prueba");
+		System.out.println(art.getNombre());
+		Task task = new Task(10, art, "to do",pos);
+		System.out.println(task.getId());
+		orden.getListaTask().add(task);
 	}
 	
 	/**
@@ -91,8 +99,7 @@ public class OrderTest {
 	 */
 	@Test
 	public void getListaTest() {
-		orden.getListaTask().add(new Task(orden.getId(), new Articulos(99, "prueba", "articulo prueba"), "to do",orden.getPosicionFinal()));
-	    List<Task> result = orden.getListaTask();
+		List<Task> result = orden.getListaTask();
 	    assertEquals("result debe ser lista", lista,(Object)result);
 	}
 	

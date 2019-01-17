@@ -102,7 +102,8 @@ public class AdministradorCoches {
 		car.setTakeItemPos(takeItemPos);
 		car.setTakingItemRoute(routeTake);
 		car.setReturnRoute(routeLeave);
-		car.setItemId(itemId);	
+		car.setItemId(itemId);
+		car.setItemInside(almacen.getArticleById(itemId));
 	}
 	
 }

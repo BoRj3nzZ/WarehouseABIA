@@ -37,8 +37,6 @@ public class Principal extends Thread {
 	 */
 	Almacen almacen;
 	Scanner teclado;
-	AdministradorCaminos adminCaminos;
-	AdministradorCoches adminCoches;
 	TaskManager taskManager;
 
 	/**
@@ -47,21 +45,10 @@ public class Principal extends Thread {
 	public Principal() {
 		teclado = new Scanner(System.in);
 		almacen = new Almacen();
-		adminCaminos = new AdministradorCaminos(almacen);
-		adminCoches = new AdministradorCoches(almacen);
 		taskManager = new TaskManager(almacen);
-		almacen.setAdminCaminos(adminCaminos);
-		almacen.setAdminCoches(adminCoches);
 		Parking p;
-		for (Vehiculo v : adminCoches.getListaCoches()) {
-			/*if (v.getIdal() != 6) {
-				if (v.getActualPosicion() instanceof WorkStation){
-					p = adminCaminos.getEmptyParking();
-					v.setWaitingPosicion(p);
-					v.setRouteToParking(adminCaminos.getShortestRoute(v.getActualPosicion(), p));
-				}
-			}*/
-			v.setAdminCaminos(adminCaminos);
+		for (Vehiculo v : almacen.getAdminCoches().getListaCoches()) {
+			v.setAdminCaminos(almacen.getAdminCaminos());
 			v.start();
 		}
 		taskManager.start();
@@ -73,10 +60,9 @@ public class Principal extends Thread {
 	 */
 	public int menu() {
 		int opcion = 0;
-		System.out.println("1.- Create order");
-		System.out.println("2.- View vehicles");
-		System.out.println("3.- View workstations");
-		System.out.println("4.- View parkings");
+		System.out.println("1.- View vehicles");
+		System.out.println("2.- View workstations");
+		System.out.println("3.- View parkings");
 		System.out.println("0.- Exit");
 		System.out.print("Select option: ");
 		opcion = teclado.nextInt();
@@ -97,15 +83,12 @@ public class Principal extends Thread {
 
 				switch (opcion) {
 				case 1:
-					crearOrden();
-					break;
-				case 2:
 					verCoches();
 					break;
-				case 3:
+				case 2:
 					verWorkStations();
 					break;
-				case 4:
+				case 3:
 					verParkings();
 					break;
 
@@ -120,46 +103,6 @@ public class Principal extends Thread {
 			}
 		} while (opcion != 0);
 
-	}
-
-	/**
-	 * @brief Method for creating a order
-	 */
-	private void crearOrden() {
-		int leaveItemWsId, takeItemWsId, actualPosWsId, itemId, index = 0;
-		Posicion leaveItemPos, takeItemPos, actualPos;
-		Parking waitingParking;
-		Vehiculo car;
-		List<Posicion> routeTake, routeLeave, routeToParking;
-		String opcion = "S";
-		do {
-			try {
-				System.out.print("From which workstation do you want to order:");
-				leaveItemWsId = teclado.nextInt();
-				teclado.nextLine();
-				leaveItemPos = getPositionById(leaveItemWsId);
-				System.out.print("From which workstation do you want to take an item: ");
-				takeItemWsId = teclado.nextInt();
-				teclado.nextLine();
-				takeItemPos = getPositionById(takeItemWsId);
-				for (Articulos a : ((WorkStation) takeItemPos).getListProductos()) {
-					System.out.println(++index + " - " + a);
-				}
-				index = 0;
-				System.out.print("What item do you want to take: ");
-				itemId = teclado.nextInt();
-				teclado.nextLine();
-				car = adminCoches.getFirstFreeCar();
-				actualPos = car.getActualPosicion();
-				adminCoches.setCarData(car, actualPos, takeItemPos, leaveItemPos, itemId);
-				System.out.print("More (Y/N)?");
-				opcion = teclado.nextLine();
-			} catch (InputMismatchException e) {
-				System.out.println("Incorrect format");
-			} catch (IndexOutOfBoundsException e) {
-				System.out.println("That item does not exist");
-			}
-		} while (!opcion.equalsIgnoreCase("N"));
 	}
 
 	/**
@@ -179,7 +122,7 @@ public class Principal extends Thread {
 	 * @brief Method for printing the cars in a custom way
 	 */
 	private void verCoches() {
-		for (Vehiculo v : adminCoches.getListaCoches()) {
+		for (Vehiculo v : almacen.getAdminCoches().getListaCoches()) {
 			System.out.println(v);
 		}
 		System.out.println("-------------------------------------------------");
@@ -207,22 +150,6 @@ public class Principal extends Thread {
 			}
 		}
 		System.out.println("-------------------------------------------------");
-	}
-
-	/**
-	 * @brief Method for getting the path administrator
-	 * @return AdministradorCaminos
-	 */
-	public AdministradorCaminos getAdminCaminos() {
-		return adminCaminos;
-	}
-
-	/**
-	 * @brief Method for getting the vehicle administrator
-	 * @return AdministradorCoches
-	 */
-	public AdministradorCoches getAdminCoches() {
-		return adminCoches;
 	}
 
 	/**

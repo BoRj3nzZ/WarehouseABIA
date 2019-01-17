@@ -1,0 +1,57 @@
+/** @file CarControllerTest.java
+ *  @brief Class to test the AdministradorCaminos class
+ *  @authors
+ *  Name          | Surname        | Email                                |
+ *  ------------- | -------------- | ------------------------------------ |
+ *  Borja	      | Garcia         | borja.garciag@alumni.mondragon.edu   |
+ *  @date 16/01/2019
+ *  
+ */
+
+/** @brief package controllerTest
+ */
+package controllerTest;
+
+/** @brief Libraries
+ */
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import controlador.AdministradorCaminos;
+import modelo.Almacen;
+import modelo.Parking;
+
+
+/**
+* @brief Class PathControllerTest
+*/
+public class PathControllerTest {
+	/**
+	 * @brief Attributes
+	 */
+	private Almacen almacen;
+	private AdministradorCaminos pathController;
+	
+	/**
+	 * @brief Method to create objects
+	 */
+	@Before
+	public void crearCarController()
+	{
+		almacen = new Almacen();
+		pathController = almacen.getAdminCaminos();
+	}
+	
+	/**
+	 * @brief method that tests the method getEmptyParking
+	 */
+	@Test
+	public void getListaCochesTest() {
+		Parking p = pathController.getEmptyParking();		
+	    assertNotNull("Parking is not null", p);
+	}
+	
+	
+}

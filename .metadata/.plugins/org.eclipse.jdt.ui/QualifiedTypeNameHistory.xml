@@ -10,8 +10,6 @@
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="controlador.DBManager"/>
-<fullyQualifiedTypeName name="modelo.Posicion"/>
-<fullyQualifiedTypeName name="controlador.AdministradorCoches"/>
 <fullyQualifiedTypeName name="vista.Principal"/>
 <fullyQualifiedTypeName name="org.omg.CORBA.Principal"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
@@ -21,11 +19,15 @@
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="modelo.Almacen"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="controlador.TaskManager"/>
 <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="modelo.WorkStation"/>
 <fullyQualifiedTypeName name="modelo.Articulos"/>
 <fullyQualifiedTypeName name="controlador.AdministradorCaminos"/>
+<fullyQualifiedTypeName name="controlador.AdministradorCoches"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="modelo.Posicion"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="controlador.TaskManager"/>
+<fullyQualifiedTypeName name="modelo.Almacen"/>
 </qualifiedTypeNameHistroy>

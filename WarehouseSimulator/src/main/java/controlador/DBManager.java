@@ -16,9 +16,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBManager {
-	static String USER = "root";
-	static String PASS = "";
-	static String DBNAME = "abia_warehouse";
+	static String USER = "abia";
+	static String PASS = "warehouse";
+	static String DBNAME = "warehouse";
 
 	public static Connection getConnection() {
 		Connection connect = null;
