@@ -12,29 +12,32 @@
 package modelo;
 
 /**
-* @brief Class Articulos
-*/
+ * @brief Class Articulos
+ */
 public class Articulos {
-	
+
 	/**
 	 * @brief Attributes
 	 */
 	int id;
 	Posicion posicion;
 	String nombre, desc;
-	
+
 	/**
 	 * @brief Constructor
-	 * @param id product ID
-	 * @param nombre product name
-	 * @param desc product description
+	 * @param id
+	 *            product ID
+	 * @param nombre
+	 *            product name
+	 * @param desc
+	 *            product description
 	 */
-	public Articulos(int id, String nombre, String desc){
-		this.id=id;
+	public Articulos(int id, String nombre, String desc) {
+		this.id = id;
 		this.nombre = nombre;
-		this.desc=desc;
+		this.desc = desc;
 	}
-	
+
 	/**
 	 * @brief Method for get the value of the id variable
 	 * @return int
@@ -50,7 +53,7 @@ public class Articulos {
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	/**
 	 * @brief Method for get the value of the desc variable
 	 * @return String
@@ -58,6 +61,7 @@ public class Articulos {
 	public String getDesc() {
 		return desc;
 	}
+
 	/**
 	 * @brief Method for printing the item in a custom way
 	 * @return String

@@ -26,75 +26,89 @@ public class AdministradorCoches {
 	Almacen almacen;
 	List<Vehiculo> listaCoches;
 	List<Vehiculo> listaCochesLibres;
-	
+
 	/**
 	 * @brief Constructor
-	 * @param almacen The warehouse
+	 * @param almacen
+	 *            The warehouse
 	 */
 	public AdministradorCoches(Almacen almacen) {
 		this.almacen = almacen;
 		listaCoches = almacen.getListaVehiculo();
 		listaCochesLibres = almacen.getListaVehiculo();
 	}
+
 	/**
-	 * @brief Method for getting the list of cars 
+	 * @brief Method for getting the list of cars
 	 * @return List<Vehiculo>
 	 */
-	public List<Vehiculo> getListaCoches(){
+	public List<Vehiculo> getListaCoches() {
 		return listaCoches;
 	}
+
 	/**
-	 * @brief Method for getting the first element of listaCochesLibres 
+	 * @brief Method for getting the first element of listaCochesLibres
 	 * @return Vehiculo
 	 */
-	public Vehiculo getFirstFreeCar(){
+	public Vehiculo getFirstFreeCar() {
 		Vehiculo car;
 		Posicion actualPosition;
 		updateFreeCarList();
 		car = listaCochesLibres.get(0);
 		actualPosition = car.getActualPosicion();
-		if(actualPosition instanceof Parking) ((Parking) actualPosition).wakeUpFromParking();
-		else ((WorkStation) actualPosition).wakeUpFromWorkStation();
+		if (actualPosition instanceof Parking)
+			((Parking) actualPosition).wakeUpFromParking();
+		else
+			((WorkStation) actualPosition).wakeUpFromWorkStation();
 		car.setEstado("moving");
 		Almacen.cambiarEstadoVehiculoDB(car.getIdal(), "moving");
 		listaCochesLibres.remove(0);
 		return car;
-	}	
+	}
+
 	/**
 	 * @brief Method for updating the list of free cars
 	 */
-	public void updateFreeCarList(){
+	public void updateFreeCarList() {
 		listaCochesLibres.clear();
-		for(Vehiculo v:listaCoches){
-			if(v.getEstado().equalsIgnoreCase("stopped")){
+		for (Vehiculo v : listaCoches) {
+			if (v.getEstado().equalsIgnoreCase("stopped")) {
 				listaCochesLibres.add(v);
 			}
 		}
 	}
+
 	/**
-	 * @brief Method for adding a car to the listaCochesLibres list 
-	 * @param v the vehicle to be added
+	 * @brief Method for adding a car to the listaCochesLibres list
+	 * @param v
+	 *            the vehicle to be added
 	 */
-	public void setCarOnFreeList(Vehiculo v){
+	public void setCarOnFreeList(Vehiculo v) {
 		listaCochesLibres.add(v);
-	}	
+	}
+
 	/**
 	 * @brief Method for setting all vehicle data
-	 * @param car The vehicle which data will be modified
-	 * @param actualPos The initial position of the vehicle
-	 * @param takeItemPos The position from which the vehicle will take the item.
-	 * @param leaveItemPos The position to which the vehicle will carry the item.
-	 * @param itemId The item to be carried.
+	 * @param car
+	 *            The vehicle which data will be modified
+	 * @param actualPos
+	 *            The initial position of the vehicle
+	 * @param takeItemPos
+	 *            The position from which the vehicle will take the item.
+	 * @param leaveItemPos
+	 *            The position to which the vehicle will carry the item.
+	 * @param itemId
+	 *            The item to be carried.
 	 */
 	public void setCarData(Vehiculo car, Posicion actualPos, Posicion takeItemPos, Posicion leaveItemPos, int itemId) {
 		List<Posicion> routeTake, routeLeave, routeToParking;
 		Parking waitingParking;
-		
+
 		routeTake = almacen.getAdminCaminos().getShortestRoute(actualPos, takeItemPos);
 		routeLeave = almacen.getAdminCaminos().getShortestRoute(takeItemPos, leaveItemPos);
 		waitingParking = car.getWaitingParking();
 		routeToParking = almacen.getAdminCaminos().getShortestRoute(leaveItemPos, waitingParking);
-		
+
 		car.getActualPosicion().setLleno(false);
 		car.setRouteToParking(routeToParking);
 		car.setWaitingPosicion(waitingParking);
@@ -105,5 +119,5 @@ public class AdministradorCoches {
 		car.setItemId(itemId);
 		car.setItemInside(almacen.getArticleById(itemId));
 	}
-	
+
 }

@@ -26,8 +26,8 @@ public class DBManager {
 			// This will load the MySQL driver, each DB has its own driver
 			Class.forName("com.mysql.jdbc.Driver");
 			// Setup the connection with the DB
-			connect = DriverManager.getConnection(
-					"jdbc:mysql://localhost/" + DBNAME + "?" + "user=" + USER + "&password=" + PASS);
+			connect = DriverManager
+					.getConnection("jdbc:mysql://localhost/" + DBNAME + "?" + "user=" + USER + "&password=" + PASS);
 			return connect;
 		} catch (Exception e) {
 			e.printStackTrace();

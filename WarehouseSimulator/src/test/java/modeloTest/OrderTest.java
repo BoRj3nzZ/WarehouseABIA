@@ -54,7 +54,7 @@ public class OrderTest {
 		System.out.println(art.getNombre());
 		Task task = new Task(10, art, "to do",pos);
 		System.out.println(task.getId());
-		orden.getListaTask().add(task);
+		//orden.getListaTask().add(task);
 	}
 	
 	/**
@@ -100,7 +100,7 @@ public class OrderTest {
 	@Test
 	public void getListaTest() {
 		List<Task> result = orden.getListaTask();
-	    assertEquals("result debe ser lista", lista,(Object)result);
+		assertEquals("result debe ser lista", lista, (Object) result);
 	}
 	
 }

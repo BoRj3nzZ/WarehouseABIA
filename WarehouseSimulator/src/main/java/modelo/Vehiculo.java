@@ -19,14 +19,14 @@ import controlador.AdministradorCaminos;
 /**
  * @brief Class Vehiculo extends Thread
  */
-public class Vehiculo extends Thread{
+public class Vehiculo extends Thread {
 	/**
 	 * @brief Attributes
-	 */	
+	 */
 
 	int id;
 	String nombre, estado;
-	
+
 	Posicion leaveItemPos, takeItemPos;
 	Posicion actualPosicion;
 	Parking waitingParking;
@@ -34,18 +34,21 @@ public class Vehiculo extends Thread{
 	Task task;
 	int itemId;
 	List<Posicion> takingItemRoute, returnRoute, routeToParking;
-	
+
 	AdministradorCaminos adminCaminos;
-	
+
 	/**
 	 * @brief Constructor
-	 * @param id vehicle ID
-	 * @param estado vehicle state
-	 * @param posicion vehicle position
+	 * @param id
+	 *            vehicle ID
+	 * @param estado
+	 *            vehicle state
+	 * @param posicion
+	 *            vehicle position
 	 */
-	public Vehiculo(int id, String estado, Posicion posicion){
+	public Vehiculo(int id, String estado, Posicion posicion) {
 		this.id = id;
-		nombre = "Vehiculo "+id;
+		nombre = "Vehiculo " + id;
 		this.estado = estado;
 		this.actualPosicion = posicion;
 		this.waitingParking = null;
@@ -55,124 +58,149 @@ public class Vehiculo extends Thread{
 		this.takingItemRoute = null;
 		this.returnRoute = null;
 	}
-	
+
 	/**
 	 * @brief Method to move to a segment
-	 * @param seg The segment to be entered
+	 * @param seg
+	 *            The segment to be entered
 	 */
-	public void moveToSegment(Segmentos seg){
-		if(seg.connectsTo(leaveItemPos)){
-			System.out.println("Segment(" +seg.isFull() + ") connects to ws("+leaveItemPos.getId()+") which is full("+leaveItemPos.isFull()+")");
-			while(leaveItemPos.isFull() || seg.isFull()) ((WorkStation) leaveItemPos).wakeUpFromWorkStation();
+	public void moveToSegment(Segmentos seg) {
+		if (seg.connectsTo(leaveItemPos)) {
+			System.out.println("Segment(" + seg.isFull() + ") connects to ws(" + leaveItemPos.getId()
+					+ ") which is full(" + leaveItemPos.isFull() + ")");
+			while (leaveItemPos.isFull() || seg.isFull())
+				((WorkStation) leaveItemPos).wakeUpFromWorkStation();
 		}
-		if(seg.connectsTo(takeItemPos)){
-			System.out.println("Segment(" +seg.isFull() + ") connects to ws("+takeItemPos.getId()+") which is full("+takeItemPos.isFull()+")");
-			while(takeItemPos.isFull() || seg.isFull()) ((WorkStation) takeItemPos).wakeUpFromWorkStation();
+		if (seg.connectsTo(takeItemPos)) {
+			System.out.println("Segment(" + seg.isFull() + ") connects to ws(" + takeItemPos.getId()
+					+ ") which is full(" + takeItemPos.isFull() + ")");
+			while (takeItemPos.isFull() || seg.isFull())
+				((WorkStation) takeItemPos).wakeUpFromWorkStation();
 		}
-		System.out.println("Car "+id+" exiting from : "+actualPosicion.getId());
+		System.out.println("Car " + id + " exiting from : " + actualPosicion.getId());
 		seg.enterSegment();
-		if(actualPosicion instanceof Segmentos) ((Segmentos) actualPosicion).exitSegment();
-		if(actualPosicion instanceof WorkStation) ((WorkStation) actualPosicion).exitWorkStation();
-		if(actualPosicion instanceof Parking) ((Parking) actualPosicion).exitFromParking();
+		if (actualPosicion instanceof Segmentos)
+			((Segmentos) actualPosicion).exitSegment();
+		if (actualPosicion instanceof WorkStation)
+			((WorkStation) actualPosicion).exitWorkStation();
+		if (actualPosicion instanceof Parking)
+			((Parking) actualPosicion).exitFromParking();
 		actualPosicion = seg;
-		System.out.println("Car "+id+" entering segment: "+actualPosicion.getId());
-		//Travel across segment.
-		//This segment will be locked until another "move()" is called so the car moves to another position.
+		System.out.println("Car " + id + " entering segment: " + actualPosicion.getId());
+		// Travel across segment.
+		// This segment will be locked until another "move()" is called so the
+		// car moves to another position.
 	}
-	
+
 	/**
 	 * @brief Method to enter to a workstation in order to take an item
-	 * @param ws The workstation to be entered
+	 * @param ws
+	 *            The workstation to be entered
 	 */
-	public void enterWorkStation(WorkStation ws){
+	public void enterWorkStation(WorkStation ws) {
 		Segmentos segConnectedToWS = (Segmentos) actualPosicion;
-		System.out.println("Car "+id+" exiting from segment: "+actualPosicion.getId());
-		((Segmentos) actualPosicion).exitSegment();
-		actualPosicion = ws;	
-		ws.enterWorkStation();
-		System.out.println("Car "+id+" entering workstation: "+actualPosicion.getId());
-		//Take or leave item, be in workstation
-		ws.exitWorkStation();
-	}
-	
-	/**
-	 * @brief Method to enter a final workstation and wait until called again
-	 * @param ws The workstation to be entered
-	 */
-	public void enterFinalWorkStation(WorkStation ws){
+		System.out.println("Car " + id + " exiting from segment: " + actualPosicion.getId());
 		((Segmentos) actualPosicion).exitSegment();
 		actualPosicion = ws;
 		ws.enterWorkStation();
-		System.out.println("Car "+id+" entering workstation: "+actualPosicion.getId()+" and waiting");
+		System.out.println("Car " + id + " entering workstation: " + actualPosicion.getId());
+		// Take or leave item, be in workstation
+		ws.exitWorkStation();
+	}
+
+	/**
+	 * @brief Method to enter a final workstation and wait until called again
+	 * @param ws
+	 *            The workstation to be entered
+	 */
+	public void enterFinalWorkStation(WorkStation ws) {
+		((Segmentos) actualPosicion).exitSegment();
+		actualPosicion = ws;
+		ws.enterWorkStation();
+		System.out.println("Car " + id + " entering workstation: " + actualPosicion.getId() + " and waiting");
 		deliverItemInside(ws);
 		this.setEstado("stopped");
 		Almacen.cambiarEstadoVehiculoDB(this.id, "stopped");
 		Almacen.cambiarEstadoTaskDB(task.getId(), task.getArticulo().getId(), "done");
 		Almacen.cambiarFechaCompletarTaskDB(task.getId(), task.getArticulo().getId());
 		ws.waitAtWorkStation();
-		System.out.println("Car "+this.id+" wakes from ws with status: "+estado+ "-pk: "+waitingParking);
-		while(estado.equals("stopped")){
+		System.out.println("Car " + this.id + " wakes from ws with status: " + estado + "-pk: " + waitingParking);
+		while (estado.equals("stopped")) {
 			ws.exitWorkStation();
 			moveToParking();
 		}
 	}
+
 	/**
 	 * @brief Method to entering a parking and wait there until awaken
-	 * @param pk The parking in which the vehicle will wait
+	 * @param pk
+	 *            The parking in which the vehicle will wait
 	 */
 	private void enterParkingAndWait(Parking pk) {
 		actualPosicion.setLleno(false);
-		System.out.println("Entering parking "+pk.getId()+" and waiting");
-		while(estado.equals("stopped")){
-			actualPosicion=pk;
+		System.out.println("Entering parking " + pk.getId() + " and waiting");
+		while (estado.equals("stopped")) {
+			actualPosicion = pk;
 			pk.waitAtParking();
 		}
 	}
 
 	/**
-	 * @brief Method to move through a defined route, if the next position is full, it goes slower
-	 * @param route The route that needs to be followed
+	 * @brief Method to move through a defined route, if the next position is
+	 *        full, it goes slower
+	 * @param route
+	 *            The route that needs to be followed
 	 */
-	public void move(List<Posicion> route){
-		Posicion lastPos=this.actualPosicion;
-		for(Posicion p:route){
+	public void move(List<Posicion> route) {
+		Posicion lastPos = this.actualPosicion;
+		for (Posicion p : route) {
 			try {
 				this.sleep(1000);
-				if(p.isFull())this.sleep(10000);
-				else this.sleep(1000);
+				if (p.isFull())
+					this.sleep(10000);
+				else
+					this.sleep(1000);
 			} catch (InterruptedException e) {
 				this.interrupt();
 				e.printStackTrace();
 			}
 			this.actualPosicion.setLleno(false);
-			if(p instanceof Segmentos){
+			if (p instanceof Segmentos) {
 				moveToSegment((Segmentos) p);
 				Almacen.cambiarPosicionVehiculoDB(this.id, p.getId());
 				Almacen.cambiarEstadoPosicionDB(lastPos.getId(), 0);
 				Almacen.cambiarEstadoPosicionDB(p.getId(), 1);
-			}
-			else {
+			} else {
 				Almacen.cambiarPosicionVehiculoDB(this.id, p.getId());
 				Almacen.cambiarEstadoPosicionDB(lastPos.getId(), 0);
 				Almacen.cambiarEstadoPosicionDB(p.getId(), 1);
-				if(p instanceof WorkStation && this.itemInside==null) enterWorkStation((WorkStation)p);
-				else if (p instanceof WorkStation) enterFinalWorkStation((WorkStation) p);
-				else enterParkingAndWait((Parking) p);
+				if (p instanceof WorkStation && this.itemInside == null)
+					enterWorkStation((WorkStation) p);
+				else if (p instanceof WorkStation)
+					enterFinalWorkStation((WorkStation) p);
+				else
+					enterParkingAndWait((Parking) p);
 			}
-			lastPos=p;
+			lastPos = p;
 		}
 	}
-	
+
 	/**
 	 * @brief Method to start an order with all the data
-	 * @param routeIda The route that needs to be followed to get the item
-	 * @param routeVuelta The route that needs to be followed to deliver the item
-	 * @param itemId The id of the item that needs to be delivered
-	 * @param takeItemPos The workstation from which the car has to take the item
-	 * @param leaveItemPos The workstation to which the car delivers the item
+	 * @param routeIda
+	 *            The route that needs to be followed to get the item
+	 * @param routeVuelta
+	 *            The route that needs to be followed to deliver the item
+	 * @param itemId
+	 *            The id of the item that needs to be delivered
+	 * @param takeItemPos
+	 *            The workstation from which the car has to take the item
+	 * @param leaveItemPos
+	 *            The workstation to which the car delivers the item
 	 */
-	public void startOrder(List<Posicion> routeIda, List<Posicion> routeVuelta, int itemId, Posicion takeItemPos, Posicion leaveItemPos) {
-		move(routeIda);	
+	public void startOrder(List<Posicion> routeIda, List<Posicion> routeVuelta, int itemId, Posicion takeItemPos,
+			Posicion leaveItemPos) {
+		move(routeIda);
 		itemInside = ((WorkStation) takeItemPos).getArticulo(itemId);
 		Almacen.cambiarPosicionArticuloDB(this.actualPosicion.getId(), itemInside.getId());
 		move(routeVuelta);
@@ -184,24 +212,23 @@ public class Vehiculo extends Thread{
 	 */
 	@Override
 	public void run() {
-		if(actualPosicion instanceof WorkStation){
+		if (actualPosicion instanceof WorkStation) {
 			((WorkStation) actualPosicion).waitAtWorkStation();
-			if(this.estado.equals("stopped")){
+			if (this.estado.equals("stopped")) {
 				moveToParking();
 			}
-		}
-		else{
+		} else {
 			((Parking) actualPosicion).waitAtParking();
 		}
-		
-		while(true){
+
+		while (true) {
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {
 				this.interrupt();
 				e.printStackTrace();
 			}
-			if(leaveItemPos!=null){
+			if (leaveItemPos != null) {
 				move(takingItemRoute);
 				itemInside = ((WorkStation) takeItemPos).getArticuloWithId(itemId);
 				move(returnRoute);
@@ -210,13 +237,14 @@ public class Vehiculo extends Thread{
 	}
 
 	/**
-	 * @brief Method for moving to a parking. Assigns automatically an empty parking and sets the route.
+	 * @brief Method for moving to a parking. Assigns automatically an empty
+	 *        parking and sets the route.
 	 */
 	private void moveToParking() {
 		Parking p = adminCaminos.getEmptyParking();
 		this.waitingParking = p;
 		this.routeToParking = adminCaminos.getShortestRoute(this.actualPosicion, p);
-		move(routeToParking);		
+		move(routeToParking);
 	}
 
 	/**
@@ -226,27 +254,31 @@ public class Vehiculo extends Thread{
 	public Articulos getItemInside() {
 		return itemInside;
 	}
-	
+
 	/**
 	 * @brief Method for tranferring an item from the vehicle to a workstation
-	 * @param ws The workstation which will receive the item.
+	 * @param ws
+	 *            The workstation which will receive the item.
 	 */
-	public void deliverItemInside(WorkStation ws){
+	public void deliverItemInside(WorkStation ws) {
 		ws.addArticulo(itemInside);
 		Almacen.cambiarPosicionArticuloDB(ws.getId(), itemInside.getId());
 		itemInside = null;
 	}
+
 	/**
-	 * @brief Method for getting the value of the itemInside variable's description
+	 * @brief Method for getting the value of the itemInside variable's
+	 *        description
 	 * @return String
 	 */
 	public String getItemInsideDesc() {
-		return itemInside==null?"No item":itemInside.getDesc();
+		return itemInside == null ? "No item" : itemInside.getDesc();
 	}
-	
+
 	/**
 	 * @brief Method for setting the value of the itemInside variable
-	 * @param itemInside The item to be set
+	 * @param itemInside
+	 *            The item to be set
 	 */
 	public void setItemInside(Articulos itemInside) {
 		this.itemInside = itemInside;
@@ -259,10 +291,11 @@ public class Vehiculo extends Thread{
 	public Posicion getDestino() {
 		return leaveItemPos;
 	}
-	
+
 	/**
 	 * @brief Method for setting the value of the destino variable
-	 * @param destino The position to be set
+	 * @param destino
+	 *            The position to be set
 	 */
 	public void setDestino(Posicion destino) {
 		this.leaveItemPos = destino;
@@ -277,8 +310,9 @@ public class Vehiculo extends Thread{
 	}
 
 	/**
-	 * @brief Method for setting the state of the vehicle 
-	 * @param estado state of the vehicle
+	 * @brief Method for setting the state of the vehicle
+	 * @param estado
+	 *            state of the vehicle
 	 */
 	public void setEstado(String estado) {
 		this.estado = estado;
@@ -296,9 +330,10 @@ public class Vehiculo extends Thread{
 	 * @brief Method for getting the value of the id variable
 	 * @return int
 	 */
-	public int getIdal(){
+	public int getIdal() {
 		return id;
 	}
+
 	/**
 	 * @brief Method for getting the value of the nombre variable
 	 * @return String
@@ -306,27 +341,34 @@ public class Vehiculo extends Thread{
 	public String getNombre() {
 		return nombre;
 	}
+
 	/**
-	 * @brief Method for setting the leaveItemPos of the vehicle 
-	 * @param leaveItemPos The position to be set
+	 * @brief Method for setting the leaveItemPos of the vehicle
+	 * @param leaveItemPos
+	 *            The position to be set
 	 */
 	public void setLeaveItemPos(Posicion leaveItemPos) {
 		this.leaveItemPos = leaveItemPos;
 	}
+
 	/**
-	 * @brief Method for setting the takeItemPos of the vehicle 
-	 * @param takeItemPos The position to be set
+	 * @brief Method for setting the takeItemPos of the vehicle
+	 * @param takeItemPos
+	 *            The position to be set
 	 */
 	public void setTakeItemPos(Posicion takeItemPos) {
 		this.takeItemPos = takeItemPos;
 	}
+
 	/**
-	 * @brief Method for setting the itemId of the vehicle 
-	 * @param itemId The id of the item to be set
+	 * @brief Method for setting the itemId of the vehicle
+	 * @param itemId
+	 *            The id of the item to be set
 	 */
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
-	}	
+	}
+
 	/**
 	 * @brief Method for getting the value of the task variable
 	 * @return Task
@@ -334,44 +376,52 @@ public class Vehiculo extends Thread{
 	public Task getTask() {
 		return task;
 	}
+
 	/**
-	 * @brief Method for setting the task assigned to the vehicle 
-	 * @param task The task to be assigned
+	 * @brief Method for setting the task assigned to the vehicle
+	 * @param task
+	 *            The task to be assigned
 	 */
 	public void setTask(Task task) {
 		this.task = task;
 	}
 
 	/**
-	 * @brief Method for setting the takingItemRoute of the vehicle 
-	 * @param takingItemRoute The route to be set
+	 * @brief Method for setting the takingItemRoute of the vehicle
+	 * @param takingItemRoute
+	 *            The route to be set
 	 */
 	public void setTakingItemRoute(List<Posicion> takingItemRoute) {
 		this.takingItemRoute = takingItemRoute;
 	}
+
 	/**
-	 * @brief Method for setting the returnRoute of the vehicle 
-	 * @param returnRoute The route to be set
+	 * @brief Method for setting the returnRoute of the vehicle
+	 * @param returnRoute
+	 *            The route to be set
 	 */
 	public void setReturnRoute(List<Posicion> returnRoute) {
 		this.returnRoute = returnRoute;
-	}	
-	
+	}
+
 	/**
-	 * @brief Method for setting the routeToParking of the vehicle 
-	 * @param routeToParking The route to be set
+	 * @brief Method for setting the routeToParking of the vehicle
+	 * @param routeToParking
+	 *            The route to be set
 	 */
 	public void setRouteToParking(List<Posicion> routeToParking) {
 		this.routeToParking = routeToParking;
 	}
 
 	/**
-	 * @brief Method for setting the waitingPosicion of the vehicle 
-	 * @param waitingPosicion The position to be set
+	 * @brief Method for setting the waitingPosicion of the vehicle
+	 * @param waitingPosicion
+	 *            The position to be set
 	 */
 	public void setWaitingPosicion(Parking waitingParking) {
 		this.waitingParking = waitingParking;
 	}
+
 	/**
 	 * @brief Method for getting the value of the waitingParking variable
 	 * @return Parking
@@ -379,10 +429,11 @@ public class Vehiculo extends Thread{
 	public Parking getWaitingParking() {
 		return waitingParking;
 	}
-	
+
 	/**
-	 * @brief Method for setting the adminCaminos of the vehicle 
-	 * @param adminCaminos The path administrator to be set on the vehicle
+	 * @brief Method for setting the adminCaminos of the vehicle
+	 * @param adminCaminos
+	 *            The path administrator to be set on the vehicle
 	 */
 	public void setAdminCaminos(AdministradorCaminos adminCaminos) {
 		this.adminCaminos = adminCaminos;
@@ -395,9 +446,9 @@ public class Vehiculo extends Thread{
 	@Override
 	public String toString() {
 		String cadena;
-		cadena = "Car "+this.getIdal()+" - Position: "+this.getActualPosicion().getId()+
-				" - State: "+this.getEstado()+" - Item: "+this.getItemInsideDesc();
+		cadena = "Car " + this.getIdal() + " - Position: " + this.getActualPosicion().getId() + " - State: "
+				+ this.getEstado() + " - Item: " + this.getItemInsideDesc();
 		return cadena;
 	}
-	
+
 }

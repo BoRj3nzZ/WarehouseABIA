@@ -18,31 +18,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @brief Class Segmentos extends Posicion
-*/
-public class Segmentos extends Posicion{
-	
+ * @brief Class Segmentos extends Posicion
+ */
+public class Segmentos extends Posicion {
+
 	/**
 	 * @brief Attributes
 	 */
 	static int distancia = 200;
-	
 
 	/**
 	 * @brief Constructor
-	 * @param nombre position name
-	 * @param pos Position ID or position
+	 * @param nombre
+	 *            position name
+	 * @param pos
+	 *            Position ID or position
 	 */
 	public Segmentos(int pos, String nombre) {
 		super(pos, nombre);
 		full = false;
 	}
-	
+
 	/**
-	 * @brief Method for entering the segment, only one thread can access at a time
+	 * @brief Method for entering the segment, only one thread can access at a
+	 *        time
 	 */
-	public synchronized void enterSegment(){
-		while(full){
+	public synchronized void enterSegment() {
+		while (full) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
@@ -52,36 +54,38 @@ public class Segmentos extends Posicion{
 		}
 		full = true;
 	}
-	
+
 	/**
-	 * @brief Method for exiting the segment, only one thread can access at a time
+	 * @brief Method for exiting the segment, only one thread can access at a
+	 *        time
 	 */
-	public synchronized void exitSegment(){
+	public synchronized void exitSegment() {
 		full = false;
 		notify();
 	}
-	
+
 	/**
 	 * @brief Method for determining which positions you can go to
-	 * @param pos list of next positions
+	 * @param pos
+	 *            list of next positions
 	 */
 	@Override
 	public void addNextPosition(Posicion... pos) {
-		for(Posicion p : pos){
+		for (Posicion p : pos) {
 			nextPositionList.add(p);
 		}
 	}
-	
+
 	/**
 	 * @brief Method for getting the values of the nextPositionList variable
 	 * @return List<Position>
 	 */
-	public List<Posicion> getNextPositionList(){
+	public List<Posicion> getNextPositionList() {
 		List<Posicion> copia = new ArrayList<Posicion>();
 		copia.addAll(nextPositionList);
 		return copia;
 	}
-	
+
 	/**
 	 * @brief Method for getting the values of the distancia variable
 	 * @return int
@@ -89,6 +93,5 @@ public class Segmentos extends Posicion{
 	public int getDistancia() {
 		return distancia;
 	}
-	
 
 }

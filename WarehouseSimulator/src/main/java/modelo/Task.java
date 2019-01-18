@@ -29,21 +29,25 @@ public class Task {
 	Date fecha;
 	String estado;
 	Posicion posicionFinal;
-	
+
 	/**
 	 * @brief Constructor
-	 * @param id Task ID
-	 * @param articulo Task product
-	 * @param estado Task state
-	 * @param posicionFinal Task final position
+	 * @param id
+	 *            Task ID
+	 * @param articulo
+	 *            Task product
+	 * @param estado
+	 *            Task state
+	 * @param posicionFinal
+	 *            Task final position
 	 */
-	public Task(int id, Articulos articulo, String estado, Posicion posicionFinal){
+	public Task(int id, Articulos articulo, String estado, Posicion posicionFinal) {
 		this.id = id;
 		this.articulo = articulo;
 		this.estado = estado;
 		this.posicionFinal = posicionFinal;
 	}
-	
+
 	/**
 	 * @brief Method for get the value of the posicionFinal variable
 	 * @return Posicion
@@ -59,10 +63,11 @@ public class Task {
 	public Vehiculo getVehiculo() {
 		return vehiculo;
 	}
-	
+
 	/**
-	 * @brief Method for determine the vehicle of the Task 
-	 * @param vehiculo the vehicle that will do the task
+	 * @brief Method for determine the vehicle of the Task
+	 * @param vehiculo
+	 *            the vehicle that will do the task
 	 */
 	public void setVehiculo(Vehiculo vehiculo) {
 		this.vehiculo = vehiculo;
@@ -78,7 +83,8 @@ public class Task {
 
 	/**
 	 * @brief Method for determine the date when end the Task
-	 * @param fecha the date when end the work
+	 * @param fecha
+	 *            the date when end the work
 	 */
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
@@ -93,8 +99,9 @@ public class Task {
 	}
 
 	/**
-	 * @brief Method for determine the estado of the Task 
-	 * @param estado state of the task
+	 * @brief Method for determine the estado of the Task
+	 * @param estado
+	 *            state of the task
 	 */
 	public void setEstado(String estado) {
 		this.estado = estado;
@@ -115,6 +122,5 @@ public class Task {
 	public Articulos getArticulo() {
 		return articulo;
 	}
-	
-	
+
 }

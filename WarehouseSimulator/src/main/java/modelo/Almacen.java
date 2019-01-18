@@ -222,9 +222,10 @@ public class Almacen {
 
 	/**
 	 * @brief Method for reading new tasks of an order from the database
-	 * @param orderId The order which tasks will be read
+	 * @param orderId
+	 *            The order which tasks will be read
 	 */
-	public void leerNewTasksDeOrdenDesdeDB(int orderId){
+	public void leerNewTasksDeOrdenDesdeDB(int orderId) {
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
@@ -233,7 +234,7 @@ public class Almacen {
 		int prodId;
 		try {
 			connection = DBManager.getConnection();
-			String selectSql = "select idProduct from task where idORDER="+orderId+" and idSTATUS=1";
+			String selectSql = "select idProduct from task where idORDER=" + orderId + " and idSTATUS=1";
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(selectSql);
 			while (resultSet.next()) {
@@ -246,11 +247,11 @@ public class Almacen {
 			closeResultStatementConnection(resultSet, statement, connection);
 		}
 	}
-	
+
 	/**
 	 * @brief Method for reading new orders from the database
 	 */
-	public void leerOrdenesNuevasDesdeDB(){
+	public void leerOrdenesNuevasDesdeDB() {
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
@@ -265,7 +266,7 @@ public class Almacen {
 				orderId = resultSet.getInt(1);
 				destinationId = resultSet.getInt(2);
 				listaOrdenes.add(new Order(orderId, getPosicionById(destinationId), "not checked"));
-				System.out.println("added order n: "+orderId+" with destination: "+destinationId);
+				System.out.println("added order n: " + orderId + " with destination: " + destinationId);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -273,9 +274,10 @@ public class Almacen {
 			closeResultStatementConnection(resultSet, statement, connection);
 		}
 	}
-	
+
 	/**
-	 * @brief Method for reading the not started orders from the database. For now the taskID will be the same as the productID.
+	 * @brief Method for reading the not started orders from the database. For
+	 *        now the taskID will be the same as the productID.
 	 */
 	public void leerTasksNuevasDesdeDB() {
 		Connection connection = null;
@@ -393,6 +395,7 @@ public class Almacen {
 
 	/**
 	 * Method for closing the resultSet, statement and connection
+	 * 
 	 * @param resultSet
 	 * @param statement
 	 * @param connection
@@ -415,7 +418,7 @@ public class Almacen {
 				connection.close();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}		
+			}
 	}
 
 	/**
@@ -472,7 +475,7 @@ public class Almacen {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closePreparedAndConnection(preparedStmt, connection);
 		}
 	}
@@ -499,7 +502,7 @@ public class Almacen {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closePreparedAndConnection(preparedStmt, connection);
 		}
 	}
@@ -526,7 +529,7 @@ public class Almacen {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closePreparedAndConnection(preparedStmt, connection);
 		}
 	}
@@ -535,7 +538,7 @@ public class Almacen {
 	 * @brief Method for changing the car assigned to a task in the database.
 	 *        Can be accessed statically
 	 * @param orderID
-	 * 			  The id of the order in which the task is
+	 *            The id of the order in which the task is
 	 * @param taskID
 	 *            The id of the product of the task that needs the change
 	 * @param newCarID
@@ -556,7 +559,7 @@ public class Almacen {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closePreparedAndConnection(preparedStmt, connection);
 		}
 	}
@@ -565,7 +568,7 @@ public class Almacen {
 	 * @brief Method for changing the car assigned to a task in the database.
 	 *        Can be accessed statically
 	 * @param orderID
-	 * 			  The id of the order in which the task is
+	 *            The id of the order in which the task is
 	 * @param taskID
 	 *            The id of the product of the task that needs the change
 	 * @param newTaskStatus
@@ -593,7 +596,7 @@ public class Almacen {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closePreparedAndConnection(preparedStmt, connection);
 		}
 	}
@@ -602,7 +605,7 @@ public class Almacen {
 	 * @brief Method for changing the car assigned to a task in the database.
 	 *        Can be accessed statically
 	 * @param orderID
-	 * 			  The id of the order in which the task is
+	 *            The id of the order in which the task is
 	 * @param taskID
 	 *            The id of the product of the task that needs the change
 	 */
@@ -622,14 +625,14 @@ public class Almacen {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closePreparedAndConnection(preparedStmt, connection);
 		}
 	}
-	
+
 	/**
-	 * @brief Method for changing the status of an order in the database.
-	 *        Can be accessed statically
+	 * @brief Method for changing the status of an order in the database. Can be
+	 *        accessed statically
 	 * @param order
 	 *            The order that needs the change
 	 */
@@ -637,9 +640,12 @@ public class Almacen {
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		int statusId;
-		if (status.equalsIgnoreCase("checked")) statusId = 3;
-		else if (status.equalsIgnoreCase("in process")) statusId = 2;
-		else statusId = 1;
+		if (status.equalsIgnoreCase("checked"))
+			statusId = 3;
+		else if (status.equalsIgnoreCase("in process"))
+			statusId = 2;
+		else
+			statusId = 1;
 		try {
 			connection = DBManager.getConnection();
 			String query = "update warehouse.order set idORDERSTATUS = ? where idORDER = ?"; //
@@ -651,7 +657,7 @@ public class Almacen {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closePreparedAndConnection(preparedStmt, connection);
 		}
 	}
@@ -673,7 +679,7 @@ public class Almacen {
 				connection.close();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}		
+			}
 	}
 
 	/**
@@ -700,15 +706,16 @@ public class Almacen {
 	public Articulos getArticleById(int id) {
 		Articulos article = null;
 		for (Posicion p : listaPosicion) {
-			if (p instanceof WorkStation){
-				for(Articulos a:((WorkStation) p).getListProductos()){
-					if(a.getId()==id) article = a;
+			if (p instanceof WorkStation) {
+				for (Articulos a : ((WorkStation) p).getListProductos()) {
+					if (a.getId() == id)
+						article = a;
 				}
 			}
 		}
 		return article;
 	}
-	
+
 	/**
 	 * @brief Method for getting an order knowing its id
 	 * @param id
@@ -718,7 +725,8 @@ public class Almacen {
 	public Order getOrderById(int id) {
 		Order order = null;
 		for (Order o : listaOrdenes) {
-			if(o.getId()==id) order=o;
+			if (o.getId() == id)
+				order = o;
 		}
 		return order;
 	}
@@ -794,7 +802,7 @@ public class Almacen {
 	public List<Posicion> getListaPosicion() {
 		return listaPosicion;
 	}
-	
+
 	/**
 	 * @brief Method for getting the values of the listaTasks variable
 	 * @return List<Task>
@@ -831,5 +839,5 @@ public class Almacen {
 	public void añadirOrden(Order orden) {
 		listaOrdenes.add(orden);
 	}
-	
+
 }

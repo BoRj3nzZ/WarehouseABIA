@@ -78,8 +78,8 @@ public class TaskManager extends Thread {
 			destination = task.getPosicionFinal();
 			itemWS = getWorkStationWithItemInside(item.getId());
 
-			System.out.println(
-					"car: " + assignedCar.getIdal() + "item: " + item.getId() + ", destination: " + destination.getId() + ", itemWS: " + itemWS.getId());
+			System.out.println("car: " + assignedCar.getIdal() + "item: " + item.getId() + ", destination: "
+					+ destination.getId() + ", itemWS: " + itemWS.getId());
 
 			assignedCar.setTask(task);
 
@@ -112,7 +112,7 @@ public class TaskManager extends Thread {
 				for (Order o : listaOrdenes) {
 					almacen.leerNewTasksDeOrdenDesdeDB(o.getId());
 					for (Task t : o.getListaTask()) {
-						System.out.println("Articulo "+t.getArticulo().getId()+" en order: "+o.getId());
+						System.out.println("Articulo " + t.getArticulo().getId() + " en order: " + o.getId());
 						if (startNextTask(t)) {
 							o.getListaTask().remove(t);
 							Almacen.cambiarEstadoOrderDB(o, "in process");

@@ -21,7 +21,7 @@ import java.util.List;
  * @brief Class Order
  */
 public class Order {
-	
+
 	/**
 	 * @brief Attributes
 	 */
@@ -29,13 +29,15 @@ public class Order {
 	Posicion posicionFinal;
 	List<Task> listaTask;
 	String estado;
-	
+
 	/**
 	 * @brief Constructor
-	 * @param id Order ID
-	 * @param posicionFinal Position in which the products must be finished
+	 * @param id
+	 *            Order ID
+	 * @param posicionFinal
+	 *            Position in which the products must be finished
 	 */
-	public Order(int id,Posicion posicionFinal, String estado){
+	public Order(int id, Posicion posicionFinal, String estado) {
 		this.id = id;
 		this.posicionFinal = posicionFinal;
 		listaTask = new ArrayList<Task>();
@@ -45,10 +47,10 @@ public class Order {
 	/**
 	 * @brief Method for adding tasks to the list
 	 */
-	public void addTaskToList(Task task){
+	public void addTaskToList(Task task) {
 		this.listaTask.add(task);
 	}
-	
+
 	/**
 	 * @brief Method for get the value of the estado variable
 	 * @return String
@@ -58,8 +60,9 @@ public class Order {
 	}
 
 	/**
-	 * @brief Method for determine the estado of the Order 
-	 * @param estado Status of the order
+	 * @brief Method for determine the estado of the Order
+	 * @param estado
+	 *            Status of the order
 	 */
 	public void setEstado(String estado) {
 		this.estado = estado;
@@ -90,6 +93,5 @@ public class Order {
 		copia.addAll(listaTask);
 		return copia;
 	}
-	
 
 }
