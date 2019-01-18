@@ -1,0 +1,5 @@
+<map id="vista.Principal.Principal" name="vista.Principal.Principal">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#ae71ae427610391c59eb56a8c5ca171a3" title="Method for getting the vehicle administrator. " alt="" coords="213,5,435,32"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_administrador_coches.html#acb6c1362a2da869db259fbd8c381f416" title="Method for getting the list of cars. " alt="" coords="239,57,409,98"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_almacen.html#aacb8646d3873ef477d8616740a54a157" title="Method for getting the path administrator. " alt="" coords="209,123,439,149"/>
+</map>

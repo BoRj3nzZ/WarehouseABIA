@@ -1,0 +1,5 @@
+<map id="modelo.Task.getPosicionFinal" name="modelo.Task.getPosicionFinal">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="249,5,448,47"/>
+<area shape="rect" id="node4" href="$classmodelo_test_1_1_task_test.html#a8af6b2ec3314c104d23c6cbad5eaee11" title="method that tests the method getPosicionFinal " alt="" coords="253,71,444,112"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="496,13,687,39"/>
+</map>

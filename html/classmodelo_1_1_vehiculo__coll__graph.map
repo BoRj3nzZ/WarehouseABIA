@@ -1,0 +1,10 @@
+<map id="modelo.Vehiculo" name="modelo.Vehiculo">
+<area shape="rect" id="node14" href="$classmodelo_1_1_task.html" title="Class Task. " alt="" coords="1671,625,1767,652"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_articulos.html" title="Class Articulos. " alt="" coords="1170,575,1289,601"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_posicion.html" title="Class Posicion. " alt="" coords="313,544,432,571"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_recorrido.html" title="Class Recorrido. " alt="" coords="581,228,704,255"/>
+<area shape="rect" id="node16" href="$classmodelo_1_1_parking.html" title="Class WorkStation extends Posicion. " alt="" coords="751,625,863,652"/>
+<area shape="rect" id="node6" href="$classcontrolador_1_1_administrador_caminos.html" title="controlador.Administrador\lCaminos" alt="" coords="1144,394,1315,435"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_almacen.html" title="Class Almacen. " alt="" coords="887,248,1005,275"/>
+<area shape="rect" id="node10" href="$classcontrolador_1_1_administrador_coches.html" title="controlador.Administrador\lCoches" alt="" coords="1144,183,1315,225"/>
+</map>

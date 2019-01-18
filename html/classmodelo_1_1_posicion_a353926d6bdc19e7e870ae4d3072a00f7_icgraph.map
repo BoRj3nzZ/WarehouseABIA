@@ -1,0 +1,12 @@
+<map id="modelo.Posicion.setLleno" name="modelo.Posicion.setLleno">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_caminos.html#abd40d1cb40cf83c0ca77a90be5bf9cf8" title="Method for getting an empty parking. " alt="" coords="227,39,405,80"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_administrador_coches.html#af2fe38d41f69d4596888507518062ef5" title="Method for setting all vehicle data. " alt="" coords="231,136,401,177"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="240,202,392,229"/>
+<area shape="rect" id="node11" href="$classmodelo_test_1_1_parking_test.html#a7e6beea37235da4061ccaac55bd06219" title="method that tests the setLleno method " alt="" coords="224,253,408,295"/>
+<area shape="rect" id="node3" href="$classcontroller_test_1_1_path_controller_test.html#acada6e8c35d6fa64eeaadba6c4820fcd" title="method that tests the method getEmptyParking " alt="" coords="462,5,649,47"/>
+<area shape="rect" id="node5" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="456,71,655,112"/>
+<area shape="rect" id="node7" href="$classcontroller_test_1_1_car_controller_test.html#a2ffe7bae70564b24f0c9167cb37e5994" title="method that tests the method setCarData " alt="" coords="466,136,645,177"/>
+<area shape="rect" id="node6" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="703,78,893,105"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="465,202,645,229"/>
+<area shape="rect" id="node10" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="485,253,625,279"/>
+</map>

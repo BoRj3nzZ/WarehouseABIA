@@ -1,0 +1,7 @@
+<map id="modelo.Almacen.getPosicionById" name="modelo.Almacen.getPosicionById">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#aff837a0fe52e9cf45d9a4b3f6d1586b1" title="Method for reading new orders from the database. " alt="" coords="271,5,464,47"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_almacen.html#a6ac278b0c372e3954ea3af8afd46263a" title="Method for reading the not started orders from the database. For now the taskID will be the same as t..." alt="" coords="278,71,457,112"/>
+<area shape="rect" id="node5" href="$classcontroller_test_1_1_car_controller_test.html#a2ffe7bae70564b24f0c9167cb37e5994" title="method that tests the method setCarData " alt="" coords="278,136,457,177"/>
+<area shape="rect" id="node6" href="$classcontroller_test_1_1_path_controller_test.html#a8acf50dbb379f5ba071a0f4d779103d6" title="method that tests the method getShortestRoute " alt="" coords="274,201,461,243"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="512,13,703,39"/>
+</map>

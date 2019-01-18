@@ -1,0 +1,7 @@
+<map id="modelo.Posicion.connectsTo" name="modelo.Posicion.connectsTo">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#aee86d9cf20de4139131d67622e19c560" title="Method to move to a segment. " alt="" coords="243,56,461,83"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="549,31,701,57"/>
+<area shape="rect" id="node6" href="$classmodelo_test_1_1_vehiculo_test.html#a6cda67e5362be0afab0f8c793dd7d862" title="method that tests the method mover " alt="" coords="509,81,740,108"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="788,5,968,32"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="808,56,948,83"/>
+</map>

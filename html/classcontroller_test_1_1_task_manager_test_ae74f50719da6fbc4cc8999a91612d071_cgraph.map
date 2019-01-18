@@ -1,0 +1,6 @@
+<map id="controllerTest.TaskManagerTest.getRouteTest" name="controllerTest.TaskManagerTest.getRouteTest">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#a4627032ea4b76cce07d158250605caad" title="Method for getting an article knowing its id. " alt="" coords="236,5,440,32"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#af6d38f708e9f42b7baeded92af407734" title="Method for getting the workstation which has a unique item inside. " alt="" coords="243,57,433,98"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_articulos.html#a4784500f94b55f2cf7ed8670bf15a6ca" title="Method for get the value of the id variable. " alt="" coords="263,123,413,149"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_almacen.html#a5f549eec4b4dec51453b913a0c00de53" title="Method for getting the values of the listaPosicion variable. " alt="" coords="488,64,707,91"/>
+</map>

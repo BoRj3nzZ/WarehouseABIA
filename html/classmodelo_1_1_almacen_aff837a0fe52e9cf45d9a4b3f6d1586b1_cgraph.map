@@ -1,0 +1,4 @@
+<map id="modelo.Almacen.leerOrdenesNuevasDesdeDB" name="modelo.Almacen.leerOrdenesNuevasDesdeDB">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="265,5,445,47"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_almacen.html#ac04683cc1a7923e649e891e6d431b552" title="Method for getting a position knowing its id. " alt="" coords="247,71,464,98"/>
+</map>

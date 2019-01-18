@@ -1,0 +1,5 @@
+<map id="controlador.TaskManager.getWorkStationWithItemInside" name="controlador.TaskManager.getWorkStationWithItemInside">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="244,5,443,47"/>
+<area shape="rect" id="node4" href="$classcontroller_test_1_1_task_manager_test.html#ae74f50719da6fbc4cc8999a91612d071" title="method that tests the method getWorkStationWithItemInside " alt="" coords="252,71,435,112"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="491,13,681,39"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="modelo.Order.getPosicionFinal" name="modelo.Order.getPosicionFinal">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#ac0251272a7868ed2e7543029daa49cdc" title="Method for reading new tasks of an order from the database. " alt="" coords="225,5,429,47"/>
+<area shape="rect" id="node4" href="$classmodelo_test_1_1_order_test.html#a7c06f3d3988acc930549e1655299d444" title="method that tests the method getPosicionFinal " alt="" coords="241,71,413,112"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="477,13,668,39"/>
+</map>

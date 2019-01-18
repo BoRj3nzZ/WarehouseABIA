@@ -1,0 +1,5 @@
+<map id="modelo.Vehiculo.enterFinalWorkStation" name="modelo.Vehiculo.enterFinalWorkStation">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="232,31,384,57"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="432,5,612,32"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="452,56,592,83"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="modelo.Task.getId" name="modelo.Task.getId">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="183,5,382,47"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="193,71,372,112"/>
+<area shape="rect" id="node8" href="$classmodelo_test_1_1_order_test.html#a6b9469e114df4ac5b6f3f688f0877eae" title="modeloTest.OrderTest.insertar\lTaskEnOrder" alt="" coords="184,136,381,177"/>
+<area shape="rect" id="node9" href="$classmodelo_test_1_1_task_test.html#a794deb0d695dbd93ef788fb6c3ff16e3" title="method that tests the method getId " alt="" coords="181,202,384,229"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="432,13,623,39"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="451,78,603,105"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="671,53,851,79"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="691,103,831,130"/>
+</map>

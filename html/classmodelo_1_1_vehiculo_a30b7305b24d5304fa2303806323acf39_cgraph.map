@@ -1,0 +1,27 @@
+<map id="modelo.Vehiculo.run" name="modelo.Vehiculo.run">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="193,317,345,344"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_posicion.html#a353926d6bdc19e7e870ae4d3072a00f7" title="Method for setting the state of the position. " alt="" coords="417,81,588,108"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#aee86d9cf20de4139131d67622e19c560" title="Method to move to a segment. " alt="" coords="393,132,612,159"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_posicion.html#ad81fc23f1ccae2caa6fe85ed510d8925" title="Method for getting the value of the id variable. " alt="" coords="961,259,1111,285"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_almacen.html#ae3f7a83691f673189595826f0950acef" title="Method for changing the vehicle position value in the database. Can be accessed statically. " alt="" coords="927,987,1145,1029"/>
+<area shape="rect" id="node11" href="$classmodelo_1_1_almacen.html#a2e3c147b96e716ae8316b72210105fac" title="Method for changing the vehicle status value in the database. Can be accessed statically. " alt="" coords="397,1042,608,1083"/>
+<area shape="rect" id="node12" href="$classmodelo_1_1_vehiculo.html#aa548fb6e2678f0a76149fedd18c7e799" title="Method to enter to a workstation in order to take an item. " alt="" coords="411,310,594,351"/>
+<area shape="rect" id="node15" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="413,594,592,635"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_posicion.html#ab654ac881f903ba077fc22463dfe642d" title="Method for determining if this position is connected to a destination. " alt="" coords="675,5,864,32"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_posicion.html#af6fec269013873e5ed1cb0b78139fbb4" title="Method for getting the value of the full variable. " alt="" coords="693,56,846,83"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_segmentos.html#a28d8249e1b01bcdf1c7634c9868f089b" title="Method for entering the segment, only one thread can access at a time. " alt="" coords="660,157,879,184"/>
+<area shape="rect" id="node10" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="1193,890,1373,931"/>
+<area shape="rect" id="node13" href="$classmodelo_1_1_work_station.html#af3f92f3ab7b7f35c79e5e7727f5d897c" title="Method for entering the workstation, only one thread can access at a time. " alt="" coords="683,310,856,351"/>
+<area shape="rect" id="node14" href="$classmodelo_1_1_work_station.html#ac56063f481cf1630d50556a78cce14bb" title="Method for exiting the workstation, only one thread can access at a time. " alt="" coords="671,375,867,417"/>
+<area shape="rect" id="node16" href="$classmodelo_1_1_vehiculo.html#a21236adb9c413b798401274fc625fc9d" title="Method for tranferring an item from the vehicle to a workstation. " alt="" coords="678,762,861,803"/>
+<area shape="rect" id="node19" href="$classmodelo_1_1_articulos.html#a4784500f94b55f2cf7ed8670bf15a6ca" title="Method for get the value of the id variable. " alt="" coords="961,805,1111,832"/>
+<area shape="rect" id="node20" href="$classmodelo_1_1_vehiculo.html#af8ba11f972f7cafec1e4f2379072c297" title="Method for setting the state of the vehicle. " alt="" coords="679,660,860,687"/>
+<area shape="rect" id="node21" href="$classmodelo_1_1_almacen.html#ad0db2632d944a4cd135af139c78e04a1" title="Method for changing the vehicle status value in the database. Can be accessed statically. " alt="" coords="931,922,1141,963"/>
+<area shape="rect" id="node22" href="$classmodelo_1_1_almacen.html#aba7ee54b76a52c64c5628fa3bfb6c840" title="Method for changing the car assigned to a task in the database. Can be accessed statically. " alt="" coords="931,553,1141,594"/>
+<area shape="rect" id="node23" href="$classmodelo_1_1_task.html#afc746b903e969188b0ad624bb0691590" title="Method for get the value of the id variable. " alt="" coords="705,711,833,737"/>
+<area shape="rect" id="node24" href="$classmodelo_1_1_task.html#a860a83d1aa53c826c49f14ab9469ed78" title="Method for get the value of the articulo variable. " alt="" coords="688,543,851,569"/>
+<area shape="rect" id="node25" href="$classmodelo_1_1_almacen.html#aa288392ae968b01be4991f005c2f453b" title="Method for changing the car assigned to a task in the database. Can be accessed statically. " alt="" coords="933,857,1139,898"/>
+<area shape="rect" id="node26" href="$classmodelo_1_1_work_station.html#ae885b4e00babdca0ca0eb652d67e34c9" title="Method for waiting at the final workstation, only one thread can access at a time. " alt="" coords="679,594,859,635"/>
+<area shape="rect" id="node17" href="$classmodelo_1_1_work_station.html#a1d36e29aba2a6d03a918eb87d724c839" title="Method for add an Articulos to the listProductos. " alt="" coords="931,688,1141,715"/>
+<area shape="rect" id="node18" href="$classmodelo_1_1_almacen.html#ac52832bbd98b0cb6625d43c9752dd25e" title="Method for changing the article status value in the database. Can be accessed statically. " alt="" coords="927,739,1145,781"/>
+</map>

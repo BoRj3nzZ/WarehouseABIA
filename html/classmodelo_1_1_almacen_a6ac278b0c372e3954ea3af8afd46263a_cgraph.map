@@ -1,0 +1,5 @@
+<map id="modelo.Almacen.leerTasksNuevasDesdeDB" name="modelo.Almacen.leerTasksNuevasDesdeDB">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="251,5,431,47"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_almacen.html#a4627032ea4b76cce07d158250605caad" title="Method for getting an article knowing its id. " alt="" coords="239,71,443,98"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_almacen.html#ac04683cc1a7923e649e891e6d431b552" title="Method for getting a position knowing its id. " alt="" coords="232,122,449,149"/>
+</map>

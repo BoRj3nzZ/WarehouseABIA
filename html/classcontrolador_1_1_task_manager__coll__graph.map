@@ -1,0 +1,7 @@
+<map id="controlador.TaskManager" name="controlador.TaskManager">
+<area shape="rect" id="node4" href="$classmodelo_1_1_almacen.html" title="Class Almacen. " alt="" coords="865,323,984,349"/>
+<area shape="rect" id="node8" href="$classcontrolador_1_1_administrador_caminos.html" title="controlador.Administrador\lCaminos" alt="" coords="1123,230,1293,271"/>
+<area shape="rect" id="node10" href="$classcontrolador_1_1_administrador_coches.html" title="controlador.Administrador\lCoches" alt="" coords="1123,406,1293,447"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_recorrido.html" title="Class Recorrido. " alt="" coords="581,375,704,401"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_posicion.html" title="Class Posicion. " alt="" coords="313,324,432,351"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="modelo.Vehiculo.getActualPosicion" name="modelo.Vehiculo.getActualPosicion">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#a8ce44f4844965eb2c61e165406a07c34" title="Method for getting the first element of listaCochesLibres. " alt="" coords="261,12,431,53"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="509,71,708,112"/>
+<area shape="rect" id="node6" href="$classcontrolador_1_1_administrador_coches.html#af2fe38d41f69d4596888507518062ef5" title="Method for setting all vehicle data. " alt="" coords="261,129,431,171"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#ab7235400928fcc06606d58146aa089e4" title="Method for printing the object in a custom way. " alt="" coords="263,195,429,222"/>
+<area shape="rect" id="node9" href="$classmodelo_test_1_1_vehiculo_test.html#a930018007731804010e75aae54c1cbe6" title="method that tests the method getPosicion " alt="" coords="251,247,441,288"/>
+<area shape="rect" id="node10" href="$classmodelo_test_1_1_vehiculo_test.html#a6cda67e5362be0afab0f8c793dd7d862" title="method that tests the method mover " alt="" coords="231,313,461,339"/>
+<area shape="rect" id="node5" href="$classcontroller_test_1_1_car_controller_test.html#ae6101d312698c01f3d53b08367dc7022" title="method that tests the method getFirstFreeCar " alt="" coords="519,5,698,47"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="756,78,947,105"/>
+<area shape="rect" id="node7" href="$classcontroller_test_1_1_car_controller_test.html#a2ffe7bae70564b24f0c9167cb37e5994" title="method that tests the method setCarData " alt="" coords="519,136,698,177"/>
+</map>

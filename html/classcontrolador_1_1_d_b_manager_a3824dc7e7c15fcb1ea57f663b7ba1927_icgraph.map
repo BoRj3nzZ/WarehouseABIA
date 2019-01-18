@@ -1,0 +1,22 @@
+<map id="controlador.DBManager.getConnection" name="controlador.DBManager.getConnection">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#ac0251272a7868ed2e7543029daa49cdc" title="Method for reading new tasks of an order from the database. " alt="" coords="522,61,726,103"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_almacen.html#aff837a0fe52e9cf45d9a4b3f6d1586b1" title="Method for reading new orders from the database. " alt="" coords="790,119,983,160"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_almacen.html#a6ac278b0c372e3954ea3af8afd46263a" title="Method for reading the not started orders from the database. For now the taskID will be the same as t..." alt="" coords="261,660,439,701"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_almacen.html#ae3f7a83691f673189595826f0950acef" title="Method for changing the vehicle position value in the database. Can be accessed statically. " alt="" coords="515,229,733,271"/>
+<area shape="rect" id="node10" href="$classmodelo_1_1_almacen.html#ad0db2632d944a4cd135af139c78e04a1" title="Method for changing the vehicle status value in the database. Can be accessed statically. " alt="" coords="245,379,455,420"/>
+<area shape="rect" id="node15" href="$classmodelo_1_1_almacen.html#a2e3c147b96e716ae8316b72210105fac" title="Method for changing the vehicle status value in the database. Can be accessed statically. " alt="" coords="781,536,992,577"/>
+<area shape="rect" id="node16" href="$classmodelo_1_1_almacen.html#ac52832bbd98b0cb6625d43c9752dd25e" title="Method for changing the article status value in the database. Can be accessed statically. " alt="" coords="241,595,459,636"/>
+<area shape="rect" id="node18" href="$classmodelo_1_1_almacen.html#ac8c1adf54ab9abb1e50e3ac14e64d247" title="Method for changing the car assigned to a task in the database. Can be accessed statically. " alt="" coords="233,188,467,229"/>
+<area shape="rect" id="node19" href="$classmodelo_1_1_almacen.html#aba7ee54b76a52c64c5628fa3bfb6c840" title="Method for changing the car assigned to a task in the database. Can be accessed statically. " alt="" coords="519,360,729,401"/>
+<area shape="rect" id="node20" href="$classmodelo_1_1_almacen.html#aa288392ae968b01be4991f005c2f453b" title="Method for changing the car assigned to a task in the database. Can be accessed statically. " alt="" coords="521,477,727,519"/>
+<area shape="rect" id="node21" href="$classmodelo_1_1_almacen.html#a7e58772c985afd53260450033d716831" title="Method for changing the status of an order in the database. Can be accessed statically. " alt="" coords="245,5,455,47"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="1040,126,1231,153"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="1059,511,1211,538"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="1279,602,1459,629"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="1299,511,1439,538"/>
+<area shape="rect" id="node11" href="$classcontrolador_1_1_administrador_coches.html#a8ce44f4844965eb2c61e165406a07c34" title="Method for getting the first element of listaCochesLibres. " alt="" coords="539,295,709,336"/>
+<area shape="rect" id="node14" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="797,471,976,512"/>
+<area shape="rect" id="node12" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="787,184,986,225"/>
+<area shape="rect" id="node13" href="$classcontroller_test_1_1_car_controller_test.html#ae6101d312698c01f3d53b08367dc7022" title="method that tests the method getFirstFreeCar " alt="" coords="797,301,976,343"/>
+<area shape="rect" id="node17" href="$classmodelo_1_1_vehiculo.html#a21236adb9c413b798401274fc625fc9d" title="Method for tranferring an item from the vehicle to a workstation. " alt="" coords="533,595,715,636"/>
+</map>

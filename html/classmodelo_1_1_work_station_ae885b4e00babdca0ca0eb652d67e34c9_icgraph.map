@@ -1,0 +1,6 @@
+<map id="modelo.WorkStation.waitAtWorkStation" name="modelo.WorkStation.waitAtWorkStation">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="233,23,412,65"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="460,31,612,57"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="660,5,840,32"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="680,56,820,83"/>
+</map>

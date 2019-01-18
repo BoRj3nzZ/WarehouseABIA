@@ -1,0 +1,6 @@
+<map id="modelo.Vehiculo.moveToSegment" name="modelo.Vehiculo.moveToSegment">
+<area shape="rect" id="node2" href="$classmodelo_1_1_posicion.html#ab654ac881f903ba077fc22463dfe642d" title="Method for determining if this position is connected to a destination. " alt="" coords="287,5,476,32"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_posicion.html#af6fec269013873e5ed1cb0b78139fbb4" title="Method for getting the value of the full variable. " alt="" coords="305,56,458,83"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_posicion.html#ad81fc23f1ccae2caa6fe85ed510d8925" title="Method for getting the value of the id variable. " alt="" coords="306,107,457,133"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_segmentos.html#a28d8249e1b01bcdf1c7634c9868f089b" title="Method for entering the segment, only one thread can access at a time. " alt="" coords="272,157,491,184"/>
+</map>

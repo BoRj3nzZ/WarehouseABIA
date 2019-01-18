@@ -1,0 +1,11 @@
+<map id="modelo.Posicion.isFull" name="modelo.Posicion.isFull">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_caminos.html#abd40d1cb40cf83c0ca77a90be5bf9cf8" title="Method for getting an empty parking. " alt="" coords="227,5,405,47"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#aee86d9cf20de4139131d67622e19c560" title="Method to move to a segment. " alt="" coords="207,71,425,98"/>
+<area shape="rect" id="node9" href="$classmodelo_test_1_1_parking_test.html#aac705e55fd569089a815b3a6f6b37e1c" title="method that tests the IsLleno method " alt="" coords="228,123,404,164"/>
+<area shape="rect" id="node10" href="$classmodelo_test_1_1_parking_test.html#a7e6beea37235da4061ccaac55bd06219" title="method that tests the setLleno method " alt="" coords="224,188,408,229"/>
+<area shape="rect" id="node3" href="$classcontroller_test_1_1_path_controller_test.html#acada6e8c35d6fa64eeaadba6c4820fcd" title="method that tests the method getEmptyParking " alt="" coords="495,5,682,47"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="513,71,665,98"/>
+<area shape="rect" id="node8" href="$classmodelo_test_1_1_vehiculo_test.html#a6cda67e5362be0afab0f8c793dd7d862" title="method that tests the method mover " alt="" coords="473,122,704,149"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="752,46,932,73"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="772,97,912,123"/>
+</map>

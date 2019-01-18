@@ -1,0 +1,10 @@
+<map id="modelo.Task" name="modelo.Task">
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html" title="Class Vehiculo extends Thread. " alt="" coords="1453,201,1572,228"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_articulos.html" title="Class Articulos. " alt="" coords="887,44,1005,71"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_posicion.html" title="Class Posicion. " alt="" coords="313,204,432,231"/>
+<area shape="rect" id="node10" href="$classmodelo_1_1_recorrido.html" title="Class Recorrido. " alt="" coords="581,429,704,456"/>
+<area shape="rect" id="node16" href="$classmodelo_1_1_parking.html" title="Class WorkStation extends Posicion. " alt="" coords="751,235,863,261"/>
+<area shape="rect" id="node8" href="$classcontrolador_1_1_administrador_caminos.html" title="controlador.Administrador\lCaminos" alt="" coords="1144,581,1315,622"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_almacen.html" title="Class Almacen. " alt="" coords="887,516,1005,543"/>
+<area shape="rect" id="node12" href="$classcontrolador_1_1_administrador_coches.html" title="controlador.Administrador\lCoches" alt="" coords="1144,445,1315,486"/>
+</map>

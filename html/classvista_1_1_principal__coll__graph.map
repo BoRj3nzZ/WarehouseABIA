@@ -1,0 +1,8 @@
+<map id="vista.Principal" name="vista.Principal">
+<area shape="rect" id="node4" href="$classcontrolador_1_1_task_manager.html" title="controlador.TaskManager" alt="" coords="1124,95,1292,121"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_almacen.html" title="Class Almacen. " alt="" coords="865,227,984,253"/>
+<area shape="rect" id="node10" href="$classcontrolador_1_1_administrador_caminos.html" title="controlador.Administrador\lCaminos" alt="" coords="1123,233,1293,274"/>
+<area shape="rect" id="node12" href="$classcontrolador_1_1_administrador_coches.html" title="controlador.Administrador\lCoches" alt="" coords="1123,310,1293,351"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_recorrido.html" title="Class Recorrido. " alt="" coords="581,176,704,203"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_posicion.html" title="Class Posicion. " alt="" coords="313,176,432,203"/>
+</map>

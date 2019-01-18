@@ -1,0 +1,16 @@
+<map id="controlador.AdministradorCoches.setCarData" name="controlador.AdministradorCoches.setCarData">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#aacb8646d3873ef477d8616740a54a157" title="Method for getting the path administrator. " alt="" coords="224,5,453,32"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_administrador_caminos.html#aca7c7650610d3342826df70956bdadad" title="Method for getting the shortest route between two positions. " alt="" coords="249,57,428,98"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#a867b022bf703858cd5f06ad9a30829cf" title="Method for getting the value of the waitingParking variable. " alt="" coords="247,122,431,163"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ac42e1ebc28edbf94235ffb9aa07dfa55" title="Method for getting the value of the actualPosicion variable. " alt="" coords="250,187,427,229"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_posicion.html#a353926d6bdc19e7e870ae4d3072a00f7" title="Method for setting the state of the position. " alt="" coords="253,253,424,280"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#ab1832cd36a34e649535a08ec9aff5a56" title="Method for setting the routeToParking of the vehicle. " alt="" coords="251,305,426,346"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#a7476f8c49db9c549b41f6e7967186ec1" title="Method for setting the waitingPosicion of the vehicle. " alt="" coords="247,370,431,411"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_vehiculo.html#abc0ea2d36b52204005161061d2b58ac1" title="Method for setting the leaveItemPos of the vehicle. " alt="" coords="252,435,425,477"/>
+<area shape="rect" id="node10" href="$classmodelo_1_1_vehiculo.html#a92ff11d4e53f1228cfd47070b8e1146d" title="Method for setting the takeItemPos of the vehicle. " alt="" coords="231,501,447,528"/>
+<area shape="rect" id="node11" href="$classmodelo_1_1_vehiculo.html#ad33279475961a0325f79f67a4e061382" title="Method for setting the takingItemRoute of the vehicle. " alt="" coords="249,553,428,594"/>
+<area shape="rect" id="node12" href="$classmodelo_1_1_vehiculo.html#ad414caf5c0c224c497213d9e4ef4b6cb" title="Method for setting the returnRoute of the vehicle. " alt="" coords="249,618,428,659"/>
+<area shape="rect" id="node13" href="$classmodelo_1_1_vehiculo.html#ac6833ba12766488a0a868f791f610c0c" title="Method for setting the itemId of the vehicle. " alt="" coords="251,684,426,711"/>
+<area shape="rect" id="node14" href="$classmodelo_1_1_vehiculo.html#a9f530e6216c0db9a67cf6773a292b810" title="Method for setting the value of the itemInside variable. " alt="" coords="239,735,438,761"/>
+<area shape="rect" id="node15" href="$classmodelo_1_1_almacen.html#a4627032ea4b76cce07d158250605caad" title="Method for getting an article knowing its id. " alt="" coords="237,785,441,812"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="modelo.WorkStation.enterWorkStation" name="modelo.WorkStation.enterWorkStation">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#aa548fb6e2678f0a76149fedd18c7e799" title="Method to enter to a workstation in order to take an item. " alt="" coords="227,81,409,122"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="229,15,407,57"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="497,31,649,57"/>
+<area shape="rect" id="node6" href="$classmodelo_test_1_1_vehiculo_test.html#a6cda67e5362be0afab0f8c793dd7d862" title="method that tests the method mover " alt="" coords="457,88,688,115"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="736,5,916,32"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="756,56,896,83"/>
+</map>

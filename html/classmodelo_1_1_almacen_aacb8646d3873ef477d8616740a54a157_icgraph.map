@@ -1,0 +1,9 @@
+<map id="modelo.Almacen.getAdminCaminos" name="modelo.Almacen.getAdminCaminos">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#af2fe38d41f69d4596888507518062ef5" title="Method for setting all vehicle data. " alt="" coords="291,71,461,112"/>
+<area shape="rect" id="node6" href="$classvista_1_1_principal.html#a0955fc570f1f2f89fdaec503a7d12790" title="Constructor. " alt="" coords="298,137,454,163"/>
+<area shape="rect" id="node8" href="$classcontroller_test_1_1_path_controller_test.html#ab92cb11072915d080df8bb9c4749da9d" title="Method to create objects. " alt="" coords="283,188,469,229"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="517,5,716,47"/>
+<area shape="rect" id="node5" href="$classcontroller_test_1_1_car_controller_test.html#a2ffe7bae70564b24f0c9167cb37e5994" title="method that tests the method setCarData " alt="" coords="527,71,706,112"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="764,13,955,39"/>
+<area shape="rect" id="node7" href="$classvista_1_1_principal.html#a1b8b2d94140680bad704c39bf9ee58cb" title="main " alt="" coords="549,137,684,163"/>
+</map>

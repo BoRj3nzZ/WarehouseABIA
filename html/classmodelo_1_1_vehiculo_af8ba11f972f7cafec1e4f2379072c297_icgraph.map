@@ -1,0 +1,11 @@
+<map id="modelo.Vehiculo.setEstado" name="modelo.Vehiculo.setEstado">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#a8ce44f4844965eb2c61e165406a07c34" title="Method for getting the first element of listaCochesLibres. " alt="" coords="245,67,415,108"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="241,132,419,173"/>
+<area shape="rect" id="node10" href="$classmodelo_test_1_1_vehiculo_test.html#abd28845734d433a1e84055e766d8e447" title="method that tests the method setEstado " alt="" coords="235,197,425,239"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="473,5,672,47"/>
+<area shape="rect" id="node5" href="$classcontroller_test_1_1_car_controller_test.html#ae6101d312698c01f3d53b08367dc7022" title="method that tests the method getFirstFreeCar " alt="" coords="483,71,662,112"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="720,13,911,39"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="497,139,649,166"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="725,114,905,141"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="745,165,885,191"/>
+</map>

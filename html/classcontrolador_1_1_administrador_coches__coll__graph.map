@@ -1,0 +1,6 @@
+<map id="controlador.AdministradorCoches" name="controlador.AdministradorCoches">
+<area shape="rect" id="node3" href="$classmodelo_1_1_almacen.html" title="Class Almacen. " alt="" coords="941,208,1060,235"/>
+<area shape="rect" id="node8" href="$classcontrolador_1_1_administrador_caminos.html" title="controlador.Administrador\lCaminos" alt="" coords="1199,310,1369,351"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_recorrido.html" title="Class Recorrido. " alt="" coords="656,291,779,317"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_posicion.html" title="Class Posicion. " alt="" coords="335,339,454,365"/>
+</map>

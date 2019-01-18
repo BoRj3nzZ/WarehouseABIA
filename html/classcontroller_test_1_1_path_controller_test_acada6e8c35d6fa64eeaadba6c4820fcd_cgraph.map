@@ -1,0 +1,6 @@
+<map id="controllerTest.PathControllerTest.getParkingTest" name="controllerTest.PathControllerTest.getParkingTest">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_caminos.html#abd40d1cb40cf83c0ca77a90be5bf9cf8" title="Method for getting an empty parking. " alt="" coords="240,49,417,90"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_almacen.html#a5f549eec4b4dec51453b913a0c00de53" title="Method for getting the values of the listaPosicion variable. " alt="" coords="465,5,684,32"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_posicion.html#af6fec269013873e5ed1cb0b78139fbb4" title="Method for getting the value of the full variable. " alt="" coords="498,56,651,83"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_posicion.html#a353926d6bdc19e7e870ae4d3072a00f7" title="Method for setting the state of the position. " alt="" coords="489,107,660,133"/>
+</map>

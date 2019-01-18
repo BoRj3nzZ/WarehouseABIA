@@ -1,0 +1,5 @@
+<map id="modelo.Almacen.añadirOrden" name="modelo.Almacen.añadirOrden">
+<area shape="rect" id="node2" href="$classmodelo_test_1_1_almacen_test.html#a0ad03551d975d93091682b6a66a5ca30" title="method that tests the method añadirOrden " alt="" coords="247,5,455,47"/>
+<area shape="rect" id="node3" href="$classmodelo_test_1_1_almacen_test.html#a734f5c2b60a8edf3c072caf0a33c776e" title="method that tests the method borrarOrden with article " alt="" coords="247,71,454,112"/>
+<area shape="rect" id="node4" href="$classmodelo_test_1_1_almacen_test.html#a23dfff53896d8ae9fe0403a75911b323" title="method that tests the method borrarOrden with index " alt="" coords="247,136,454,177"/>
+</map>

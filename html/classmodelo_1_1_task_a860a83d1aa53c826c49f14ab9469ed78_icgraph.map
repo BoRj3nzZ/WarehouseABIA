@@ -1,0 +1,9 @@
+<map id="modelo.Task.getArticulo" name="modelo.Task.getArticulo">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="235,5,434,47"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="245,71,424,112"/>
+<area shape="rect" id="node8" href="$classmodelo_test_1_1_task_test.html#ac7cb90633bdd40e104b1fb9a55f4eea3" title="method that tests the method getArticulo " alt="" coords="216,137,453,163"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="501,13,692,39"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="521,78,673,105"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="740,53,920,79"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="760,103,900,130"/>
+</map>

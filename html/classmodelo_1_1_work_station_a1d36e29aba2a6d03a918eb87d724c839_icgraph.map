@@ -1,0 +1,10 @@
+<map id="modelo.WorkStation.addArticulo" name="modelo.WorkStation.addArticulo">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#a21236adb9c413b798401274fc625fc9d" title="Method for tranferring an item from the vehicle to a workstation. " alt="" coords="286,35,469,76"/>
+<area shape="rect" id="node7" href="$classmodelo_test_1_1_work_station_test.html#a5dd6aa55ae1ade521d71169e2db70e0d" title="method that tests the method addArticulo " alt="" coords="270,100,485,141"/>
+<area shape="rect" id="node8" href="$classmodelo_test_1_1_work_station_test.html#a71fc00cd350eee574aba275f879db67a" title="method that tests the method deleteArticulo with article " alt="" coords="263,165,492,207"/>
+<area shape="rect" id="node9" href="$classmodelo_test_1_1_work_station_test.html#a2c22d2b6ea19b1d295e00f22dcd0d63c" title="method that tests the method deleteArticulo with index " alt="" coords="263,231,492,272"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="540,5,719,47"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="967,70,1147,97"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="767,15,919,42"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="987,15,1127,42"/>
+</map>

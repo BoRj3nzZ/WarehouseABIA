@@ -1,0 +1,12 @@
+<map id="modelo.Articulos.getId" name="modelo.Articulos.getId">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="204,5,403,47"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="457,68,635,109"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="889,134,1069,161"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#a21236adb9c413b798401274fc625fc9d" title="Method for tranferring an item from the vehicle to a workstation. " alt="" coords="212,123,395,164"/>
+<area shape="rect" id="node9" href="$classcontroller_test_1_1_car_controller_test.html#a2ffe7bae70564b24f0c9167cb37e5994" title="method that tests the method setCarData " alt="" coords="214,240,393,281"/>
+<area shape="rect" id="node10" href="$classcontroller_test_1_1_task_manager_test.html#ae74f50719da6fbc4cc8999a91612d071" title="method that tests the method getWorkStationWithItemInside " alt="" coords="212,305,395,347"/>
+<area shape="rect" id="node11" href="$classmodelo_test_1_1_articulos_test.html#a805a40dbacae0f8177169aa47768c633" title="method that tests the method getId " alt="" coords="208,371,399,412"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="451,13,641,39"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="689,79,841,106"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="909,79,1049,106"/>
+</map>

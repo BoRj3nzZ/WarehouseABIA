@@ -1,0 +1,8 @@
+<map id="controlador.AdministradorCoches.getFirstFreeCar" name="controlador.AdministradorCoches.getFirstFreeCar">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#a458d41fbaff9dd9f150a35a20d2a37ad" title="Method for updating the list of free cars. " alt="" coords="241,5,417,47"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#ac42e1ebc28edbf94235ffb9aa07dfa55" title="Method for getting the value of the actualPosicion variable. " alt="" coords="241,71,418,112"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#af8ba11f972f7cafec1e4f2379072c297" title="Method for setting the state of the vehicle. " alt="" coords="239,137,420,163"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_almacen.html#ad0db2632d944a4cd135af139c78e04a1" title="Method for changing the vehicle status value in the database. Can be accessed statically. " alt="" coords="224,188,435,229"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#a0bff2669ba37558b43ae26aa4be27695" title="Method for getting the value of the id variable. " alt="" coords="249,254,409,281"/>
+<area shape="rect" id="node6" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="483,188,663,229"/>
+</map>

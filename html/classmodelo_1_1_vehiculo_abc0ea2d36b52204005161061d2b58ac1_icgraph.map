@@ -1,0 +1,6 @@
+<map id="modelo.Vehiculo.setLeaveItemPos" name="modelo.Vehiculo.setLeaveItemPos">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#af2fe38d41f69d4596888507518062ef5" title="Method for setting all vehicle data. " alt="" coords="227,39,397,80"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="445,5,644,47"/>
+<area shape="rect" id="node5" href="$classcontroller_test_1_1_car_controller_test.html#a2ffe7bae70564b24f0c9167cb37e5994" title="method that tests the method setCarData " alt="" coords="455,71,634,112"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="692,13,883,39"/>
+</map>

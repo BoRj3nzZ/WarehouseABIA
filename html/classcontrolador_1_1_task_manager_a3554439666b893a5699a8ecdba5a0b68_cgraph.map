@@ -1,0 +1,33 @@
+<map id="controlador.TaskManager.startNextTask" name="controlador.TaskManager.startNextTask">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#ae71ae427610391c59eb56a8c5ca171a3" title="Method for getting the vehicle administrator. " alt="" coords="257,129,480,155"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_administrador_coches.html#a8ce44f4844965eb2c61e165406a07c34" title="Method for getting the first element of listaCochesLibres. " alt="" coords="283,180,454,221"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ac42e1ebc28edbf94235ffb9aa07dfa55" title="Method for getting the value of the actualPosicion variable. " alt="" coords="559,239,737,280"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_vehiculo.html#a0bff2669ba37558b43ae26aa4be27695" title="Method for getting the value of the id variable. " alt="" coords="568,187,728,214"/>
+<area shape="rect" id="node10" href="$classmodelo_1_1_task.html#a860a83d1aa53c826c49f14ab9469ed78" title="Method for get the value of the articulo variable. " alt="" coords="287,713,450,739"/>
+<area shape="rect" id="node11" href="$classmodelo_1_1_task.html#a98fe3bd9261ee8b560195c5256fbf4ec" title="Method for get the value of the posicionFinal variable. " alt="" coords="271,763,467,790"/>
+<area shape="rect" id="node12" href="$classcontrolador_1_1_task_manager.html#af6d38f708e9f42b7baeded92af407734" title="Method for getting the workstation which has a unique item inside. " alt="" coords="273,815,464,856"/>
+<area shape="rect" id="node14" href="$classmodelo_1_1_articulos.html#a4784500f94b55f2cf7ed8670bf15a6ca" title="Method for get the value of the id variable. " alt="" coords="293,881,444,907"/>
+<area shape="rect" id="node15" href="$classmodelo_1_1_posicion.html#ad81fc23f1ccae2caa6fe85ed510d8925" title="Method for getting the value of the id variable. " alt="" coords="293,931,444,958"/>
+<area shape="rect" id="node16" href="$classmodelo_1_1_vehiculo.html#af67b2aa128f299448ed5109ea1fc7a26" title="Method for setting the task assigned to the vehicle. " alt="" coords="285,982,453,1009"/>
+<area shape="rect" id="node17" href="$classmodelo_1_1_almacen.html#ac8c1adf54ab9abb1e50e3ac14e64d247" title="Method for changing the car assigned to a task in the database. Can be accessed statically. " alt="" coords="252,647,485,688"/>
+<area shape="rect" id="node18" href="$classmodelo_1_1_task.html#afc746b903e969188b0ad624bb0691590" title="Method for get the value of the id variable. " alt="" coords="305,1033,433,1059"/>
+<area shape="rect" id="node19" href="$classcontrolador_1_1_administrador_coches.html#af2fe38d41f69d4596888507518062ef5" title="Method for setting all vehicle data. " alt="" coords="283,581,454,623"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_administrador_coches.html#a458d41fbaff9dd9f150a35a20d2a37ad" title="Method for updating the list of free cars. " alt="" coords="560,71,736,112"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#af8ba11f972f7cafec1e4f2379072c297" title="Method for setting the state of the vehicle. " alt="" coords="557,137,739,163"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_almacen.html#ad0db2632d944a4cd135af139c78e04a1" title="Method for changing the vehicle status value in the database. Can be accessed statically. " alt="" coords="543,5,753,47"/>
+<area shape="rect" id="node8" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="811,535,991,576"/>
+<area shape="rect" id="node13" href="$classmodelo_1_1_almacen.html#a5f549eec4b4dec51453b913a0c00de53" title="Method for getting the values of the listaPosicion variable. " alt="" coords="539,1121,757,1147"/>
+<area shape="rect" id="node20" href="$classmodelo_1_1_almacen.html#aacb8646d3873ef477d8616740a54a157" title="Method for getting the path administrator. " alt="" coords="533,770,763,797"/>
+<area shape="rect" id="node21" href="$classcontrolador_1_1_administrador_caminos.html#aca7c7650610d3342826df70956bdadad" title="Method for getting the shortest route between two positions. " alt="" coords="559,821,737,863"/>
+<area shape="rect" id="node22" href="$classmodelo_1_1_vehiculo.html#a867b022bf703858cd5f06ad9a30829cf" title="Method for getting the value of the waitingParking variable. " alt="" coords="556,887,740,928"/>
+<area shape="rect" id="node23" href="$classmodelo_1_1_posicion.html#a353926d6bdc19e7e870ae4d3072a00f7" title="Method for setting the state of the position. " alt="" coords="563,953,733,979"/>
+<area shape="rect" id="node24" href="$classmodelo_1_1_vehiculo.html#ab1832cd36a34e649535a08ec9aff5a56" title="Method for setting the routeToParking of the vehicle. " alt="" coords="561,1004,735,1045"/>
+<area shape="rect" id="node25" href="$classmodelo_1_1_vehiculo.html#a7476f8c49db9c549b41f6e7967186ec1" title="Method for setting the waitingPosicion of the vehicle. " alt="" coords="556,304,740,345"/>
+<area shape="rect" id="node26" href="$classmodelo_1_1_vehiculo.html#abc0ea2d36b52204005161061d2b58ac1" title="Method for setting the leaveItemPos of the vehicle. " alt="" coords="561,369,735,411"/>
+<area shape="rect" id="node27" href="$classmodelo_1_1_vehiculo.html#a92ff11d4e53f1228cfd47070b8e1146d" title="Method for setting the takeItemPos of the vehicle. " alt="" coords="540,435,756,462"/>
+<area shape="rect" id="node28" href="$classmodelo_1_1_vehiculo.html#ad33279475961a0325f79f67a4e061382" title="Method for setting the takingItemRoute of the vehicle. " alt="" coords="559,487,737,528"/>
+<area shape="rect" id="node29" href="$classmodelo_1_1_vehiculo.html#ad414caf5c0c224c497213d9e4ef4b6cb" title="Method for setting the returnRoute of the vehicle. " alt="" coords="559,552,737,593"/>
+<area shape="rect" id="node30" href="$classmodelo_1_1_vehiculo.html#ac6833ba12766488a0a868f791f610c0c" title="Method for setting the itemId of the vehicle. " alt="" coords="561,618,735,645"/>
+<area shape="rect" id="node31" href="$classmodelo_1_1_vehiculo.html#a9f530e6216c0db9a67cf6773a292b810" title="Method for setting the value of the itemInside variable. " alt="" coords="549,669,747,695"/>
+<area shape="rect" id="node32" href="$classmodelo_1_1_almacen.html#a4627032ea4b76cce07d158250605caad" title="Method for getting an article knowing its id. " alt="" coords="546,719,750,746"/>
+</map>

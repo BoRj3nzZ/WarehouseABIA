@@ -1,0 +1,7 @@
+<map id="modelo.Vehiculo.deliverItemInside" name="modelo.Vehiculo.deliverItemInside">
+<area shape="rect" id="node2" href="$classmodelo_1_1_work_station.html#a1d36e29aba2a6d03a918eb87d724c839" title="Method for add an Articulos to the listProductos. " alt="" coords="241,5,450,32"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_almacen.html#ac52832bbd98b0cb6625d43c9752dd25e" title="Method for changing the article status value in the database. Can be accessed statically. " alt="" coords="236,57,455,98"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_posicion.html#ad81fc23f1ccae2caa6fe85ed510d8925" title="Method for getting the value of the id variable. " alt="" coords="270,123,421,149"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_articulos.html#a4784500f94b55f2cf7ed8670bf15a6ca" title="Method for get the value of the id variable. " alt="" coords="270,173,421,200"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="503,57,683,98"/>
+</map>

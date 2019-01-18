@@ -1,0 +1,7 @@
+<map id="modelo.Segmentos.enterSegment" name="modelo.Segmentos.enterSegment">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#aee86d9cf20de4139131d67622e19c560" title="Method to move to a segment. " alt="" coords="272,56,491,83"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="578,31,730,57"/>
+<area shape="rect" id="node6" href="$classmodelo_test_1_1_vehiculo_test.html#a6cda67e5362be0afab0f8c793dd7d862" title="method that tests the method mover " alt="" coords="539,81,769,108"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="817,5,997,32"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="837,56,977,83"/>
+</map>

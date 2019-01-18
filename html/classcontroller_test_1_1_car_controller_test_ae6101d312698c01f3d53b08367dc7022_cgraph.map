@@ -1,0 +1,10 @@
+<map id="controllerTest.CarControllerTest.getFreeCarTest" name="controllerTest.CarControllerTest.getFreeCarTest">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#a8ce44f4844965eb2c61e165406a07c34" title="Method for getting the first element of listaCochesLibres. " alt="" coords="237,129,408,171"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_vehiculo.html#afc2b35fba98cc54bd67dd922db3bdc5e" title="Method for getting the value of the estado variable. " alt="" coords="232,195,413,222"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_administrador_coches.html#a458d41fbaff9dd9f150a35a20d2a37ad" title="Method for updating the list of free cars. " alt="" coords="479,5,655,47"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#ac42e1ebc28edbf94235ffb9aa07dfa55" title="Method for getting the value of the actualPosicion variable. " alt="" coords="478,71,655,112"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#af8ba11f972f7cafec1e4f2379072c297" title="Method for setting the state of the vehicle. " alt="" coords="476,137,657,163"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_almacen.html#ad0db2632d944a4cd135af139c78e04a1" title="Method for changing the vehicle status value in the database. Can be accessed statically. " alt="" coords="461,188,672,229"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#a0bff2669ba37558b43ae26aa4be27695" title="Method for getting the value of the id variable. " alt="" coords="487,254,647,281"/>
+<area shape="rect" id="node7" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="720,188,900,229"/>
+</map>

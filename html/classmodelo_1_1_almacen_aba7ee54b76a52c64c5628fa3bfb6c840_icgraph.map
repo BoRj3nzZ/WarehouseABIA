@@ -1,0 +1,7 @@
+<map id="modelo.Almacen.cambiarEstadoTaskDB" name="modelo.Almacen.cambiarEstadoTaskDB">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="264,5,455,32"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_vehiculo.html#a119b844421cce389927eb0d6d256273b" title="Method to enter a final workstation and wait until called again. " alt="" coords="270,57,449,98"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_vehiculo.html#ad929779d4be48a0d374fd26071df02d2" title="Method to move through a defined route, if the next position is full, it goes slower. " alt="" coords="503,64,655,91"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_vehiculo.html#ad3a998c2a2cc649ac92ff1a4e771d407" title="Method to start an order with all the data. " alt="" coords="703,39,883,65"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#a30b7305b24d5304fa2303806323acf39" title="Method to run the thread. " alt="" coords="723,89,863,116"/>
+</map>

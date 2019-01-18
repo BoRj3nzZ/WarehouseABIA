@@ -1,0 +1,7 @@
+<map id="modelo.Almacen.getAdminCoches" name="modelo.Almacen.getAdminCoches">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="276,5,475,47"/>
+<area shape="rect" id="node4" href="$classvista_1_1_principal.html#a0955fc570f1f2f89fdaec503a7d12790" title="Constructor. " alt="" coords="297,71,453,98"/>
+<area shape="rect" id="node6" href="$classcontroller_test_1_1_car_controller_test.html#aa5cae83cbb303cc70618c3b252a0cc36" title="Method to create objects. " alt="" coords="286,123,465,164"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="523,13,713,39"/>
+<area shape="rect" id="node5" href="$classvista_1_1_principal.html#a1b8b2d94140680bad704c39bf9ee58cb" title="main " alt="" coords="551,71,685,98"/>
+</map>

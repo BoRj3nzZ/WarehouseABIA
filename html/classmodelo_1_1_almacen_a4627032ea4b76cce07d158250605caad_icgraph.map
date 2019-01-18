@@ -1,0 +1,9 @@
+<map id="modelo.Almacen.getArticleById" name="modelo.Almacen.getArticleById">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#af2fe38d41f69d4596888507518062ef5" title="Method for setting all vehicle data. " alt="" coords="263,71,434,112"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_almacen.html#ac0251272a7868ed2e7543029daa49cdc" title="Method for reading new tasks of an order from the database. " alt="" coords="488,136,692,177"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_almacen.html#a6ac278b0c372e3954ea3af8afd46263a" title="Method for reading the not started orders from the database. For now the taskID will be the same as t..." alt="" coords="259,191,438,232"/>
+<area shape="rect" id="node8" href="$classcontroller_test_1_1_task_manager_test.html#ae74f50719da6fbc4cc8999a91612d071" title="method that tests the method getWorkStationWithItemInside " alt="" coords="257,256,440,297"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="491,5,689,47"/>
+<area shape="rect" id="node5" href="$classcontroller_test_1_1_car_controller_test.html#a2ffe7bae70564b24f0c9167cb37e5994" title="method that tests the method setCarData " alt="" coords="501,71,679,112"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="740,78,931,105"/>
+</map>

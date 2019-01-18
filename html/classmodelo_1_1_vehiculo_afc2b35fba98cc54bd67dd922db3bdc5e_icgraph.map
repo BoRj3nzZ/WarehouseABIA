@@ -1,0 +1,6 @@
+<map id="modelo.Vehiculo.getEstado" name="modelo.Vehiculo.getEstado">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#ab7235400928fcc06606d58146aa089e4" title="Method for printing the object in a custom way. " alt="" coords="247,5,413,32"/>
+<area shape="rect" id="node3" href="$classcontroller_test_1_1_car_controller_test.html#ae6101d312698c01f3d53b08367dc7022" title="method that tests the method getFirstFreeCar " alt="" coords="241,57,419,98"/>
+<area shape="rect" id="node4" href="$classmodelo_test_1_1_vehiculo_test.html#a34b5a2b03801fa7b028232cd6617ee40" title="method that tests the method getEstado " alt="" coords="235,122,425,163"/>
+<area shape="rect" id="node5" href="$classmodelo_test_1_1_vehiculo_test.html#abd28845734d433a1e84055e766d8e447" title="method that tests the method setEstado " alt="" coords="235,187,425,229"/>
+</map>

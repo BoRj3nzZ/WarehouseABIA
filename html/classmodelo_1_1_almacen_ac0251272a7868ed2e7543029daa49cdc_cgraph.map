@@ -1,0 +1,7 @@
+<map id="modelo.Almacen.leerNewTasksDeOrdenDesdeDB" name="modelo.Almacen.leerNewTasksDeOrdenDesdeDB">
+<area shape="rect" id="node2" href="$classmodelo_1_1_almacen.html#ab9cd7a27ed557648bc64f1bd6e7bc4ad" title="Method for getting an order knowing its id. " alt="" coords="260,5,459,32"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_order.html#a65b8d00aa11928a30bbe069540bb182f" title="Method for get the value of the posicionFinal variable. " alt="" coords="273,57,445,98"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_d_b_manager.html#a3824dc7e7c15fcb1ea57f663b7ba1927" title="controlador.DBManager.get\lConnection" alt="" coords="269,122,449,163"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_order.html#a3a51c636df3f13f31fc716e2102ebb8e" title="Method for adding tasks to the list. " alt="" coords="265,188,453,215"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_almacen.html#a4627032ea4b76cce07d158250605caad" title="Method for getting an article knowing its id. " alt="" coords="257,239,461,265"/>
+</map>

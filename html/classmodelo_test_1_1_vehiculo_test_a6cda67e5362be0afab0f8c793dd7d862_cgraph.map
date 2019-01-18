@@ -1,0 +1,11 @@
+<map id="modeloTest.VehiculoTest.moverTest" name="modeloTest.VehiculoTest.moverTest">
+<area shape="rect" id="node2" href="$classmodelo_1_1_vehiculo.html#aee86d9cf20de4139131d67622e19c560" title="Method to move to a segment. " alt="" coords="284,92,503,119"/>
+<area shape="rect" id="node7" href="$classmodelo_1_1_vehiculo.html#ac42e1ebc28edbf94235ffb9aa07dfa55" title="Method for getting the value of the actualPosicion variable. " alt="" coords="305,143,482,185"/>
+<area shape="rect" id="node8" href="$classmodelo_1_1_vehiculo.html#aa548fb6e2678f0a76149fedd18c7e799" title="Method to enter to a workstation in order to take an item. " alt="" coords="302,209,485,250"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_posicion.html#ab654ac881f903ba077fc22463dfe642d" title="Method for determining if this position is connected to a destination. " alt="" coords="565,5,755,32"/>
+<area shape="rect" id="node4" href="$classmodelo_1_1_posicion.html#af6fec269013873e5ed1cb0b78139fbb4" title="Method for getting the value of the full variable. " alt="" coords="583,56,737,83"/>
+<area shape="rect" id="node5" href="$classmodelo_1_1_posicion.html#ad81fc23f1ccae2caa6fe85ed510d8925" title="Method for getting the value of the id variable. " alt="" coords="585,157,735,184"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_segmentos.html#a28d8249e1b01bcdf1c7634c9868f089b" title="Method for entering the segment, only one thread can access at a time. " alt="" coords="551,107,769,133"/>
+<area shape="rect" id="node9" href="$classmodelo_1_1_work_station.html#af3f92f3ab7b7f35c79e5e7727f5d897c" title="Method for entering the workstation, only one thread can access at a time. " alt="" coords="573,209,747,250"/>
+<area shape="rect" id="node10" href="$classmodelo_1_1_work_station.html#ac56063f481cf1630d50556a78cce14bb" title="Method for exiting the workstation, only one thread can access at a time. " alt="" coords="562,274,758,315"/>
+</map>

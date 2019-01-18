@@ -1,0 +1,7 @@
+<map id="modelo.Vehiculo.getIdal" name="modelo.Vehiculo.getIdal">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#a8ce44f4844965eb2c61e165406a07c34" title="Method for getting the first element of listaCochesLibres. " alt="" coords="213,64,384,105"/>
+<area shape="rect" id="node3" href="$classcontrolador_1_1_task_manager.html#a3554439666b893a5699a8ecdba5a0b68" title="Method for starting next available, not started task. " alt="" coords="432,5,631,47"/>
+<area shape="rect" id="node6" href="$classmodelo_1_1_vehiculo.html#ab7235400928fcc06606d58146aa089e4" title="Method for printing the object in a custom way. " alt="" coords="215,130,382,157"/>
+<area shape="rect" id="node5" href="$classcontroller_test_1_1_car_controller_test.html#ae6101d312698c01f3d53b08367dc7022" title="method that tests the method getFirstFreeCar " alt="" coords="442,71,621,112"/>
+<area shape="rect" id="node4" href="$classcontrolador_1_1_task_manager.html#a72f4200fec42f3524f775f9289620a15" title="Method to run the thread. " alt="" coords="679,13,869,39"/>
+</map>

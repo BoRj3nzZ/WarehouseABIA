@@ -1,0 +1,5 @@
+<map id="modelo.Almacen.getListaVehiculo" name="modelo.Almacen.getListaVehiculo">
+<area shape="rect" id="node2" href="$classcontrolador_1_1_administrador_coches.html#ace5291a38d2f6915595acc99702947f7" title="Constructor. " alt="" coords="272,5,467,47"/>
+<area shape="rect" id="node3" href="$classcontroller_test_1_1_car_controller_test.html#aa6fdfa0e02aa2ae81ed039ef8157898b" title="method that tests the method getListaCoches " alt="" coords="280,71,459,112"/>
+<area shape="rect" id="node4" href="$classmodelo_test_1_1_almacen_test.html#addf4f7fcc7ecf5253ba3db2c9f91eb84" title="method that tests the method getListaPosicionTest " alt="" coords="274,136,465,177"/>
+</map>

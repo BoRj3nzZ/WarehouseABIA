@@ -1,0 +1,6 @@
+<map id="modelo.Almacen" name="modelo.Almacen">
+<area shape="rect" id="node6" href="$classcontrolador_1_1_administrador_caminos.html" title="controlador.Administrador\lCaminos" alt="" coords="1123,149,1293,190"/>
+<area shape="rect" id="node8" href="$classcontrolador_1_1_administrador_coches.html" title="controlador.Administrador\lCoches" alt="" coords="1123,298,1293,339"/>
+<area shape="rect" id="node2" href="$classmodelo_1_1_recorrido.html" title="Class Recorrido. " alt="" coords="581,65,704,92"/>
+<area shape="rect" id="node3" href="$classmodelo_1_1_posicion.html" title="Class Posicion. " alt="" coords="313,89,432,116"/>
+</map>
